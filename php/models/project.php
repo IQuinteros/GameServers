@@ -52,7 +52,7 @@ class Project extends Model{
      */
     public $region;
     /**
-     * @var string
+     * @var mixed
      */
     public $registerDate;
     /**
@@ -61,7 +61,7 @@ class Project extends Model{
     public $status;
 
     // Constructor
-    public function __construct($id, int $userID, string $name, int $planID, int $estimatedPlayers, int $teamQuantity, string $region, string $registerDate, ProjectStatus $status)
+    public function __construct($id, int $userID, string $name, int $planID, int $estimatedPlayers, int $teamQuantity, string $region, $registerDate, ProjectStatus $status)
     {
         parent::__construct($id);
 

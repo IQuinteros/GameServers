@@ -25,7 +25,7 @@ class User extends Model{
      */
     public $email;
     /**
-     * @var string
+     * @var mixed
      */
     public $image;
     /**
@@ -41,16 +41,16 @@ class User extends Model{
      */
     public $location;
     /**
-     * @var string
+     * @var mixed
      */
     public $registerDate;
     /**
-     * @var string
+     * @var mixed
      */
     public $lastConnectionDate;
 
     // Constructor
-    public function __construct($id, string $name, string $email, string $image, int $membersNum, int $contactNum, string $location, string $registerDate, string $lastConnectionDate)
+    public function __construct($id, string $name, string $email, $image, int $membersNum, int $contactNum, string $location, $registerDate, $lastConnectionDate)
     {
         parent::__construct($id);
 

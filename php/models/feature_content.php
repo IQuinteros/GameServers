@@ -21,7 +21,7 @@ class FeatureContent extends Model{
      */
     public $featureID;
     /**
-     * @var string
+     * @var mixed
      */
     public $image;
     /**
@@ -39,7 +39,7 @@ class FeatureContent extends Model{
 
 
     // Constructor
-    public function __construct($id, string $title, string $description, string $image, string $docsUrl)
+    public function __construct($id, string $title, string $description, $image, string $docsUrl)
     {
         parent::__construct($id);
 

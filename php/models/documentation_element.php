@@ -25,7 +25,7 @@ class DocumentationElement extends Model{
      */
     public $title;
     /**
-     * @var string
+     * @var mixed
      */
     public $publishDate;
     /**
@@ -42,7 +42,7 @@ class DocumentationElement extends Model{
     public $content;
 
     // Constructor
-    public function __construct($id, int $parentID, string $title, string $publishDate, int $likes, int $dislikes, string $content)
+    public function __construct($id, int $parentID, string $title, $publishDate, int $likes, int $dislikes, string $content)
     {
         parent::__construct($id);
 
