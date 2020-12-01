@@ -1,8 +1,18 @@
+# PHP
+
+Arquitectura por **Ignacio Quinteros**, basada en otras arquitecturas basadas en **Flutter**
+
+# PHP - Nombres
+
+- Los nombres de archivos estarán en minúsculas.
+
 # PHP - Directorios
 
 Aquí está la organización de los directorios dentro de la carpeta PHP.
 
-Arquitectura por **Ignacio Quinteros**, basada en otras arquitecturas basadas en **Flutter**
+## Components
+
+Componentes para ser añadidos directamente en algún archivo PHP que sea una vista.
 
 ## Libraries
 
