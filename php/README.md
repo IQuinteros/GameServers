@@ -32,7 +32,7 @@ Aquí están los archivos en PHP que son llamados a través de AJAX. Devolverán
 
 ## Services
 
-Contiene las conexiones a la base de datos de **GameServers**.
+Contiene las conexiones a la base de datos de **GameServers**, y además conexiones a las librerías de **Libraries**.
 
 ## Utils
 

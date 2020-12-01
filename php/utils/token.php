@@ -1,0 +1,8 @@
+<?php
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
