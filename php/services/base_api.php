@@ -1,4 +1,11 @@
 <?php
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
 
 require_once  __DIR__.("/../config.php");
 
@@ -22,6 +29,14 @@ class QueryParam{
      * @var int $length Length of data type
      */
     public $length = null; 
+
+    public function __construct(string $paramName, $variable, int $data_type = PDO::PARAM_STR, int $length = null)
+    {
+        $this->paramName = $paramName;
+        $this->variable = $variable;
+        $this->data_type = $data_type;
+        $this->length = $length;
+    }
 
 }
 

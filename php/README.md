@@ -37,3 +37,7 @@ Contiene las conexiones a la base de datos de **GameServers**, y además conexio
 ## Utils
 
 Aquí están archivos que servirán para programar de una mejor forma en PHP.
+
+## Testing
+
+Aquí solo hay archivos de testing para probar funcionalidades de desarrollo
