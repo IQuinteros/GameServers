@@ -21,6 +21,11 @@ class UserRepository {
         return UserRepository::$user_api->getUserByEmailAndPassword($email, $password);
     }
 
+    public static function getUsersByEmailOrName(string $text){
+        UserRepository::init();
+        return UserRepository::$user_api->getUsersByEmailOrName($text);
+    }
+
     public static function addUser(User $user, string $newPassword){
         UserRepository::init();
         return UserRepository::$user_api->addUser($user, $newPassword);

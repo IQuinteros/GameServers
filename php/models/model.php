@@ -22,11 +22,4 @@ class Model{
         $this->id = $id;
     }
 
-    /**
-     * Get the image decoded. This have to be in src of an image
-     */
-    public function parseImage($encodedImage){
-        return 'data:image/jpeg;base64,'.base64_encode( $encodedImage );
-    }
-
 }
