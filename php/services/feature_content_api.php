@@ -60,13 +60,13 @@ class FeatureContentAPI extends BaseAPI {
     /**
      * Search feature content by:
      * - Feature ID
-     * @var int $featureID The text to search in features
+     * @var int $featureID The text to search in features contents
      */
     public function getFeatureContentsByFeature(int $featureID){
         $this->open();
 
         $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE featureID=:featureID', array(
-            new QueryParam(':featureID', '%'.$featureID.'%'),
+            new QueryParam(':featureID', $featureID),
         ));
 
         // Close connection
@@ -106,7 +106,7 @@ class FeatureContentAPI extends BaseAPI {
      * 
      * @var FeatureContent $featureContent Feature content data
      */
-    public function addFeatureContent(Feature $featureContent){
+    public function addFeatureContent(FeatureContent $featureContent){
         $this->open();
 
         $result = $this->query('INSERT INTO '.$this->TABLE_NAME.' VALUES ('.
@@ -129,7 +129,7 @@ class FeatureContentAPI extends BaseAPI {
      * 
      * @var FeatureContent $featureContent New featureContent data
      */
-    public function updateFeatureContent(Feature $featureContent){
+    public function updateFeatureContent(FeatureContent $featureContent){
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
