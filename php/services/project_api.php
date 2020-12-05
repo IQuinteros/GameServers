@@ -26,7 +26,7 @@ class ProjectAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE id=:id', array(
-            new QueryParam(':id', $id),
+            new QueryParam(':id', $id, PDO::PARAM_INT),
         ));
 
         // Close connection
