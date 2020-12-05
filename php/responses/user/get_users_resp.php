@@ -1,4 +1,13 @@
 <?php
+
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+
 header("Content-Type: application/json; charset=UTF-8");
 require_once __DIR__.('/../../repositories/user_repository.php');
 
