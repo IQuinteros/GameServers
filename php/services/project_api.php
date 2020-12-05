@@ -100,7 +100,7 @@ class ProjectAPI extends BaseAPI {
                     new ProjectStatus($row->status)
                 );
 
-                array_push($users, $foundProject);
+                array_push($projects, $foundProject);
             }
 
             return $projects;

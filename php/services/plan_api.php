@@ -20,7 +20,7 @@ class PlanAPI extends BaseAPI {
 
     /**
      * Get plan by id
-     * @var int $id The id of the expected project
+     * @var int $id The id of the expected plan
      */
     public function getPlanById(int $id){
         $this->open();
@@ -86,7 +86,7 @@ class PlanAPI extends BaseAPI {
                     $row->docsUrl
                 );
 
-                array_push($users, $foundPlan);
+                array_push($plans, $foundPlan);
             }
 
             return $plans;
@@ -126,7 +126,7 @@ class PlanAPI extends BaseAPI {
      * 
      * @var Plan $plan New plan data
      */
-    public function updateProject(Plan $project){
+    public function updatePlan(Plan $plan){
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.

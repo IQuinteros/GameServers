@@ -33,12 +33,12 @@ class PlanRepository {
 
     public static function updatePlan(Plan $plan){
         PlanRepository::init();
-        return PlanRepository::$plan_api->updateProject($plan);
+        return PlanRepository::$plan_api->updatePlan($plan);
     }
 
     public static function deletePlan(Plan $plan){
         PlanRepository::init();
-        return PlanRepository::$plan_api->deleteProject($plan);
+        return PlanRepository::$plan_api->deletePlan($plan);
     }
 
 }
