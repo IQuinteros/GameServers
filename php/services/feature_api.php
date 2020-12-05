@@ -104,7 +104,7 @@ class FeatureAPI extends BaseAPI {
      * 
      * @var Feature $feature Feature data
      */
-    public function addPlan(Feature $feature){
+    public function addFeature(Feature $feature){
         $this->open();
 
         $result = $this->query('INSERT INTO '.$this->TABLE_NAME.' VALUES ('.
