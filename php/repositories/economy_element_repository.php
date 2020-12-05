@@ -1,5 +1,13 @@
 <?php
 
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+
 require_once __DIR__.('/../services/economy_element_api.php');
 require_once __DIR__.('/../models/economy_element.php');
 
