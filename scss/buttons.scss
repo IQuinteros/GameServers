@@ -1,25 +1,32 @@
 @import 'foundations/variables';
 
+/* Common */
+
+button{
+    outline: none;
+}
+
 /* Normal button */
 
-.button{
+.btn{
     background-color: $accent-color;
     color: $primary-color;
+    padding: $spacing-unit;
 }
 
 /* Client button */
 
-.button--client{
+.btn--client{
     background-color: $white-color;
 }
 
 /* Feature button */
 
-.button--feature{
+.btn--feature{
     background-color: $white-color;
     color: $primary-color;
 }
-.button__icon--feature{
+.btn__icon--feature{
     color: $accent-light-color;
 }
 

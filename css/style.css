@@ -1,0 +1,51 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Images */
+img {
+  object-fit: cover;
+}
+
+/* GameServers text */
+.logo-text {
+  font-family: "Audiowide", Arial, sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */
