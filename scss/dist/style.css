@@ -41,9 +41,15 @@ h3 {
 /* Images */
 img {
   object-fit: cover;
+  width: 100%;
 }
 
 /* GameServers text */
 .logo-text {
   font-family: "Audiowide", Arial, sans-serif;
+}
+
+/* Body */
+body {
+  background-color: #f2f2f2;
 }

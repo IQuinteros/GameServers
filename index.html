@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameServers</title>
 
+    <script src="https://kit.fontawesome.com/a12b0cdc6e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/inputs.css">
+    <link rel="stylesheet" href="css/intranet.css">
 </head>
 <body>
+
+    <h1>Buttons</h1>
     
     <button class="btn">Regístrate</button>
 
@@ -17,8 +24,92 @@
     </button>
 
     <button class="btn--feature">
-        <span>Multiplayer Services</span>
+        <i class="fas fa-gamepad btn__icon--feature"></i>
+        <p class="btn__text--feature">Multiplayer Services</p>
     </button>
 
+    <button class="btn btn--cancel">Volver</button>
+
+    <h1>Inputs</h1>
+
+    <div class="input-zone">
+        <label for="email">Email: </label>
+        <div class="input">
+            <input id="email" name="email" type="email" placeholder="email@ejemplo.com">
+        </div>
+        <label for="message">Mensaje: </label>
+        <div class="input">
+            <textarea name="message" id="message" cols="30" rows="10" placeholder="Necesito ayuda con algo..."></textarea>
+        </div>
+    </div>
+
+    <h1>Server Status</h1>
+
+    <div class="server-status status--active">
+        <h2>Servidores activos</h2>
+    </div>
+
+    <div class="server-status status--inactive">
+        <h2>Servidores inactivos</h2>
+    </div>
+
+    <h2>Intranet</h2>
+
+    <div class="info">
+        <div class="info__item">
+            <h1>10.348</h1>
+            <h2>Jugadores activos</h2>
+        </div>
+
+        <div class="info__item">
+            <h1>10.348</h1>
+            <h2>Nuevos registros</h2>
+        </div>
+
+        <div class="info__item--graph">
+            <h2>Jugadores diarios</h2>
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 </body>
 </html>

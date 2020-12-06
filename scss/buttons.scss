@@ -4,6 +4,15 @@
 
 button{
     outline: none;
+    border-radius: $btn-border-radius;
+    border: none;
+    box-shadow: $box-shadow;
+    padding: $spacing-unit $spacing-unit*2;
+    margin: $spacing-unit;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 /* Normal button */
@@ -11,13 +20,18 @@ button{
 .btn{
     background-color: $accent-color;
     color: $primary-color;
-    padding: $spacing-unit;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    min-width: 175px;
 }
 
 /* Client button */
 
 .btn--client{
     background-color: $white-color;
+    width: 260px;
+    height: 150px;
 }
 
 /* Feature button */
@@ -25,14 +39,28 @@ button{
 .btn--feature{
     background-color: $white-color;
     color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 260px;
+    height: 240px;
 }
+
+.btn__text--feature{
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
 .btn__icon--feature{
     color: $accent-light-color;
+    font-size: 8rem;
 }
 
 /* Cancel button */
 
-.button--cancel{
+.btn.btn--cancel{
     background-color: $light-color;
     opacity: 80%;
 }

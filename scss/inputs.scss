@@ -1,9 +1,44 @@
 @import 'foundations/variables';
 
+.input-zone{
+    margin: $spacing-unit;
+    padding: $spacing-unit $spacing-unit*2;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: $spacing-unit;
+
+    align-items: center;
+}
+
+.input-zone > label{
+    color: $primary-color;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
 .input{
     background-color: $input-color;
     color: $primary-color;
 }
-.input__text{
+
+.input > input,
+.input > textarea{
+    border-radius: $input-border-radius;
+    background-color: transparent;
+    box-shadow: $box-shadow;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: $spacing-unit $spacing-unit;
+
     font-weight: 300;
+    font-size: 1.4rem;
+
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+.input > textarea{
+    font-family: 'Montserrat', Arial, sans-serif;
 }
