@@ -5,3 +5,67 @@
 	2020
 
 */
+
+// Color Palette
+$primary-color: rgb(5, 102, 141);
+$secondary-color: rgb(0, 168, 150);
+$accent-light-color: rgb(2, 195, 154);
+$inactive-color: rgb(241, 143, 1);
+$accent-color: rgb(255, 190, 11);
+$input-color: rgb(240, 243, 189);
+$light-color: rgb(242, 242, 242);
+$white-color: rgb(255, 255, 255);
+
+// Spacing units
+$spacing-unit: 10px;
+
+// Width size
+$content-width: 1280px;
+
+// Shadows
+$box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+$footer-shadow: 0 -4px 4px rgba(0, 0, 0, .25);
+
+// General rules
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html{
+	font-size: 62.5%;
+	font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight: 600;
+}
+
+h1{
+	font-size: 2.5rem;
+}
+
+h2{
+	font-size: 2rem;
+}
+
+h3{
+	font-size: 1.5rem;
+}
+
+/* Images */
+img{
+	object-fit: cover;
+}
+
+/* GameServers text */
+.logo-text{
+	font-family: 'Audiowide', Arial, sans-serif;
+}
