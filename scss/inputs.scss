@@ -1,0 +1,9 @@
+@import 'foundations/variables';
+
+.input{
+    background-color: $input-color;
+    color: $primary-color;
+}
+.input__text{
+    font-weight: 300;
+}

@@ -25,3 +25,5 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/buttons.css">
+<link rel="stylesheet" href="/css/inputs.css">

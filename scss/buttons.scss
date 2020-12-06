@@ -1,0 +1,31 @@
+@import 'foundations/variables';
+
+/* Normal button */
+
+.button{
+    background-color: $accent-color;
+    color: $primary-color;
+}
+
+/* Client button */
+
+.button--client{
+    background-color: $white-color;
+}
+
+/* Feature button */
+
+.button--feature{
+    background-color: $white-color;
+    color: $primary-color;
+}
+.button__icon--feature{
+    color: $accent-light-color;
+}
+
+/* Cancel button */
+
+.button--cancel{
+    background-color: $light-color;
+    opacity: 80%;
+}

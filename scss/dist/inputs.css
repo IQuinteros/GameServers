@@ -1,0 +1,15 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+.input {
+  background-color: #f0f3bd;
+  color: #05668d;
+}
+
+.input__text {
+  font-weight: 300;
+}
