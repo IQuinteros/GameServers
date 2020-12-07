@@ -1,0 +1,58 @@
+@import 'foundations/variables';
+
+.footer{
+    background-color: $primary-color;
+    box-shadow: $footer-shadow;
+    color: $light-color;
+    padding: $spacing-unit*2;
+    margin-top: $spacing-unit*3;
+
+    display: grid;
+    gap: $spacing-unit;
+    grid-template-columns: 1fr auto 1.5fr;
+    justify-content: center;
+
+    min-height: 315px;
+}
+
+.footer > div{
+    margin: 0 $spacing-unit;
+}
+
+.contact{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact > .input{
+    width: 100%;
+    margin: $spacing-unit 0;
+}
+
+.links-table{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
+
+    font-size: 1.5rem;
+
+    margin: $spacing-unit*2 $spacing-unit*2;
+    padding: 0 $spacing-unit*2;
+}
+
+.links-table__col{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.author{
+    text-align: center;
+    justify-self: center;
+    grid-column: span 3;
+    margin: $spacing-unit 0;
+    align-self: end;
+}

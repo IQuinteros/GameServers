@@ -1,5 +1,9 @@
 @import 'foundations/variables';
 
+textarea{
+    font-weight: inherit;
+}
+
 .input-zone{
     margin: $spacing-unit;
     padding: $spacing-unit $spacing-unit*2;
@@ -18,15 +22,15 @@
 }
 
 .input{
+    border-radius: $input-border-radius;
+    box-shadow: $box-shadow;
     background-color: $input-color;
     color: $primary-color;
 }
 
 .input > input,
 .input > textarea{
-    border-radius: $input-border-radius;
     background-color: transparent;
-    box-shadow: $box-shadow;
     border: none;
     outline: none;
     width: 100%;
@@ -41,4 +45,5 @@
 
 .input > textarea{
     font-family: 'Montserrat', Arial, sans-serif;
+    resize: none;
 }

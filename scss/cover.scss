@@ -1,0 +1,68 @@
+@import 'foundations/variables';
+
+.cover{
+    background-color: $primary-color;
+    box-shadow: $box-shadow;
+    color: $light-color;
+    min-height: 330px;
+    padding: $spacing-unit*7;
+
+    position: relative;
+}
+
+.cover > h1,
+.cover > img{
+    z-index: 2;
+}
+
+.cover > h1{
+    width: 40%;
+}
+
+.cover__inner{
+    background-color: $secondary-color;
+    clip-path: polygon(65% 0, 100% 0, 100% 100%, 45% 100%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 1;
+}
+
+.cover > .cover__img--left{
+    max-width: 30%;
+    position: absolute;
+
+    bottom: $spacing-unit*3;
+}
+
+.cover > .cover__img--center{
+    max-width: 20%;
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+}
+
+.cover > .cover__img--back{
+    max-width: 40%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: $spacing-unit*4;
+    opacity: 0.8;
+}
+
+.cover > .cover__img--right{
+    position: absolute;
+
+    object-fit: contain;
+
+    max-width: 20%;
+    height: 90%;
+    top: $spacing-unit*2;
+    right: $spacing-unit*-2;
+    bottom: $spacing-unit*2;
+}

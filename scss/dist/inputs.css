@@ -5,6 +5,10 @@
 	2020
 
 */
+textarea {
+  font-weight: inherit;
+}
+
 .input-zone {
   margin: 10px;
   padding: 10px 20px;
@@ -21,15 +25,15 @@
 }
 
 .input {
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #f0f3bd;
   color: #05668d;
 }
 
 .input > input,
 .input > textarea {
-  border-radius: 5px;
   background-color: transparent;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
   outline: none;
   width: 100%;
@@ -42,4 +46,5 @@
 
 .input > textarea {
   font-family: "Montserrat", Arial, sans-serif;
+  resize: none;
 }
