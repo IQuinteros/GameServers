@@ -62,6 +62,7 @@ a:hover {
 /* GameServers text */
 .logo-text {
   font-family: "Audiowide", Arial, sans-serif;
+  font-weight: lighter;
   text-decoration: none;
   color: #f2f2f2;
   transition: 0.2s color;
@@ -71,7 +72,7 @@ a:hover {
   font-weight: lighter;
 }
 
-.logo-text:hover {
+a.logo-text:hover {
   color: #ffbe0b;
   text-decoration: none;
 }

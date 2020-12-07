@@ -1,0 +1,71 @@
+@import 'foundations/variables';
+
+/* Docs layout */
+.docs-layout{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    min-height: 100vh;
+    height: 100%;
+
+    z-index: 1;
+}
+
+.docs-aside{
+    background-color: $primary-color;
+    color: $light-color;
+    padding: $spacing-unit*2;
+
+    height: 100%;
+}
+
+.docs-aside > .logo-text{
+    margin-bottom: $spacing-unit*2;
+}
+
+.doc{
+    display: block;
+    padding: $spacing-unit/2 0;
+
+    font-size: 1.5rem;
+}
+
+.doc--master::before{
+    content: '+ ';
+}
+
+.doc--current{
+    color: $light-color;
+}
+
+.doc--current::after{
+    content: ' <<';
+    color: $accent-light-color;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.doc__inner{
+    margin-left: $spacing-unit*2;
+    margin-bottom: $spacing-unit*2;
+}
+
+/* In main */
+
+.docs-main{
+    height: 100%;
+
+    padding: $spacing-unit*3;
+}
+
+.docs__path > a{
+    color: $primary-color;
+    font-size: 1.5rem;
+}
+
+.docs__path > .doc--master::before{
+    content: none;
+}
+
+.docs__path > .doc--master::after{
+    content: ' > ';
+}
