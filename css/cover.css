@@ -67,4 +67,34 @@
   bottom: 20px;
 }
 
+.cover > span {
+  font-size: 1.5rem;
+  display: block;
+  padding: 20px 0;
+}
+
+.cover__indicator {
+  font-weight: 500;
+}
+
+/* Feature and pricing cover */
+.cover.cover--feature > .cover__img--back,
+.cover.cover--pricing > .cover__img--back {
+  object-fit: contain;
+  opacity: 1;
+  max-width: 30%;
+  height: 110%;
+  top: 20px;
+}
+
+.cover.cover--pricing > .cover__img--back {
+  height: 115%;
+}
+
+.cover.cover--pricing > .cover__img--center {
+  height: 90%;
+  left: 40%;
+  object-fit: contain;
+}
+
 /*# sourceMappingURL=cover.css.map */

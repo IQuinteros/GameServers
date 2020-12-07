@@ -1,0 +1,50 @@
+@import 'foundations/variables';
+
+.popup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .6);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.popup__block{
+    background: rgb(5,102,141);
+    background: linear-gradient(135deg, rgba(5,102,141,1) 0%, rgba(0,168,150,1) 100%);
+    box-shadow: $box-shadow;
+    color: $light-color;
+    
+    width: 80%;
+    max-width: 1000px;
+    height: 80%;
+    max-height: 500px;
+
+    padding: $spacing-unit*3;
+}
+
+.popup__content{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+}
+
+.popup__content > h1{
+    text-align: center;
+}
+
+.popup__content > .input-zone > label{
+    color: $light-color;
+    margin-right: $spacing-unit*2;
+}
+
+.popup__content__buttons{
+    align-self: center;
+}

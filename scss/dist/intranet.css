@@ -6,6 +6,20 @@
 
 */
 /* Server Status */
+.intranet-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../assets/images/csgo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -5;
+}
+
 .server-status {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   color: #f2f2f2;

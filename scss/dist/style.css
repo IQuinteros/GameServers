@@ -73,6 +73,7 @@ a:hover {
 
 .logo-text:hover {
   color: #ffbe0b;
+  text-decoration: none;
 }
 
 /* Body */

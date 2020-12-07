@@ -2,6 +2,22 @@
 
 /* Server Status */
 
+.intranet-background{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url('../assets/images/csgo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0.2;
+
+    z-index: -5;
+}
+
 .server-status{
     box-shadow: $box-shadow;
     color: $light-color;

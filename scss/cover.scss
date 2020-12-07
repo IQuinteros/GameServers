@@ -66,3 +66,35 @@
     right: 0;
     bottom: $spacing-unit*2;
 }
+
+.cover > span{
+    font-size: 1.5rem;
+    display: block;
+    padding: $spacing-unit*2 0;
+}
+
+.cover__indicator{
+    font-weight: $medium-weight;
+}
+
+/* Feature and pricing cover */
+
+.cover.cover--feature > .cover__img--back,
+.cover.cover--pricing > .cover__img--back{
+    object-fit: contain;
+    opacity: 1;
+
+    max-width: 30%;
+    height: 110%;
+    top: $spacing-unit*2;
+}
+
+.cover.cover--pricing > .cover__img--back{
+    height: 115%;
+}
+
+.cover.cover--pricing > .cover__img--center{
+    height: 90%;
+    left: 40%;
+    object-fit: contain;
+}
