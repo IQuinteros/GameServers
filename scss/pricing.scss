@@ -5,6 +5,9 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-around;
+
+    max-width: $content-width;
+    margin: 0 auto;
 }
 
 .pricing-card{

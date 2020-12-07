@@ -5,9 +5,12 @@
 	2020
 
 */
-.footer {
+.footer__limit {
   background-color: #05668d;
   box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.footer {
   color: #f2f2f2;
   padding: 20px;
   display: grid;
@@ -15,6 +18,8 @@
   grid-template-columns: 1fr auto 1.5fr;
   justify-content: center;
   min-height: 315px;
+  max-width: 1280px;
+  margin: 0 auto;
   z-index: 5;
 }
 

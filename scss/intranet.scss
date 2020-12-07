@@ -51,6 +51,9 @@
 
     margin: $spacing-unit;
     padding: $spacing-unit;
+
+    max-width: $content-width;
+    margin: 0 auto;
 }
 
 .info__item,
@@ -83,16 +86,23 @@
 
 /* Toolbar */
 
-.toolbar{
+.toolbar__limit{
     background-color: $primary-color;
+    box-shadow: $box-shadow;
+    margin: $spacing-unit 0;
+}
+
+.toolbar{
     display: flex;
     flex-flow: row;
     align-items: center;
     justify-content: space-between;
     padding: $spacing-unit $spacing-unit*3;
-    margin: $spacing-unit 0;
+    
+    margin: 0 auto;
 
     height: 60px;
+    max-width: $content-width;
 }
 
 .toolbar__text{

@@ -12,6 +12,8 @@
   min-height: 100vh;
   height: 100%;
   z-index: 1;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .docs-aside {
@@ -68,10 +70,6 @@
 
 .docs__path > .doc--master::after {
   content: " > ";
-}
-
-.docs__path > .doc--master:hover::after {
-  text-decoration: none;
 }
 
 /*# sourceMappingURL=documentation.css.map */

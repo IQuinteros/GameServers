@@ -80,15 +80,20 @@ body{
 }
 
 /* Header */
-.header{
+.header__limit{
 	background: rgb(5,102,141);
 	background: linear-gradient(90deg, rgba(5,102,141,1) 0%, rgba(0,168,150,1) 100%);
 	box-shadow: $box-shadow;
 	color: $light-color;
+	padding: $spacing-unit/2 $spacing-unit;
+
+	z-index: 10;
+}
+
+
+.header{
 	display: flex;
 	flex-flow: row;
-
-	padding: $spacing-unit/2 $spacing-unit;
 
 	align-items: center;
 
@@ -97,16 +102,17 @@ body{
 
 	position: relative;
 
-	z-index: 10;
+	max-width: $content-width;
+	margin: 0 auto;
 }
 
-.header > nav{
+.header nav{
 	display: flex;
 	margin-left: $spacing-unit*3;
 	flex-grow: 1;
 }
 
-.header > nav > button{
+.header nav > button{
 	background: transparent;
 	color: $light-color;
 	box-shadow: none;
@@ -115,7 +121,7 @@ body{
 	transition: .5s color;
 }
 
-.header > nav > button:hover{
+.header nav > button:hover{
 	text-decoration: underline;
 	color: $accent-color;
 	transform: none;

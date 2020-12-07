@@ -5,8 +5,13 @@
 	2020
 
 */
-.features {
+.features__limit {
   background-color: #05668d;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.features {
   color: #f2f2f2;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -16,6 +21,8 @@
   position: relative;
   justify-content: center;
   align-content: start;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .features > h1 {
@@ -63,6 +70,8 @@
   gap: 10px;
   padding: 40px;
   min-height: 300px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .feature__item__title {

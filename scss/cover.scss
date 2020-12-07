@@ -1,13 +1,23 @@
 @import 'foundations/variables';
 
-.cover{
+.cover__limit{
     background-color: $primary-color;
     box-shadow: $box-shadow;
+    padding: 0;
+    width: 100%;
+
+    position: relative;
+}
+
+.cover{
     color: $light-color;
     min-height: 330px;
     padding: $spacing-unit*7;
 
     position: relative;
+
+    max-width: $content-width;
+    margin: 0 auto;
 }
 
 .cover > h1,

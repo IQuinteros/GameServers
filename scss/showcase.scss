@@ -1,5 +1,6 @@
 @import 'foundations/variables';
 
+
 .showcase{
     color: $primary-color;
     display: flex;
@@ -10,6 +11,9 @@
     min-height: 280px;
 
     position: relative;
+
+    margin: 0 auto;
+    max-width: $content-width;
 }
 
 .showcase > h3{

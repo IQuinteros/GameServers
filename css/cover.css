@@ -5,13 +5,21 @@
 	2020
 
 */
-.cover {
+.cover__limit {
   background-color: #05668d;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+.cover {
   color: #f2f2f2;
   min-height: 330px;
   padding: 70px;
   position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .cover > h1,

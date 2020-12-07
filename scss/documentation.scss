@@ -8,6 +8,9 @@
     height: 100%;
 
     z-index: 1;
+
+    max-width: $content-width*1.5;
+    margin: 0 auto;
 }
 
 .docs-aside{

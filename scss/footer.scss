@@ -1,8 +1,11 @@
 @import 'foundations/variables';
 
-.footer{
+.footer__limit{
     background-color: $primary-color;
     box-shadow: $footer-shadow;
+}
+
+.footer{
     color: $light-color;
     padding: $spacing-unit*2;
 
@@ -12,6 +15,8 @@
     justify-content: center;
 
     min-height: 315px;
+    max-width: $content-width;
+    margin: 0 auto;
 
     z-index: 5;
 }

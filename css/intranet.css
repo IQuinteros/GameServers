@@ -49,6 +49,8 @@
   justify-items: center;
   margin: 10px;
   padding: 10px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .info__item,
@@ -78,15 +80,21 @@
 }
 
 /* Toolbar */
-.toolbar {
+.toolbar__limit {
   background-color: #05668d;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 10px 0;
+}
+
+.toolbar {
   display: flex;
   flex-flow: row;
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
-  margin: 10px 0;
+  margin: 0 auto;
   height: 60px;
+  max-width: 1280px;
 }
 
 .toolbar__text {

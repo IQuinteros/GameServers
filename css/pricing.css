@@ -10,6 +10,8 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .pricing-card {
