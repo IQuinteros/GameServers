@@ -1,0 +1,14 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+.start-now {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 920px;
+}
+
+/*# sourceMappingURL=ads.css.map */

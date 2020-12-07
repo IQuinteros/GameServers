@@ -47,11 +47,60 @@ img {
 /* GameServers text */
 .logo-text {
   font-family: "Audiowide", Arial, sans-serif;
+  text-decoration: none;
+  color: #f2f2f2;
+  transition: 0.2s color;
+}
+
+.logo-text > h1 {
+  font-weight: 300;
+}
+
+.logo-text:hover {
+  color: #ffbe0b;
 }
 
 /* Body */
 body {
   background-color: #f2f2f2;
+}
+
+/* Header */
+.header {
+  background: #05668d;
+  background: linear-gradient(90deg, #05668d 0%, #00a896 100%);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: #f2f2f2;
+  display: flex;
+  flex-flow: row;
+  padding: 5px 10px;
+  align-items: center;
+  height: 60px;
+}
+
+.header > h1 {
+  font-weight: 300;
+}
+
+.header > nav {
+  display: flex;
+  margin-left: 30px;
+  flex-grow: 1;
+}
+
+.header > nav > button {
+  background: transparent;
+  color: #f2f2f2;
+  box-shadow: none;
+  letter-spacing: 1px;
+  transition: 0.5s color;
+}
+
+.header > nav > button:hover {
+  text-decoration: underline;
+  color: #ffbe0b;
+  transform: none;
+  box-shadow: none;
 }
 
 /*# sourceMappingURL=style.css.map */

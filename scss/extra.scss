@@ -1,0 +1,36 @@
+@import 'foundations/variables';
+
+.start-now{
+    background-color: $primary-color;
+    color: $light-color;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+
+    margin: $spacing-unit;
+    padding: $spacing-unit $spacing-unit * 3;
+    position: relative;
+
+    width: 90%;
+    max-width: 920px;
+
+    margin: 0 auto;
+}
+
+.start-now > h1,
+.start-now > button{
+    z-index: 1;
+}
+
+.start-now > .btn{
+    font-size: 2.0rem;
+}
+
+.start-now__inner{
+    position: absolute;
+    background-color: $secondary-color;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}

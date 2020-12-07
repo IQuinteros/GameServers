@@ -6,14 +6,33 @@
     <title>GameServers</title>
 
     <script src="https://kit.fontawesome.com/a12b0cdc6e.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+    <script src="js/third-party/chart.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/inputs.css">
     <link rel="stylesheet" href="css/intranet.css">
+    <link rel="stylesheet" href="css/pricing.css">
+    <link rel="stylesheet" href="css/extra.css">
 </head>
 <body>
+
+    <header class="header">
+        <a class="logo-text" href="#"><h1>GameServers</h1></a>
+
+        <nav>
+            <button>Características</button>
+            <button>Precios</button>
+            <button>Documentación</button>
+        </nav>
+
+        <button class="btn">Regístrate</button>
+
+        <button class="btn--profile"><i class="far fa-user-circle"></i></button>
+    </header>
 
     <h1>Buttons</h1>
     
@@ -70,6 +89,35 @@
             <h2>Jugadores diarios</h2>
             <canvas id="myChart"></canvas>
         </div>
+    </div>
+
+    <h1>Pricing cards</h1>
+
+    <div class="card-container">
+        <div class="pricing-card">
+            <h1>Gratis</h1>
+            <p>- Modo de desarrollo. Recibe feedback de nuestras analíticas.</p>
+            <p>- Prueba nuestro hosting de servidores hasta 600 horas de cómputo.</p>
+            <p>- Incluye hasta 10.000 minutos de conectividad con grupos.</p>
+    
+            <button class="btn">Comienza ya!</button>
+        </div>
+        <div class="pricing-card">
+            <h1>Gratis</h1>
+            <p>- Modo de desarrollo. Recibe feedback de nuestras analíticas.</p>
+            <p>- Prueba nuestro hosting de servidores hasta 600 horas de cómputo.</p>
+            <p>- Incluye hasta 10.000 minutos de conectividad con grupos.</p>
+    
+            <button class="btn">Comienza ya!</button>
+        </div>
+    </div>
+
+    <h1>Start now</h1>
+
+    <div class="start-now">
+        <h1>¡Comienza ahora!</h1>
+        <button class="btn">Registrarse</button>
+        <div class="start-now__inner"></div>
     </div>
 
     <script>

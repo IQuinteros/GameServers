@@ -13,10 +13,14 @@ button {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   padding: 10px 20px;
   margin: 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+  transition: 0.2s transform;
 }
 
 button:hover {
   cursor: pointer;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
 }
 
 /* Normal button */
@@ -61,6 +65,20 @@ button:hover {
 .btn.btn--cancel {
   background-color: #f2f2f2;
   opacity: 80%;
+}
+
+/* Profile button */
+.btn--profile {
+  background-color: transparent;
+  box-shadow: none;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 3rem;
+  color: #ffbe0b;
+}
+
+.btn--profile:hover {
+  box-shadow: none;
+  text-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
 }
 
 /*# sourceMappingURL=buttons.css.map */
