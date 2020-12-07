@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/extra.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/cover.css">
+    <link rel="stylesheet" href="css/showcase.css">
+    <link rel="stylesheet" href="css/features.css">
 </head>
 <body>
 
@@ -36,14 +38,55 @@
         <button class="btn--profile"><i class="far fa-user-circle"></i></button>
     </header>
 
-    <div class="cover">
+    <section class="cover">
         <div class="cover__inner"></div>
         <h1>La forma más fácil de controlar los servidores de tu increíble videojuego!</h1>
         <img class="cover__img--left" src="assets/images/f1.png" alt="">
         <img class="cover__img--center" src="assets/images/mortal_kombat.png" alt="">
         <img class="cover__img--back" src="assets/images/yuumi.png" alt="">
         <img class="cover__img--right" src="assets/images/jett_artwork.png" alt="">
-    </div>
+    </section>
+
+    <section class="showcase">
+        <h1>Showcase!</h1>
+        <h3>Empresas que han confiado en nosotros</h3>
+        <div class="showcase__clients">
+            <button class="btn--client">
+                <img src="assets/images/riot_logo.png" alt="Riot">
+            </button>
+            <button class="btn--client">
+                <img src="assets/images/riot_logo.png" alt="Riot">
+            </button>
+            <button class="btn--client">
+                <img src="assets/images/riot_logo.png" alt="Riot">
+            </button>
+            <button class="btn--client">
+                <img src="assets/images/riot_logo.png" alt="Riot">
+            </button>
+        </div>
+        <a href="#" class="showcase__more">Ver más</a>
+    </section>
+
+    <section class="features">
+        <h1>Features</h1>
+        <h3>Descubre las características de nuestro servicio</h3>
+        <img class="features__image" src="assets/images/hearthstone.png" alt="">
+        <div class="features__buttons">
+            <button class="btn--feature">
+                <i class="fas fa-gamepad btn__icon--feature"></i>
+                <p class="btn__text--feature">Multiplayer Services</p>
+            </button>
+            <button class="btn--feature">
+                <i class="fas fa-chart-area btn__icon--feature"></i>
+                <p class="btn__text--feature">Analytics</p>
+            </button>
+            <button class="btn--feature">
+                <i class="fas fa-bezier-curve btn__icon--feature"></i>
+                <p class="btn__text--feature">LiveOps</p>
+            </button>
+        </div>
+        <div class="features__inner"></div>
+    </section>
 
     <h1>Buttons</h1>
     
@@ -122,6 +165,31 @@
             <button class="btn">Comienza ya!</button>
         </div>
     </div>
+
+    <h1>Toolbar</h1>
+    <div class="toolbar">
+        <div class="toolbar__buttons">
+            <button class="btn">Nuevo</button>
+            <button class="btn">Eliminar</button>
+        </div>
+        <span class="toolbar__text">0 seleccionados</span>
+        <a class="toolbar__docs" href="#">Ir a la documentación de esta sección</a>
+    </div>
+
+    <h1>Ítem de característica</h1>
+    <article class="feature__item">
+        <h1 class="feature__item__title">Servidores Multijugador</h1>
+        <img class="feature__item__image" src="assets/images/battlefield_game.jpg" alt="">
+
+        <div class="feature__item__content">
+            <h2>Servidores dedicados</h2>
+            <p>Nuestros servidores multijugador dedicados entregan una jugabilidad de muy baja latencia y alta fidelidad.</p>
+            <h2>Global</h2>
+            <p>Jugadores de todo el planeta conectados a nuestros servidores.</p>
+            <h2>Monitoreo 24/7 con Proteccion DDoS</h2>
+            <p>Protección contra ataques DDoS y otros incidentes.</p>
+        </div>
+    </article>
 
     <h1>Start now</h1>
 

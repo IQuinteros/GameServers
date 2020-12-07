@@ -65,4 +65,27 @@
     height: 100%;
 }
 
+/* Toolbar */
 
+.toolbar{
+    background-color: $primary-color;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-unit $spacing-unit*3;
+    margin: $spacing-unit 0;
+
+    height: 60px;
+}
+
+.toolbar__text{
+    color: $light-color;
+    font-size: 1.5rem;
+    flex-grow: 1;
+    margin: 0 $spacing-unit*3;
+}
+
+.toolbar__docs{
+    font-size: 1.5rem;
+}

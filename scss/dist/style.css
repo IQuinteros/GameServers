@@ -44,10 +44,19 @@ img {
   width: 100%;
 }
 
+/* Sections */
+section {
+  padding: 40px;
+}
+
 /* Hypelink */
 a {
   text-decoration: none;
   color: #ffbe0b;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 /* GameServers text */
@@ -59,7 +68,7 @@ a {
 }
 
 .logo-text > h1 {
-  font-weight: 300;
+  font-weight: lighter;
 }
 
 .logo-text:hover {
@@ -85,10 +94,6 @@ body {
   width: 100%;
   position: relative;
   z-index: 10;
-}
-
-.header > h1 {
-  font-weight: 300;
 }
 
 .header > nav {

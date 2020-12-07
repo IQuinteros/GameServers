@@ -63,4 +63,27 @@
   height: 100%;
 }
 
+/* Toolbar */
+.toolbar {
+  background-color: #05668d;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  margin: 10px 0;
+  height: 60px;
+}
+
+.toolbar__text {
+  color: #f2f2f2;
+  font-size: 1.5rem;
+  flex-grow: 1;
+  margin: 0 30px;
+}
+
+.toolbar__docs {
+  font-size: 1.5rem;
+}
+
 /*# sourceMappingURL=intranet.css.map */
