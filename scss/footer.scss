@@ -14,7 +14,7 @@
     grid-template-columns: 1fr auto 1.5fr;
     justify-content: center;
 
-    min-height: 315px;
+    min-height: $footer-height;
     max-width: $content-width;
     margin: 0 auto;
 

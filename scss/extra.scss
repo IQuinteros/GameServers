@@ -2,6 +2,7 @@
 
 .start-now{
     background-color: $primary-color;
+    box-shadow: $box-shadow;
     color: $light-color;
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -14,7 +15,7 @@
     width: 90%;
     max-width: 920px;
 
-    margin: 0 auto;
+    margin: $spacing-unit*4 auto;
 }
 
 .start-now > h1,

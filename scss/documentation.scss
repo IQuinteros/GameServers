@@ -1,16 +1,21 @@
 @import 'foundations/variables';
 
+body{
+    background-color: $primary-color;
+}
+
 /* Docs layout */
 .docs-layout{
     display: grid;
     grid-template-columns: 300px 1fr;
-    min-height: 100vh;
+    min-height: $min-height;
     height: 100%;
-
-    z-index: 1;
 
     max-width: $content-width*1.5;
     margin: 0 auto;
+    padding-top: $header-height;
+
+    z-index: 0;
 }
 
 .docs-aside{
@@ -19,6 +24,7 @@
     padding: $spacing-unit*2;
 
     height: 100%;
+    z-index: 0;
 }
 
 .docs-aside > .logo-text{
@@ -55,9 +61,20 @@
 /* In main */
 
 .docs-main{
+    background-color: $light-color;
+    color: $primary-color;
     height: 100%;
 
-    padding: $spacing-unit*3;
+    font-size: 1.5rem;
+
+    padding: $spacing-unit*3 $spacing-unit*5;
+    z-index: 0;
+
+    position: relative;
+}
+
+.docs__path{
+    margin-bottom: $spacing-unit*2;
 }
 
 .docs__path > a{
@@ -71,4 +88,32 @@
 
 .docs__path > .doc--master::after{
     content: ' > ';
+}
+
+.docs__date{
+    margin-bottom: $spacing-unit*2;
+}
+
+.docs__question{
+    text-align: center;
+    margin: $spacing-unit*5 0 $spacing-unit*3 0;
+}
+
+.docs__question__buttons{
+    margin: 0 auto;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.docs__question__buttons > .btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.docs__question__buttons > .btn > .far{
+    font-size: 2rem;
 }

@@ -5,15 +5,20 @@
 	2020
 
 */
+body {
+  background-color: #05668d;
+}
+
 /* Docs layout */
 .docs-layout {
   display: grid;
   grid-template-columns: 300px 1fr;
-  min-height: 100vh;
+  min-height: calc(100vh - 315px);
   height: 100%;
-  z-index: 1;
   max-width: 1920px;
   margin: 0 auto;
+  padding-top: 60px;
+  z-index: 0;
 }
 
 .docs-aside {
@@ -21,6 +26,7 @@
   color: #f2f2f2;
   padding: 20px;
   height: 100%;
+  z-index: 0;
 }
 
 .docs-aside > .logo-text {
@@ -55,8 +61,17 @@
 
 /* In main */
 .docs-main {
+  background-color: #f2f2f2;
+  color: #05668d;
   height: 100%;
-  padding: 30px;
+  font-size: 1.5rem;
+  padding: 30px 50px;
+  z-index: 0;
+  position: relative;
+}
+
+.docs__path {
+  margin-bottom: 20px;
 }
 
 .docs__path > a {
@@ -70,6 +85,33 @@
 
 .docs__path > .doc--master::after {
   content: " > ";
+}
+
+.docs__date {
+  margin-bottom: 20px;
+}
+
+.docs__question {
+  text-align: center;
+  margin: 50px 0 30px 0;
+}
+
+.docs__question__buttons {
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.docs__question__buttons > .btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.docs__question__buttons > .btn > .far {
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=documentation.css.map */

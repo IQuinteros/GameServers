@@ -79,6 +79,10 @@ body{
 	background-color: $light-color;
 }
 
+main{
+	padding-top: $header-height+10px;
+}
+
 /* Header */
 .header__limit{
 	background: rgb(5,102,141);
@@ -88,6 +92,10 @@ body{
 	padding: $spacing-unit/2 $spacing-unit;
 
 	z-index: 10;
+
+	position: fixed;
+	left: 0;
+	right: 0;
 }
 
 

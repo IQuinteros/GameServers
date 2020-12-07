@@ -1,0 +1,51 @@
+@import 'foundations/variables';
+
+.profile-main{
+    background-color: $light-color;
+    color: $primary-color;
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: $spacing-unit*10 $spacing-unit*3;
+    min-height: $min-height;
+
+    display: flex;
+    flex-flow: column;
+}
+
+.profile-main > hr{
+    margin: $spacing-unit*2;
+    border: none;
+    border-bottom: 2px solid $secondary-color;
+}
+
+.profile,
+.project{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profile > .btn,
+.project > .btn{
+    grid-column: span 2;
+    width: fit-content;
+    margin: $spacing-unit*3 auto;
+}
+
+.profile__img{
+    box-shadow: $box-shadow;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+
+    justify-self: center;
+    margin: $spacing-unit*4 auto;
+}
+
+.profile__username{
+    text-align: center;
+    margin-bottom: $spacing-unit*2;
+}
+
+.project__title{
+    margin-left: $spacing-unit*3;
+}

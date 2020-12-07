@@ -82,6 +82,10 @@ body {
   background-color: #f2f2f2;
 }
 
+main {
+  padding-top: 70px;
+}
+
 /* Header */
 .header__limit {
   background: #05668d;
@@ -90,6 +94,9 @@ body {
   color: #f2f2f2;
   padding: 5px 10px;
   z-index: 10;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 
 .header {

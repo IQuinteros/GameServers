@@ -21,6 +21,10 @@ textarea{
     font-weight: 400;
 }
 
+.input-zone > .input__empty{
+    grid-column: span 2;
+}
+
 .input{
     border-radius: $input-border-radius;
     box-shadow: $box-shadow;
@@ -47,3 +51,4 @@ textarea{
     font-family: 'Montserrat', Arial, sans-serif;
     resize: none;
 }
+
