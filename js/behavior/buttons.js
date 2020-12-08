@@ -31,3 +31,17 @@ export function goToPricing(){
 export function goToDocs(){
     openSelfWindow(routes.ROUTE_DOCS);
 }
+
+export function toggleMobileNav(elem){
+    elem.classList.toggle('change');
+
+    const mobileNav = document.getElementById('mobile-nav');
+
+    if(elem.classList.contains('change')){
+        mobileNav.classList.add('open');
+    }
+    else{
+        mobileNav.classList.remove('open');
+    }
+    
+}

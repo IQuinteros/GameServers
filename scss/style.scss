@@ -134,7 +134,8 @@ main{
 	flex-grow: 1;
 }
 
-.header nav > button{
+.header nav > button,
+.mobile-nav > button{
 	background: transparent;
 	color: $light-color;
 	box-shadow: none;
@@ -148,4 +149,99 @@ main{
 	color: $accent-color;
 	transform: none;
 	box-shadow: none;
+}
+
+/* Hamburger Mobile */
+
+.hamburger-mobile {
+	justify-self: flex-end;
+	display: none;
+	cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+	width: 35px;
+	height: 5px;
+	background-color: $light-color;
+	border-radius: 5px;
+	margin: 6px 0;
+	transition: 0.4s;
+}
+
+// Rotate first bar
+.change .bar1 {
+	-webkit-transform: rotate(-45deg) translate(-9px, 7px) ;
+	transform: rotate(-45deg) translate(-9px, 7px) ;
+}
+
+// Fade out the second bar
+.change .bar2 {
+	opacity: 0;
+}
+
+// Rotate last bar
+.change .bar3 {
+	-webkit-transform: rotate(45deg) translate(-8px, -7px) ;
+	transform: rotate(45deg) translate(-8px, -7px) ;
+}
+
+/* Mobile nav */
+
+.mobile-nav{
+	background-color: $primary-color;
+	box-shadow: $box-shadow;
+	position: fixed;
+	display: none;
+	top: $header-height;
+	right: 0;
+	left: 0;
+	padding: $spacing-unit*2;
+
+	flex-flow: column;
+
+	z-index: 8;
+
+	transition: 0.5s transform;
+
+	transform: translate(-150%, 0);
+}
+
+.mobile-nav.open{
+	transform: translate(0, 0);
+}
+
+.mobile-nav > button{
+	text-align: start;
+	padding-left: 0;
+}
+
+.mobile-nav > button:hover{
+	text-decoration: underline;
+	color: $accent-color;
+	transform: none;
+	box-shadow: none;
+}
+
+.mobile-nav__profile{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+@media screen and (max-width: 1010px){
+	.header{
+		justify-content: space-between;
+	}
+
+	.header > .desktop-nav{
+		display: none;
+	}
+
+	.header > .hamburger-mobile {
+		display: inline-block;
+	}
+
+	.mobile-nav{
+		display: flex;
+	}
 }

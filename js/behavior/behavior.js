@@ -9,6 +9,7 @@ window.onFeatureAnalyticsClicked = buttons.goToFeatureAnalytics;
 window.onFeatureLiveOpsClicked = buttons.goToFeatureLiveOps;
 window.onPricingClicked = buttons.goToPricing;
 window.onDocsClicked = buttons.goToDocs;
+window.toggleMobileNav = buttons.toggleMobileNav;
 
 // Footer
 

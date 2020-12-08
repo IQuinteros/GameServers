@@ -131,8 +131,9 @@
 }
 @media screen and (max-width: 937px) {
   .features__image {
-    left: -25%;
-    width: 150%;
+    left: -40px;
+    width: calc(100% + 80px);
+    height: 80%;
     bottom: -50px;
     object-fit: cover;
   }
