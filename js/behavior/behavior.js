@@ -16,3 +16,10 @@ window.toggleMobileNav = buttons.toggleMobileNav;
 import * as footer from "./footer.js";
 
 window.onContactSent = footer.sendContactMessage;
+
+// Docs
+
+import * as docs from "./docs_feedback.js";
+
+window.rateDoc = docs.rateDoc;
+window.toggleAsideDoc = docs.toggleAsideDoc;

@@ -7,7 +7,7 @@ body{
 /* Docs layout */
 .docs-layout{
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: auto 1fr;
     min-height: $min-height;
     height: 100%;
 
@@ -20,11 +20,14 @@ body{
 
 .docs-aside{
     background-color: $primary-color;
+    box-shadow: 4px 0 4px rgba(0, 0, 0, .25);
     color: $light-color;
     padding: $spacing-unit*2;
 
     height: 100%;
     z-index: 0;
+
+    width: 300px;
 }
 
 .docs-aside > .logo-text{
@@ -104,6 +107,7 @@ body{
     width: fit-content;
 
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
 }
@@ -116,4 +120,62 @@ body{
 
 .docs__question__buttons > .btn > .far{
     font-size: 2rem;
+}
+
+.open-aside{
+    margin-bottom: $spacing-unit*3;
+    display: none;
+}
+
+.close-aside{
+    margin: $spacing-unit 0 $spacing-unit*2 0;
+    display: none;
+}
+
+.close-aside > .btn{
+    width: 100%;
+}
+
+.open-aside > .btn,
+.close-aside > .btn{ 
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+@media screen and (max-width: 800px){
+    .docs-aside{
+        transition: 0.5s width, 0.5s opacity;
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        position: fixed;
+        z-index: 1;
+        overflow: hidden;
+
+        opacity: 0;
+    }
+
+    .docs-aside.open{
+        width: 300px;
+        padding: $spacing-unit*2;
+        left: 0;
+
+        opacity: 1;
+    }
+
+    .open-aside{
+        display: block;
+    }
+
+    .close-aside{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .docs-main{    
+        padding: $spacing-unit $spacing-unit*3;
+        padding-top: $spacing-unit*2;
+    }
 }

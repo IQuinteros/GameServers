@@ -8,6 +8,7 @@
 
     max-width: $content-width;
     margin: 0 auto;
+    padding: $spacing-unit*4;
 }
 
 .pricing-card{
@@ -22,6 +23,7 @@
 
     padding: $spacing-unit * 3;
     margin: $spacing-unit;
+    margin-bottom: $spacing-unit*2;
 
     width: 310px;
     min-height: 470px;

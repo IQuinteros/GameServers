@@ -14,7 +14,14 @@
 
 ?>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <script src="/js/third-party/jquery.js"></script>
+<script src="/js/third-party/sweetalert2.all.min.js"></script>
+
+<!-- Icons -->
+<script src="https://kit.fontawesome.com/a12b0cdc6e.js" crossorigin="anonymous"></script> 
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -27,3 +34,4 @@
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/buttons.css">
 <link rel="stylesheet" href="/css/inputs.css">
+<link rel="stylesheet" href="/css/footer.css">

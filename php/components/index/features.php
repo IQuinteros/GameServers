@@ -2,7 +2,7 @@
     <div class="features">
         <h1>Features</h1>
         <h3>Descubre las características de nuestro servicio</h3>
-        <img class="features__image" src="assets/images/hearthstone.png" alt="">
+        <img class="features__image" src="/assets/images/hearthstone.png" alt="">
         <div class="features__buttons">
             <button class="btn--feature" onclick="onFeatureMultiplayerClicked()">
                 <i class="fas fa-gamepad btn__icon--feature"></i>
