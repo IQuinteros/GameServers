@@ -49,3 +49,34 @@
 .project__title{
     margin-left: $spacing-unit*3;
 }
+
+@media screen and (max-width: 930px){
+    .profile-main .input-zone{
+        grid-template-columns: 1fr;
+    }
+
+    .profile-main .input-zone > .input__empty{
+        grid-column: span 1;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .profile-main{
+        padding: 0;
+        padding-top: $spacing-unit*10;
+    }
+
+    .profile-main > h3{
+        margin-left: $spacing-unit*2;
+    }
+
+    .profile,
+    .project{
+        grid-template-columns: 1fr;
+    }
+
+    .profile > .btn,
+    .project > .btn{
+        grid-column: span 1;
+    }
+}

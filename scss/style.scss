@@ -214,13 +214,17 @@ main{
 	top: $header-height + ($spacing-unit / 2);
 	min-width: 180px;
 
-	transition: 0.2s opacity;
+	transition: 0.2s transform;
 
-	opacity: 0;
+	transform: translate(0, -150%);
+
+	z-index: 0;
 }
 
 .button__submenu.open{
-	opacity: 1;
+	display: flex;
+
+	transform: translate(0, 0);
 }
 
 .button__submenu.mobile{
@@ -229,11 +233,18 @@ main{
 	position: static;
 	width: 100%;
 	max-height: 0;
-	transition: 0.2s opacity, 0.2s max-height;
+	transition: 0.2s transform, 0.2s max-height;
+
+	transform: translate(0, -150%);
+
+	overflow: hidden;
 }
 
 .button__submenu.mobile.open{
+	display: flex;
 	max-height: fit-content;
+
+	transform: translate(0, 0);
 }
 
 /* Mobile nav */

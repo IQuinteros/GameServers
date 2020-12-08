@@ -18,7 +18,7 @@
 
         <button class="btn desktop-nav" onclick="onRegisterClicked()">Regístrate</button>
 
-        <button class="btn--profile desktop-nav"><i class="far fa-user-circle"></i></button>
+        <button class="btn--profile desktop-nav" onclick="onProfileClicked()"><i class="far fa-user-circle"></i></button>
 
         <div class="hamburger-mobile" onclick="toggleMobileNav(this)">
             <div class="bar1"></div>
@@ -44,6 +44,6 @@
     <div class="mobile-nav__profile">
         <button class="btn" onclick="onRegisterClicked()">Regístrate</button>
 
-        <button class="btn--profile"><i class="far fa-user-circle"></i></button>
+        <button class="btn--profile" onclick="onProfileClicked()"><i class="far fa-user-circle"></i></button>
     </div>
 </nav>

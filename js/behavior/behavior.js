@@ -11,6 +11,7 @@ window.onPricingClicked = buttons.goToPricing;
 window.onDocsClicked = buttons.goToDocs;
 window.toggleMobileNav = buttons.toggleMobileNav;
 window.toggleFeaturesNav = buttons.toggleFeaturesNav;
+window.onProfileClicked = buttons.goToProfile;
 
 // Footer
 

@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="./css/showcase.css">
     <link rel="stylesheet" href="./css/features.css">
 
-    <link rel="stylesheet" href="./css/intranet.css">
-    <link rel="stylesheet" href="./css/pricing.css">
-
 </head>
 <body>
 

@@ -32,6 +32,10 @@ export function goToDocs(){
     openSelfWindow(routes.ROUTE_DOCS);
 }
 
+export function goToProfile(){
+    openSelfWindow(routes.ROUTE_PROFILE);
+}
+
 export function toggleFeaturesNav(elem){
     const featureSubmenu = document.getElementById('feature-submenu');
     const featureSubmenuMobile = document.getElementById('feature-submenu-mobile');

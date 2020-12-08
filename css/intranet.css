@@ -5,7 +5,6 @@
 	2020
 
 */
-/* Server Status */
 .intranet-background {
   position: absolute;
   top: 0;
@@ -16,10 +15,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  width: 100%;
   opacity: 0.2;
   z-index: -5;
 }
 
+/* Server Status */
 .server-status {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   color: #f2f2f2;
@@ -41,16 +42,37 @@
   background-color: #f18f01;
 }
 
+/* Layout */
+.intranet-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 90px;
+}
+
+/* Aside */
+.intranet-aside {
+  background-color: #f2f2f2;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-flow: column;
+  width: 300px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
 /* Info */
 .info {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   justify-items: center;
-  margin: 10px;
-  padding: 10px;
-  max-width: 1280px;
-  margin: 0 auto;
+  grid-row: span 2;
 }
 
 .info__item,
@@ -72,6 +94,11 @@
   grid-column: span 2;
   height: auto;
   min-height: 90px;
+}
+
+.info__item > h1,
+.info__item > h2 {
+  text-align: center;
 }
 
 .info__item--graph > canvas {
@@ -106,6 +133,16 @@
 
 .toolbar__docs {
   font-size: 1.5rem;
+}
+
+@media screen and (max-width: 840px) {
+  .intranet-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .intranet-aside {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=intranet.css.map */

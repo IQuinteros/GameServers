@@ -1,7 +1,5 @@
 @import 'foundations/variables';
 
-/* Server Status */
-
 .intranet-background{
     position: absolute;
     top: 0;
@@ -13,10 +11,14 @@
     background-size: cover;
     background-position: center;
 
+    width: 100%;
+
     opacity: 0.2;
 
     z-index: -5;
 }
+
+/* Server Status */
 
 .server-status{
     box-shadow: $box-shadow;
@@ -41,6 +43,35 @@
     background-color: $inactive-color;
 }
 
+/* Layout */
+
+.intranet-layout{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    gap: $spacing-unit;
+
+    align-items: start;
+
+    max-width: $content-width;
+    margin: 0 auto;
+
+    padding: $spacing-unit*2;
+    padding-top: $header-height + $spacing-unit*3;
+}
+
+/* Aside */
+.intranet-aside{
+    background-color: $light-color;
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-flow: column;
+
+    width: 300px;
+    padding: $spacing-unit*2;
+    margin-top: $spacing-unit;
+}
+
 /* Info */
 
 .info{
@@ -49,11 +80,7 @@
     gap: $spacing-unit;
     justify-items: center;
 
-    margin: $spacing-unit;
-    padding: $spacing-unit;
-
-    max-width: $content-width;
-    margin: 0 auto;
+    grid-row: span 2;
 }
 
 .info__item,
@@ -77,6 +104,11 @@
     grid-column: span 2;
     height: auto;
     min-height: 90px;
+}
+
+.info__item > h1,
+.info__item > h2{
+    text-align: center;
 }
 
 .info__item--graph > canvas{
@@ -114,4 +146,14 @@
 
 .toolbar__docs{
     font-size: 1.5rem;
+}
+
+@media screen and (max-width: 840px){
+    .intranet-layout{
+        grid-template-columns: 1fr;
+    }
+
+    .intranet-aside{
+        width: 100%;
+    }
 }
