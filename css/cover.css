@@ -53,6 +53,7 @@
   position: absolute;
   bottom: 0;
   left: 35%;
+  z-index: 4;
 }
 
 .cover > .cover__img--back {
@@ -103,6 +104,84 @@
   height: 90%;
   left: 40%;
   object-fit: contain;
+}
+
+@media screen and (max-width: 1000px) {
+  .cover > .cover__img--center {
+    max-width: 35%;
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    z-index: 4;
+  }
+
+  .cover > .cover__img--back {
+    display: none;
+  }
+
+  .cover > .cover__img--right {
+    object-fit: cover;
+    max-width: 20%;
+    height: 90%;
+  }
+}
+@media screen and (max-width: 820px) {
+  .cover {
+    min-height: 550px;
+  }
+
+  .cover > .cover__img--center {
+    max-width: 35%;
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    z-index: 4;
+  }
+
+  .cover > .cover__img--right {
+    object-fit: contain;
+    max-width: 40%;
+    height: 100%;
+    right: 10%;
+  }
+
+  .cover > .cover__img--left {
+    display: none;
+  }
+
+  .cover > h1 {
+    width: 60%;
+  }
+
+  .cover__inner {
+    clip-path: none;
+    top: auto;
+    height: 80px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .cover {
+    min-height: 700px;
+  }
+
+  .cover > h1 {
+    width: 100%;
+  }
+
+  .cover > .cover__img--center {
+    max-width: 55%;
+    bottom: 160px;
+  }
+
+  .cover > .cover__img--right {
+    max-width: 50%;
+    height: 120%;
+    right: 0;
+  }
+
+  .cover__inner {
+    height: 160px;
+  }
 }
 
 /*# sourceMappingURL=cover.css.map */

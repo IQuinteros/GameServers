@@ -59,6 +59,19 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Form */
+form {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom classes */
+.normal-font-size {
+  font-size: 1.6rem;
+}
+
 /* GameServers text */
 .logo-text {
   font-family: "Audiowide", Arial, sans-serif;
@@ -84,6 +97,7 @@ body {
 
 main {
   padding-top: 70px;
+  min-height: calc(100vh - 315px);
 }
 
 /* Header */

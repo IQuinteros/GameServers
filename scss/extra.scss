@@ -35,3 +35,30 @@
     bottom: 0;
     left: 50%;
 }
+
+@media screen and (max-width: 670px){
+    .start-now{
+        padding-bottom: $spacing-unit*3;
+    }
+
+    .start-now__inner{
+        left: 0;
+        top: auto;
+        height: 20px;
+    }
+
+    .start-now > .btn{
+        min-width: 100px;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .start-now{
+        grid-template-columns: 1fr;
+        min-height: 180px;
+    }
+
+    .start-now > h1{
+        text-align: center;
+    }
+}

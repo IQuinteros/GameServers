@@ -99,4 +99,28 @@
   font-weight: 400;
 }
 
+@media screen and (max-width: 1210px) {
+  .features {
+    grid-template-columns: 1fr 1.8fr;
+  }
+
+  .features__image {
+    left: -50%;
+    width: auto;
+    height: 100%;
+  }
+}
+@media screen and (max-width: 970px) {
+  .features {
+    grid-template-columns: 1fr;
+    grid-template-areas: unset;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  .features > h1,
+.features > h3 {
+    grid-area: unset;
+  }
+}
+
 /*# sourceMappingURL=features.css.map */
