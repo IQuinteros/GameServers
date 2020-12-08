@@ -66,48 +66,6 @@
     bottom: 0;
 }
 
-/* Feature item */
-
-.feature__item{
-    color: $primary-color;
-    display: grid;
-    grid-template-columns: .4fr 1fr;
-    grid-template-rows: auto 1fr;
-    gap: $spacing-unit;
-    padding: $spacing-unit*4;
-
-    min-height: 300px;
-
-    max-width: $content-width;
-    margin: 0 auto;
-}
-
-.feature__item__title{
-    grid-column: span 2;
-}
-
-.feature__item__image{
-    border-radius: $card-border-radius;
-    box-shadow: $box-shadow;
-}
-
-.feature__item__content{
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-
-    padding-left: $spacing-unit*4;
-}
-
-.feature__item__content > h2{
-    font-weight: 500;
-}
-
-.feature__item__content > p{
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-
 @media screen and (max-width: 1220px){
     .features{
         grid-template-columns: 1fr 1.8fr;
@@ -148,5 +106,70 @@
         height: 80%;
         bottom: -50px;
         object-fit: cover;
+    }
+}
+
+/* Feature item */
+
+.feature__item{
+    color: $primary-color;
+    display: grid;
+    grid-template-columns: .4fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: $spacing-unit;
+    padding: $spacing-unit*4;
+
+    min-height: 300px;
+
+    max-width: $content-width;
+    margin: 0 auto;
+}
+
+.feature__item__title{
+    grid-column: span 2;
+    margin-bottom: $spacing-unit*2;
+}
+
+.feature__item__image{
+    border-radius: $card-border-radius;
+    box-shadow: $box-shadow;
+    height: 100%;
+}
+
+.feature__item__content{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+
+    padding-left: $spacing-unit*4;
+}
+
+.feature__item__content > h2{
+    font-weight: 500;
+    margin: $spacing-unit 0;
+}
+
+.feature__item__content > p{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 660px){
+    .feature__item{
+        grid-template-columns: 1fr;
+        padding: $spacing-unit*2;
+    }
+
+    .feature__item__title{
+        grid-column: span 1;
+    }
+
+    .feature__item__image{
+        height: 200px;
+        margin-bottom: $spacing-unit*2;
+    }
+
+    .feature__item__content{
+        padding: 0;
     }
 }

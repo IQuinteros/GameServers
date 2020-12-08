@@ -112,6 +112,13 @@
     object-fit: contain;
 }
 
+.cover.cover--feature > .cover__img--back{
+    max-width: none;
+    width: auto;
+    right: 0;
+    left: auto;
+}
+
 @media screen and (max-width: 1000px){
     .cover > .cover__img--center{
         max-width: 35%;
@@ -136,6 +143,10 @@
     .cover.cover--pricing > .cover__img--center{
         left: auto;
         right: 0;
+    }
+
+    .cover.cover--feature > .cover__img--back{
+        display: block;
     }
 
 }
@@ -179,6 +190,14 @@
 
     .cover.cover--pricing > .cover__img--center{
         height: 70%;
+    }
+
+    .cover.cover--feature > .cover__img--back{
+        height: 60%;
+        bottom: 0;
+        top: auto;
+        left: auto;
+        right: 0;
     }
 }
 
@@ -227,6 +246,14 @@
 
     .cover.cover--pricing > span{
         width: 100%;
+    }
+
+    .cover.cover--feature > .cover__img--back{
+        height: 60%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        bottom: $spacing-unit*-4;
     }
 }
 

@@ -10,6 +10,7 @@ window.onFeatureLiveOpsClicked = buttons.goToFeatureLiveOps;
 window.onPricingClicked = buttons.goToPricing;
 window.onDocsClicked = buttons.goToDocs;
 window.toggleMobileNav = buttons.toggleMobileNav;
+window.toggleFeaturesNav = buttons.toggleFeaturesNav;
 
 // Footer
 

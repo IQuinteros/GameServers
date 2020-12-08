@@ -32,6 +32,25 @@ export function goToDocs(){
     openSelfWindow(routes.ROUTE_DOCS);
 }
 
+export function toggleFeaturesNav(elem){
+    const featureSubmenu = document.getElementById('feature-submenu');
+    const featureSubmenuMobile = document.getElementById('feature-submenu-mobile');
+
+    featureSubmenu.classList.toggle('open');
+    featureSubmenuMobile.classList.toggle('open');
+
+    const buttonIcon = elem.children[1];
+
+    if(featureSubmenu.classList.contains('open')){
+        buttonIcon.classList.add('fa-caret-up');
+        buttonIcon.classList.remove('fa-caret-down');
+    }
+    else{
+        buttonIcon.classList.remove('fa-caret-up');
+        buttonIcon.classList.add('fa-caret-down');
+    }
+}
+
 export function toggleMobileNav(elem){
     elem.classList.toggle('change');
 
