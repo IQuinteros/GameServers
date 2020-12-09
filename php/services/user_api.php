@@ -189,10 +189,9 @@ class UserAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
-            'name=:name, email=:email, image=:image, membersNum=:membersNum, contactNum=:contactNum, location=:location WHERE id=:id', array(
+            'name=:name, image=:image, membersNum=:membersNum, contactNum=:contactNum, location=:location WHERE id=:id', array(
                 new QueryParam(':id', $user->id, PDO::PARAM_INT),
                 new QueryParam(':name', $user->name),
-                new QueryParam(':email', $user->email),
                 new QueryParam(':image', $user->image),
                 new QueryParam(':membersNum', $user->membersNum, PDO::PARAM_INT),
                 new QueryParam(':contactNum', $user->contactNum, PDO::PARAM_INT),

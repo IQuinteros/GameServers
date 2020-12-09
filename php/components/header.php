@@ -22,7 +22,7 @@
         if(Token::checkToken()){
         ?>
 
-        <a href="#" class="header__project"><h3>Ir a mi proyecto</h3></a>
+        <a href="#" onclick="onProjectClicked()" class="header__project"><h3>Ir a mi proyecto</h3></a>
 
         <?php } else{?>
 
@@ -60,7 +60,7 @@
         if(Token::checkToken()){
         ?>
 
-        <a href="#" class="header__project"><h3>Ir a mi proyecto</h3></a>
+        <a href="#" onclick="onProjectClicked()" class="header__project"><h3>Ir a mi proyecto</h3></a>
 
         <?php } else{?>
 

@@ -53,4 +53,12 @@ textarea {
   resize: none;
 }
 
+.input > input:disabled {
+  background: #f2f2f2;
+}
+
+.input.disabled {
+  box-shadow: none;
+}
+
 /*# sourceMappingURL=inputs.css.map */

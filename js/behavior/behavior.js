@@ -13,6 +13,7 @@ window.toggleMobileNav = buttons.toggleMobileNav;
 window.toggleFeaturesNav = buttons.toggleFeaturesNav;
 window.onProfileClicked = buttons.goToProfile;
 window.closeSession = buttons.closeSession;
+window.onProjectClicked = buttons.goToProject;
 
 // Footer
 
@@ -29,7 +30,8 @@ window.toggleAsideDoc = docs.toggleAsideDoc;
 
 // Register
 
-import * as register from "./register.js";
+import * as profile from "./profile.js";
 
-window.onRegisterSubmit = register.onRegisterSubmit;
-window.onLoginSubmit = register.onLoginSubmit;
+window.onRegisterSubmit = profile.onRegisterSubmit;
+window.onLoginSubmit = profile.onLoginSubmit;
+window.onProfileSubmit = profile.onProfileSubmit;

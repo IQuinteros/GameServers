@@ -60,6 +60,8 @@ class Login{
     public static function getCurrentUser(){
         if(!Token::checkToken()){ return null; }
 
+        SessionManager::startSession();
+
         $email = $_SESSION['email'];
 
         $user = UserRepository::getUserByEmail($email);

@@ -11,43 +11,47 @@
     <img class="profile__img" src="/assets/images/csgo.jpg" alt="">
     <h1 class="profile__username"><?= $user->name ?></h1>
     <hr>
-    <div class="profile">
-        <div class="input-zone">
-            <label for="email">Nombre de usuario: </label>
-            <div class="input">
-                <input id="username" name="username" type="text" placeholder="Nombres" value="<?= $user->name ?>">
-            </div>
-            <label for="message">Número de contacto: </label>
-            <div class="input">
-                <input id="contact" name="contact" type="number" placeholder="912345678" value="<?= $user->contactNum ?>">
-            </div>
-            <label for="message">Miembros de equipo: </label>
-            <div class="input">
-                <input id="team" name="team" type="number" placeholder="999" value="<?= $user->membersNum ?>">
-            </div>
-            <label for="message">Contraseña: </label>
-            <div class="input">
-                <input id="pass" name="pass" type="password" placeholder="Seguridad">
-            </div>
+    <form id="profile" method="post" onsubmit="return onProfileSubmit(this, event)" enctype="multipart/form-data">
+        <div class="profile">
+                <div class="input-zone">
+                    <label for="username">Nombre de usuario: </label>
+                    <div class="input">
+                        <input id="name" name="name" type="text" placeholder="Nombres" value="<?= $user->name ?>" required>
+                    </div>
+                    <label for="contact">Número de contacto: </label>
+                    <div class="input">
+                        <input id="contactNum" name="contactNum" type="number" placeholder="912345678" value="<?= $user->contactNum ?>" required>
+                    </div>
+                    <label for="team">Miembros de equipo: </label>
+                    <div class="input">
+                        <input id="membersNum" name="membersNum" type="number" placeholder="999" value="<?= $user->membersNum ?>" required>
+                    </div>
+                    <label for="pass">Contraseña: </label>
+                    <div class="input">
+                        <input id="pass" name="pass" type="password" placeholder="Seguridad">
+                    </div>
+                </div>
+                <div class="input-zone">
+                    <label for="email">Email: </label>
+                    <div class="input disabled">
+                        <input id="email" name="email" type="email" placeholder="email@ejemplo.com" value="<?= $user->email ?>" disabled>
+                    </div>
+                    <label for="location">Ubicación: </label>
+                    <div class="input">
+                        <input id="location" name="location" type="text" placeholder="Calle, Población, Distrito, Ciudad, País" value="<?= $user->location ?>" required>
+                    </div>
+                    <label for="image">Nueva imagen: </label>
+                    <div class="input">
+                        <input id="image" name="image" type="file" accept="image/x-png,image/gif,image/jpeg">
+                    </div>
+                    <label for="repass">Repetir contraseña: </label>
+                    <div class="input">
+                        <input id="repass" name="repass" type="password" placeholder="Repetir">
+                    </div>
+                </div>
+            <button class="btn" type="submit" form="profile">Guardar datos</button>
         </div>
-        <div class="input-zone">
-            <label for="email">Email: </label>
-            <div class="input">
-                <input id="email" name="email" type="email" placeholder="email@ejemplo.com" value="<?= $user->email ?>">
-            </div>
-            <label for="message">Ubicación: </label>
-            <div class="input">
-                <input id="location" name="location" type="text" placeholder="Calle, Población, Distrito, Ciudad, País" value="<?= $user->location ?>">
-            </div>
-            <div class="input__empty"></div>
-            <label for="message">Repetir contraseña: </label>
-            <div class="input">
-                <input id="repass" name="repass" type="password" placeholder="Repetir">
-            </div>
-        </div>
-
-        <button class="btn">Guardar datos</button>
-    </div>
+    </form>
     <h3 class="project__title">Mi proyecto</h3>
     <div class="project">
         <div class="input-zone">

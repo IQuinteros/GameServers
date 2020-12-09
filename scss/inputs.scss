@@ -52,3 +52,10 @@ textarea{
     resize: none;
 }
 
+.input > input:disabled{
+    background: $light-color;
+}
+
+.input.disabled{
+    box-shadow: none;
+}
