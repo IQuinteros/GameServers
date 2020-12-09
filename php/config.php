@@ -36,3 +36,4 @@ define('ROUTE_REGISTER', '/signup');
 define('ROUTE_LOGIN', '/login');
 define('ROUTE_PROFILE', '/profile');
 define('ROUTE_PROJECT', '/project');
+define('ROUTE_NEW_PROJECT', '/project/register.php');

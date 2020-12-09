@@ -229,8 +229,18 @@ class UserAPI extends BaseAPI {
      * Delete user - Use carefully
      * 
      * @var User $user User to delete
+     * @var string $pass Password (for security)
+     * @var bool $force Force deletion (true -> Ignore password)
      */
-    public function deleteUser(User $user){
+    public function deleteUser(User $user, string $pass, bool $force = false){
+        if(!$force){
+
+            $toDeleteUser = $this->getUserByEmailAndPassword($user->email, $pass);
+
+            if($toDeleteUser == null){ return false; }
+
+        }
+
         $this->open();
 
         $result = $this->query('DELETE FROM '.$this->TABLE_NAME.' WHERE id=:id', array(

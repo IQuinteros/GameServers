@@ -1,8 +1,17 @@
 <?php
     require_once('../php/utils/token.php');
+    require_once __DIR__.('/../php/repositories/project_repository.php');
     require_once __DIR__.('/../php/config.php');
 
     Token::checkOrGoToken(ROUTE_LOGIN);
+
+    $currentUser = Login::getCurrentUser();
+
+    $projects = ProjectRepository::getProjectsByUserId($currentUser->id);
+
+    if(count($projects) > 1){
+        header('Location:'.ROUTE_PROJECT);
+    }
 ?>
 
 <!DOCTYPE html>

@@ -71,6 +71,12 @@ button:hover{
     opacity: 80%;
 }
 
+/* Red button */
+.btn.btn--cancel.btn--red{
+    background-color: $red-color;
+    color: $light-color;
+}
+
 /* Profile button */
 .btn--profile{
     background-color: transparent;

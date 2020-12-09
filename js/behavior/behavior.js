@@ -35,3 +35,10 @@ import * as profile from "./profile.js";
 window.onRegisterSubmit = profile.onRegisterSubmit;
 window.onLoginSubmit = profile.onLoginSubmit;
 window.onProfileSubmit = profile.onProfileSubmit;
+window.deleteAccount = profile.deleteAccount;
+
+// Project
+
+import * as project from "./project.js";
+
+window.onNewProjectSubmit = project.onNewProjectSubmit;

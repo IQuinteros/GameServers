@@ -61,6 +61,52 @@ class ProjectAPI extends BaseAPI {
     }
 
     /**
+     * Get project by user id
+     * @var int $userId The user id of the expected project
+     */
+    public function getProjectsByUserId(int $userId){
+        $this->open();
+
+        $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE userID=:userID', array(
+            new QueryParam(':userID', $userId, PDO::PARAM_INT),
+        ));
+
+        // Close connection
+        $this->close();
+
+        // Check if is found
+        if($result->rowCount() > 0){
+
+            $projects = array();
+
+            // Check result
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $foundProject = new Project(
+                    $row->id,
+                    $row->userID,
+                    $row->name,
+                    $row->planID,
+                    $row->estimatedPlayers,
+                    $row->teamQuantity,
+                    $row->region,
+                    $row->registerDate,
+                    new ProjectStatus($row->status)
+                );
+
+                array_push($projects, $foundProject);
+            }
+
+            return $projects;
+
+        }
+        else{
+            // It isn't found so return false
+            return array();
+        }
+
+    }
+
+    /**
      * Search project by:
      * - User
      * - Projects
@@ -122,11 +168,10 @@ class ProjectAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('INSERT INTO '.$this->TABLE_NAME.' VALUES ('.
-            'NULL,:userID,:name,:planID,:image,:estimatedPlayers,:teamQuantity,:region,:registerDate,:status)', array(
+            'NULL,:userID,:name,:planID,:estimatedPlayers,:teamQuantity,:region,:registerDate,:status)', array(
                 new QueryParam(':userID', $project->userID, PDO::PARAM_INT),
                 new QueryParam(':name', $project->name),
                 new QueryParam(':planID', $project->planID, PDO::PARAM_INT),
-                new QueryParam(':image', $project->image),
                 new QueryParam(':estimatedPlayers', $project->estimatedPlayers, PDO::PARAM_INT),
                 new QueryParam(':teamQuantity', $project->teamQuantity, PDO::PARAM_INT),
                 new QueryParam(':region', $project->region),
@@ -149,11 +194,10 @@ class ProjectAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
-            'userID=:userID,name=:name,planID=:planID,image=:image,estimatedPlayers=:estimatedPlayers,teamQuantity=:teamQuantity,region=:region,status=:status', array(
+            'userID=:userID,name=:name,planID=:planID,estimatedPlayers=:estimatedPlayers,teamQuantity=:teamQuantity,region=:region,status=:status', array(
                 new QueryParam(':userID', $project->userID, PDO::PARAM_INT),
                 new QueryParam(':name', $project->name),
                 new QueryParam(':planID', $project->planID, PDO::PARAM_INT),
-                new QueryParam(':image', $project->image),
                 new QueryParam(':estimatedPlayers', $project->estimatedPlayers, PDO::PARAM_INT),
                 new QueryParam(':teamQuantity', $project->teamQuantity, PDO::PARAM_INT),
                 new QueryParam(':region', $project->region),

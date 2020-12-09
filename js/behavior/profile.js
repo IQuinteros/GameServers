@@ -123,3 +123,66 @@ export function onProfileSubmit(form, event){
 
     return false;
 }
+
+export async function deleteAccount(form, event){
+    const { value: password } = await Swal.fire({
+        icon: 'warning',
+        title: 'Eliminar cuenta',
+        text: 'Estás a un paso de eliminar tu cuenta. Esto no se puede deshacer. Escribe tu contraseña abajo para eliminar la cuenta.',
+        input: 'password',
+        inputValidator: (value) => {
+            if (!value) {
+              return 'Necesitas escribir la contraseña'
+            }
+        },
+        showCancelButton: true,
+        confirmButtonText: `Eliminar cuenta`,
+        confirmButtonColor: '#C92020',
+        customClass: {
+            popup: 'normal-font-size'
+        }
+    });
+
+    if(password){
+        $.ajax({
+            url: "/php/responses/user/delete_user_resp.php",
+            type: "post",
+            data: `pass=${password}`,
+            beforeSend : function(){
+                loading.showLoading('Eliminando cuenta');
+            },
+            success: function(data){
+                if(data.result){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Cuenta eliminada exitósamente',
+                        willClose: () => {
+                            onHomeClicked();
+                        },
+                        
+                        customClass: {
+                            popup: 'normal-font-size'
+                        }
+                    });
+                }
+                else{
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Hubo un problema',
+                        text: data.Error,
+                        willClose: () => {
+                            deleteAccount();
+                        },
+                        
+                        customClass: {
+                            popup: 'normal-font-size'
+                        }
+                    });
+                }
+            },
+            error: function(e) {
+                error.showNetError(e);
+            }          
+        });
+    }
+}

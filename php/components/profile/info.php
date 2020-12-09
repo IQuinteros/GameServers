@@ -76,4 +76,6 @@
     </div>
 
     <button class="btn btn--cancel" onclick="closeSession()">Cerrar sesión</button>
+
+    <button class="btn btn--cancel btn--red" onclick="deleteAccount()">Eliminar cuenta</button>
 </main>

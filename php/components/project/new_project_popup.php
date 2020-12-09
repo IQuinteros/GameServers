@@ -6,7 +6,7 @@
             <h1>Nuevo Proyecto</h1>
             <h3>Comienza a usar nuestros servidores y llevar tu videojuego a lo máximo</h3>
 
-            <form id="newproject" method="post" onsubmit="return onRegisterSubmit(this, event)" enctype="multipart/form-data">
+            <form id="newproject" method="post" onsubmit="return onNewProjectSubmit(this, event)" enctype="multipart/form-data">
                 <div class="input-zone">
                     <label for="name">Nombre: </label>
                     <div class="input">
@@ -15,34 +15,34 @@
                     <label for="sel-plan">Plan: </label>
                     <div class="input">
                         <select name="plan" id="sel-plan">
-                            <option value="0">Gratis</option>
-                            <option value="1">Estándar</option>
-                            <option value="2">Premium</option>
-                            <option value="3">Empresa</option>
+                            <option value="1">Gratis</option>
+                            <option value="2">Estándar</option>
+                            <option value="3">Premium</option>
+                            <option value="4">Empresa</option>
                         </select>
                     </div>
-                    <label for="pass">Jugadores estimados: </label>
+                    <label for="players">Jugadores estimados: </label>
                     <div class="input">
-                        <input id="pass" name="pass" type="password" placeholder="" required>
+                        <input id="players" name="players" type="number" placeholder="" required>
                     </div>
-                    <label for="repass">Cantidad del equipo: </label>
+                    <label for="team">Cantidad del equipo: </label>
                     <div class="input">
-                        <input id="repass" name="repass" type="password" placeholder="" required>
+                        <input id="team" name="team" type="number" placeholder="" required>
                     </div>
-                    <label for="region">Región: </label>
+                    <label for="sel-region">Región: </label>
                     <div class="input">
                         <select name="region" id="sel-region">
-                            <option value="0">America del norte</option>
-                            <option value="0">Latinoamérica</option>
-                            <option value="1">Europa</option>
-                            <option value="2">Asia</option>
+                            <option value="America del Norte">America del Norte</option>
+                            <option value="Latinoamerica">Latinoamerica</option>
+                            <option value="Europa">Europa</option>
+                            <option value="Asia">Asia</option>
                         </select>
                     </div>
                 </div>
             </form>
         
             <div class="popup__content__buttons">
-                <button class="btn" type="submit" form="register">Aceptar</button>
+                <button class="btn" type="submit" form="newproject">Aceptar</button>
             </div>
 
             <a href="/pricing">¿Qué plan escoger?</a>

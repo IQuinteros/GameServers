@@ -29,6 +29,11 @@ class ProjectRepository {
         return ProjectRepository::$project_api->getProjectById($id);
     }
 
+    public static function getProjectsByUserId(int $userId){
+        ProjectRepository::init();
+        return ProjectRepository::$project_api->getProjectsByUserId($userId);
+    }
+
     public static function getProjectsBySearch(string $toSearch){
         ProjectRepository::init();
         return ProjectRepository::$project_api->getProjectsBySearch($toSearch);

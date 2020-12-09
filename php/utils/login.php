@@ -57,7 +57,7 @@ class Login{
     /**
      * Get current user of session
      */
-    public static function getCurrentUser(){
+    public static function getCurrentUser(bool $obligatory = true){
         if(!Token::checkToken()){ return null; }
 
         SessionManager::startSession();
@@ -66,9 +66,10 @@ class Login{
 
         $user = UserRepository::getUserByEmail($email);
 
-        if($user == null){
+        if($user == null && $obligatory){
             Login::closeSession();
             header('location:'.ROUTE_LOGIN);
+            exit();
         }
 
         return $user;
@@ -80,7 +81,7 @@ class Login{
      */
     public static function closeSession(){
         $nameToken = Token::getTokenName(); 
-
+        
         setCookie($nameToken, '', time()-1, '/');
         SessionManager::destroySession();
     }

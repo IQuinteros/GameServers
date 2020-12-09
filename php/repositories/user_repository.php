@@ -54,9 +54,9 @@ class UserRepository {
         return UserRepository::$user_api->updatePassword($user, $newPassword);
     }
 
-    public static function deleteUser(User $user){
+    public static function deleteUser(User $user, string $pass, bool $force = false){
         UserRepository::init();
-        return UserRepository::$user_api->deleteUser($user);
+        return UserRepository::$user_api->deleteUser($user, $pass, $force);
     }
 
 }

@@ -32,6 +32,7 @@ class Token{
 		if(!isset($_COOKIE[$tokenName])){
 			return false;
 		}
+
 		if($_SESSION[$tokenName]!=$_COOKIE[$tokenName])
 		{
 			return false;
@@ -56,6 +57,6 @@ class Token{
      * Generate the token name to set
      */
     public static function getTokenName(){
-        return 'aatiqgserv';   // Current day
+        return 'aatiqgservgservers';   // Current day
     }
 }
