@@ -41,10 +41,10 @@ class Token{
 	}
 
 	/* Check token and go to url if token checking is false */
-	public static function checkOrGoToken(string $url){
+	public static function checkOrGoToken(string $url, bool $inverse = false){
 		$response = Token::checkToken();
 
-		if(!$response){
+		if($inverse? $response : !$response){
 			header('location:'.$url);
 			exit();
 		}

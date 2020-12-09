@@ -1,4 +1,6 @@
 import routes from '../routes.js';
+import * as error from '../foundations/error.js';
+import * as loading from '../foundations/loading.js';
 
 function openSelfWindow(url){
     window.open(url, '_self');
@@ -8,8 +10,12 @@ export function goToHome(){
     openSelfWindow(routes.ROUTE_INDEX);
 }
 
-export function goToRegister(){
-    openSelfWindow(routes.ROUTE_REGISTER);
+export function goToRegister(goToPricing = false){
+    if(goToPricing){
+        openSelfWindow(routes.ROUTE_PRICING);
+    }else{
+        openSelfWindow(routes.ROUTE_REGISTER);
+    }
 }
 
 export function goToFeatureMultiplayer(){
@@ -34,6 +40,36 @@ export function goToDocs(){
 
 export function goToProfile(){
     openSelfWindow(routes.ROUTE_PROFILE);
+}
+
+export function closeSession(){
+    Swal.fire({
+        title: 'Cerrar sesión',
+        text: 'Estás a un paso de cerrar sesión',
+        showCancelButton: true,
+        confirmButtonText: `Cerrar sesión`,
+        customClass: {
+            popup: 'normal-font-size'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            $.ajax({
+                url: "/php/responses/user/close_session_resp.php",
+                type: "post",
+                data:  '',
+                beforeSend : function(){
+                    loading.showLoading('Cerrando sesión');
+                },
+                success: function(data){
+                    onHomeClicked();
+                },
+                error: function(e) {
+                    error.showNetError(e);
+                }          
+            });
+        }
+    })
 }
 
 export function toggleFeaturesNav(elem){

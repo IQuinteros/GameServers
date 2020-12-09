@@ -12,6 +12,7 @@ window.onDocsClicked = buttons.goToDocs;
 window.toggleMobileNav = buttons.toggleMobileNav;
 window.toggleFeaturesNav = buttons.toggleFeaturesNav;
 window.onProfileClicked = buttons.goToProfile;
+window.closeSession = buttons.closeSession;
 
 // Footer
 
@@ -31,3 +32,4 @@ window.toggleAsideDoc = docs.toggleAsideDoc;
 import * as register from "./register.js";
 
 window.onRegisterSubmit = register.onRegisterSubmit;
+window.onLoginSubmit = register.onLoginSubmit;

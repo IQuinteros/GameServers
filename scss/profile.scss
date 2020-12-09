@@ -50,6 +50,12 @@
     margin-left: $spacing-unit*3;
 }
 
+.profile-main > .btn--cancel{
+    max-width: 300px;
+    align-self: center;
+    margin-top: $spacing-unit*2;
+}
+
 @media screen and (max-width: 930px){
     .profile-main .input-zone{
         grid-template-columns: 1fr;

@@ -150,6 +150,23 @@ main {
   margin-left: 10px;
 }
 
+.header > .header__project,
+.mobile-nav__profile > .header__project {
+  color: #f2f2f2;
+  transition: 0.5s color;
+}
+
+.header > .header__project:hover,
+.mobile-nav__profile > .header__project:hover {
+  color: #ffbe0b;
+}
+
+.mobile-nav__profile > .header__project {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
 .mobile-nav > button > .fas {
   margin-left: 10px;
 }
@@ -278,6 +295,10 @@ main {
 
   .header > .hamburger-mobile {
     display: inline-block;
+  }
+
+  .header > .header__project {
+    display: none;
   }
 
   .mobile-nav {

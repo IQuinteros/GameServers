@@ -1,3 +1,10 @@
+<?php
+    require_once('../php/utils/token.php');
+    require_once __DIR__.('/../php/config.php');
+
+    Token::checkOrGoToken(ROUTE_PROFILE, true);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

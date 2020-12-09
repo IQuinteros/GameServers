@@ -17,12 +17,12 @@
         </nav>
 
         <?php 
-            require_once __DIR__.('/../utils/token.php');
+        require_once __DIR__.('/../utils/token.php');
 
-            if(Token::checkToken()){
+        if(Token::checkToken()){
         ?>
 
-        <h2>Mi perfil</h2>
+        <a href="#" class="header__project"><h3>Ir a mi proyecto</h3></a>
 
         <?php } else{?>
 
@@ -54,7 +54,19 @@
     <button onclick="onDocsClicked()">Documentación</button>
 
     <div class="mobile-nav__profile">
+        <?php 
+        require_once __DIR__.('/../utils/token.php');
+
+        if(Token::checkToken()){
+        ?>
+
+        <a href="#" class="header__project"><h3>Ir a mi proyecto</h3></a>
+
+        <?php } else{?>
+
         <button class="btn" onclick="onRegisterClicked()">Regístrate</button>
+
+        <?php }?>
 
         <button class="btn--profile" onclick="onProfileClicked()"><i class="far fa-user-circle"></i></button>
     </div>

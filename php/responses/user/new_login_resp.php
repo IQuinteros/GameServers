@@ -2,9 +2,10 @@
 
 require_once __DIR__.('/../base_resp.php');
 require_once __DIR__.('/../../utils/login.php');
-require_once('get_user_resp.php');
 
-if(checkRequestData(array($_REQUEST['email'], $_REQUEST['pass']))){
+
+
+if(checkRequestData(array('email', 'pass'))){
     $email = $_REQUEST['email'];
     $pass = $_REQUEST['pass'];
 

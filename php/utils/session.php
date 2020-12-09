@@ -22,7 +22,9 @@ class SessionManager{
      * Destroy Session
      */
     public static function destroySession(){
-        session_destroy();
+        if (session_status() == PHP_SESSION_ACTIVE) {
+            session_destroy();
+        }   
     }
 
     /**

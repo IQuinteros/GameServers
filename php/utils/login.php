@@ -10,6 +10,8 @@
 require_once('token.php');
 require_once('session.php');
 require_once('cookies.php');
+require_once __DIR__.('/../config.php');
+require_once __DIR__.('/../repositories/user_repository.php');
 
 class Login{
 
@@ -23,7 +25,7 @@ class Login{
         $user = UserRepository::getUserByEmailAndPassword($email, $pass);
 
         if($user == false || $user == null){ 
-            $result = formatError('No se ha encontrado al usuario');
+            $result = array('error' => 'Usuario no encontrado');
             setCookie($nameToken, '', time()-1, '/');
             SessionManager::destroySession();
         }
@@ -50,6 +52,35 @@ class Login{
         }
 
         return $result;
+    }
+
+    /**
+     * Get current user of session
+     */
+    public static function getCurrentUser(){
+        if(!Token::checkToken()){ return null; }
+
+        $email = $_SESSION['email'];
+
+        $user = UserRepository::getUserByEmail($email);
+
+        if($user == null){
+            Login::closeSession();
+            header('location:'.ROUTE_LOGIN);
+        }
+
+        return $user;
+    }
+
+
+    /**
+     * Close session if exists
+     */
+    public static function closeSession(){
+        $nameToken = Token::getTokenName(); 
+
+        setCookie($nameToken, '', time()-1, '/');
+        SessionManager::destroySession();
     }
 
 }

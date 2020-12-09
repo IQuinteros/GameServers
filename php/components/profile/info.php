@@ -1,21 +1,29 @@
+<?php
+
+    require_once __DIR__.('/../../utils/login.php');
+
+    $user = Login::getCurrentUser();
+
+?>
+
 <main class="profile-main">
     <h3>Mi perfil</h3>
     <img class="profile__img" src="/assets/images/csgo.jpg" alt="">
-    <h1 class="profile__username">Nombre de usuario</h1>
+    <h1 class="profile__username"><?= $user->name ?></h1>
     <hr>
     <div class="profile">
         <div class="input-zone">
             <label for="email">Nombre de usuario: </label>
             <div class="input">
-                <input id="username" name="username" type="text" placeholder="Nombres">
+                <input id="username" name="username" type="text" placeholder="Nombres" value="<?= $user->name ?>">
             </div>
             <label for="message">Número de contacto: </label>
             <div class="input">
-                <input id="contact" name="contact" type="number" placeholder="912345678">
+                <input id="contact" name="contact" type="number" placeholder="912345678" value="<?= $user->contactNum ?>">
             </div>
             <label for="message">Miembros de equipo: </label>
             <div class="input">
-                <input id="team" name="team" type="number" placeholder="999">
+                <input id="team" name="team" type="number" placeholder="999" value="<?= $user->membersNum ?>">
             </div>
             <label for="message">Contraseña: </label>
             <div class="input">
@@ -25,11 +33,11 @@
         <div class="input-zone">
             <label for="email">Email: </label>
             <div class="input">
-                <input id="email" name="email" type="email" placeholder="email@ejemplo.com">
+                <input id="email" name="email" type="email" placeholder="email@ejemplo.com" value="<?= $user->email ?>">
             </div>
             <label for="message">Ubicación: </label>
             <div class="input">
-                <input id="location" name="location" type="text" placeholder="Calle, Población, Distrito, Ciudad, País">
+                <input id="location" name="location" type="text" placeholder="Calle, Población, Distrito, Ciudad, País" value="<?= $user->location ?>">
             </div>
             <div class="input__empty"></div>
             <label for="message">Repetir contraseña: </label>
@@ -62,4 +70,6 @@
 
         <button class="btn">Guardar datos</button>
     </div>
+
+    <button class="btn btn--cancel" onclick="closeSession()">Cerrar sesión</button>
 </main>

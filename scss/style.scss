@@ -155,6 +155,23 @@ main{
 	margin-left: $spacing-unit;
 }
 
+.header > .header__project,
+.mobile-nav__profile > .header__project{
+	color: $light-color;
+	transition: .5s color;
+}
+
+.header > .header__project:hover,
+.mobile-nav__profile > .header__project:hover{
+	color: $accent-color;
+}
+
+.mobile-nav__profile > .header__project{
+	display: flex;
+	align-items: center;
+	margin-left: $spacing-unit;
+}
+
 .mobile-nav > button > .fas{
 	margin-left: $spacing-unit;
 }
@@ -301,6 +318,10 @@ main{
 
 	.header > .hamburger-mobile {
 		display: inline-block;
+	}
+
+	.header > .header__project{
+		display: none;
 	}
 
 	.mobile-nav{

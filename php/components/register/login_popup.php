@@ -5,18 +5,21 @@
         <div class="popup__content">
             <h1>Inicia sesión</h1>
 
-            <div class="input-zone">
-                <label for="name">Email: </label>
-                <div class="input">
-                    <input id="name" name="name" type="text" placeholder="">
+            <form id="login" method="post" onsubmit="return onLoginSubmit(this, event)" enctype="multipart/form-data">
+                <div class="input-zone">
+                    <label for="email">Email: </label>
+                    <div class="input">
+                        <input id="email" name="email" type="email" placeholder="" required>
+                    </div>
+                    <label for="pass">Contraseña: </label>
+                    <div class="input">
+                        <input id="pass" name="pass" type="password" placeholder="" required>
+                    </div>
                 </div>
-                <label for="pass">Contraseña: </label>
-                <div class="input">
-                    <input id="pass" name="pass" type="password" placeholder="">
-                </div>
-            </div>
+            </form>
+            
             <div class="popup__content__buttons">
-                <button class="btn">Aceptar</button>
+                <button class="btn" type="submit" form="login">Aceptar</button>
             </div>
             <a href="/signup">¿No tienes cuenta? ¡Regístrate ya!</a>
         </div>

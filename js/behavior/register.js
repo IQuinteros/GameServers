@@ -1,41 +1,20 @@
+import * as error from '../foundations/error.js';
+import * as loading from '../foundations/loading.js';
+
 function registerAjax(form, event){
     
-    console.log($('#register').serialize());
-
-
     $.ajax({
         url: "/php/responses/user/add_user_resp.php",
         type: "post",
         data:  $('#register').serialize(),
         beforeSend : function(){
-            Swal.fire({
-                title: 'Enviando solicitud',
-                timerProgressBar: true,
-                allowOutsideClick: false,
-                willOpen: () => {
-                    Swal.showLoading()
-                },
-                showConfirmButton: false,
-                
-                customClass: {
-                    popup: 'normal-font-size'
-                }
-            });
+            loading.showLoading('Enviando solicitud');
         },
         success: function(data){
             onHomeClicked();
         },
         error: function(e) {
-            console.error(e);
-            Swal.fire({
-                icon: 'error',
-                title: 'Ha ocurrido un error',
-                text: 'Verifique la conexión e intente nuevamente',
-                
-                customClass: {
-                    popup: 'normal-font-size'
-                }
-            });
+            error.showNetError(e);
         }          
     });
 
@@ -53,4 +32,45 @@ export function onRegisterSubmit(form, event){
     }    
 
     return false;
+}
+
+function loginSubmit(form, event){
+    $.ajax({
+        url: "/php/responses/user/new_login_resp.php",
+        type: "post",
+        data:  $('#login').serialize(),
+        beforeSend : function(){
+            loading.showLoading('Iniciando sesión');
+        },
+        success: function(data){
+            console.log(data);
+            if(data.email){
+                onHomeClicked();
+            }
+            else{
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'No se ha podido iniciar sesión',
+                    text: 'El email y/o la contraseña son incorrectas. Intente nuevamente',
+                    
+                    customClass: {
+                        popup: 'normal-font-size'
+                    }
+                });
+            }
+        },
+        error: function(e) {
+            error.showNetError(e);
+        }          
+    });
+}
+
+export function onLoginSubmit(form, event){
+
+    event.preventDefault();
+    
+    loginSubmit(form, event);
+
+    return false;
+
 }

@@ -53,6 +53,12 @@
   margin-left: 30px;
 }
 
+.profile-main > .btn--cancel {
+  max-width: 300px;
+  align-self: center;
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 930px) {
   .profile-main .input-zone {
     grid-template-columns: 1fr;

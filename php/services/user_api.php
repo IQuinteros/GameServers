@@ -111,6 +111,48 @@ class UserAPI extends BaseAPI {
     }
 
     /**
+     * Get user by specific email
+     * @var string $email The email of the expected user
+     */
+    public function getUserByEmail(string $email){
+        $this->open();
+
+        $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE email = :email', array(
+            new QueryParam(':email', $email),
+        ));
+
+        // Close connection
+        $this->close();
+
+        // Check if is found
+        if($result->rowCount() > 0){
+
+            // Check result
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $foundUser = new User(
+                    $row->id,
+                    $row->name,
+                    $row->email,
+                    $row->image,
+                    $row->membersNum,
+                    $row->contactNum,
+                    $row->location,
+                    $row->registerDate,
+                    $row->lastConnectionDate
+                );
+
+                return $foundUser;
+            }
+
+        }
+        else{
+            // It isn't found so return false
+            return null;
+        }
+
+    }
+
+    /**
      * Add new user
      * 
      * @var User $user User data

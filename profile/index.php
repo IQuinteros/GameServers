@@ -1,8 +1,8 @@
 <?php
-    require_once('../php/utils/token.php');
+    require_once __DIR__.('/../php/utils/token.php');
     require_once __DIR__.('/../php/config.php');
 
-    Token::checkOrGoToken(ROUTE_REGISTER);
+    Token::checkOrGoToken(ROUTE_LOGIN);
 
 ?>
 
