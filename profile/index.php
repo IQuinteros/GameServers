@@ -13,6 +13,10 @@
     <?php require_once('../php/components/include.php') ?>
 
     <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/extra.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 </head>
 <body>
 

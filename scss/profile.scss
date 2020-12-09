@@ -61,6 +61,10 @@
     margin-bottom: $spacing-unit*4;
 }
 
+.profile-main > h2{
+    text-align: center;
+    margin-top: $spacing-unit*3;
+}
 
 @media screen and (max-width: 930px){
     .profile-main .input-zone{

@@ -194,7 +194,8 @@ class ProjectAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
-            'userID=:userID,name=:name,planID=:planID,estimatedPlayers=:estimatedPlayers,teamQuantity=:teamQuantity,region=:region,status=:status', array(
+            'userID=:userID,name=:name,planID=:planID,estimatedPlayers=:estimatedPlayers,teamQuantity=:teamQuantity,region=:region,status=:status WHERE id=:id', array(
+                new QueryParam(':id', $project->id, PDO::PARAM_INT),
                 new QueryParam(':userID', $project->userID, PDO::PARAM_INT),
                 new QueryParam(':name', $project->name),
                 new QueryParam(':planID', $project->planID, PDO::PARAM_INT),

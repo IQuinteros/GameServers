@@ -14,7 +14,7 @@
                     </div>
                     <label for="sel-plan">Plan: </label>
                     <div class="input">
-                        <select name="plan" id="sel-plan">
+                        <select name="plan" id="sel-plan" required>
                             <option value="1">Gratis</option>
                             <option value="2">Estándar</option>
                             <option value="3">Premium</option>
@@ -31,7 +31,7 @@
                     </div>
                     <label for="sel-region">Región: </label>
                     <div class="input">
-                        <select name="region" id="sel-region">
+                        <select name="region" id="sel-region" required>
                             <option value="America del Norte">America del Norte</option>
                             <option value="Latinoamerica">Latinoamerica</option>
                             <option value="Europa">Europa</option>

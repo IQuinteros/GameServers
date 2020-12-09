@@ -1,5 +1,20 @@
+<?php
+    $projectRef = $projects[0];
+?>
+
 <aside class="intranet-aside">
-    <button class="btn">Ajustar precios</button>
-    <button class="btn">Ver todos los clientes</button>
-    <button class="btn">Ajustar clientes con plan</button>
+    <h2><?= $projectRef->name?></h2>
+
+    <?php if($projectRef->status == ProjectStatus::Active){?>
+    <div class="server-status status--active">
+        <h2>Servidores activos</h2>
+    </div>
+    <?php }else{?>
+    <div class="server-status status--inactive">
+        <h2>Servidores inactivos</h2>
+    </div>
+    <?php }?>
+
+    <button class="btn">Ajustar economía</button>
+    <button class="btn">Ajustar experimentos</button>
 </aside>

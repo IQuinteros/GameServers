@@ -42,3 +42,4 @@ window.deleteAccount = profile.deleteAccount;
 import * as project from "./project.js";
 
 window.onNewProjectSubmit = project.onNewProjectSubmit;
+window.onProjectSubmit = project.onProjectSubmit;

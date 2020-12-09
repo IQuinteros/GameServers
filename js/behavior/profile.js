@@ -76,10 +76,34 @@ export function onLoginSubmit(form, event){
 }
 
 function updateSubmit(form, event){
+
+    if((form['pass'].value || form['repass'].value) && (form['pass'].value !== form['repass'].value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Las contraseñas ingresadas no coinciden',
+            
+            customClass: {
+                popup: 'normal-font-size'
+            }
+        });
+        return;
+    }  
+
+
+    const formData = new FormData();
+    formData.append('name', form['name'].value);
+    formData.append('membersNum', form['membersNum'].value);
+    formData.append('contactNum', form['contactNum'].value);
+    formData.append('location', form['location'].value);
+    formData.append('pass', form['pass'].value);
+    formData.append('image', form['image'].files[0]);
+
     $.ajax({
         url: "/php/responses/user/update_user_resp.php",
         type: "post",
-        data:  $('#profile').serialize(),
+        data:  new FormData(form), //$('#profile')
+        processData: false,
+        contentType: false,
         beforeSend : function(){
             loading.showLoading('Actualizando datos');
         },

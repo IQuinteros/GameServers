@@ -214,7 +214,7 @@ class UserAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
-            'password=:name WHERE id=:id', array(
+            'password=:password WHERE id=:id', array(
                 new QueryParam(':id', $user->id, PDO::PARAM_INT),
                 new QueryParam(':password', PasswordManager::encryptPassword($newPassword))
             )

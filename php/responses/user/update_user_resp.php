@@ -19,7 +19,7 @@ if (checkRequestData(array('name', 'membersNum', 'contactNum', 'location'))){
 
     $localpath = null;
 
-    if(isset($_FILES['image']["tmp_name"])){
+    if(isset($_FILES['image']["tmp_name"]) && !empty($_FILES['image']["tmp_name"])){
         $img = $_FILES['image']['name'];
         $tmp = $_FILES['image']['tmp_name'];
 
@@ -60,7 +60,7 @@ if (checkRequestData(array('name', 'membersNum', 'contactNum', 'location'))){
         $toUpdateUser = UserRepository::getUserByEmail($email);
 
         $toUpdateUser->name = $_POST['name'];
-        $toUpdateUser->image = $localpath;
+        $toUpdateUser->image = $localpath != null? $localpath : $toUpdateUser->image;
         $toUpdateUser->membersNum = $_POST['membersNum'];
         $toUpdateUser->contactNum = $_POST['contactNum'];
         $toUpdateUser->location = $_POST['location'];
@@ -68,6 +68,15 @@ if (checkRequestData(array('name', 'membersNum', 'contactNum', 'location'))){
         $addResult = UserRepository::updateUser($toUpdateUser);
 
         $result = array('PDO'=>$addResult->errorInfo(), 'email' => $toUpdateUser->email);
+
+        // Change password
+        if (checkRequestData(array('pass'))){
+            if(!empty($_REQUEST['pass'])){
+                $addResult = UserRepository::updatePassword($toUpdateUser, $_REQUEST['pass']);
+
+                array_push($result, array('PDO'=>$addResult->errorInfo(), 'email' => $toUpdateUser->email));
+            }
+        }
     }
 
 }
