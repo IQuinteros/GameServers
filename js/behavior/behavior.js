@@ -25,3 +25,9 @@ import * as docs from "./docs_feedback.js";
 
 window.rateDoc = docs.rateDoc;
 window.toggleAsideDoc = docs.toggleAsideDoc;
+
+// Register
+
+import * as register from "./register.js";
+
+window.onRegisterSubmit = register.onRegisterSubmit;

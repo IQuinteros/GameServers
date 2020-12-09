@@ -13,7 +13,9 @@ class SessionManager{
      * Start Session
      */
     public static function startSession(){
-        session_start();
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+        }        
     }
 
     /**

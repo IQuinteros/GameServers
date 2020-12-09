@@ -7,6 +7,8 @@
 
 */
 
+require_once('login.php');
+
 class Token{
 
 	/**
@@ -20,22 +22,28 @@ class Token{
 
 	/* Check is is logged */
 	public static function checkToken(){
-		if(!isset($_SESSION['token'])){
+		SessionManager::startSession();
+
+		$tokenName = Token::getTokenName();
+
+		if(!isset($_SESSION[$tokenName])){
 			return false;
 		}
-		if(!isset($_COOKIE['token'])){
+		if(!isset($_COOKIE[$tokenName])){
 			return false;
 		}
-		if($_SESSION['token']!=$_COOKIE['token'])
+		if($_SESSION[$tokenName]!=$_COOKIE[$tokenName])
 		{
 			return false;
 		}
+
+		return true;
 	}
 
 	/* Check token and go to url if token checking is false */
 	public static function checkOrGoToken(string $url){
 		$response = Token::checkToken();
-		
+
 		if(!$response){
 			header('location:'.$url);
 			exit();
@@ -43,4 +51,11 @@ class Token{
 
 		return $response;
 	}
+
+	/**
+     * Generate the token name to set
+     */
+    public static function getTokenName(){
+        return 'aatiqgserv';   // Current day
+    }
 }

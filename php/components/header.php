@@ -16,7 +16,19 @@
             <button onclick="onDocsClicked()">Documentación</button>
         </nav>
 
+        <?php 
+            require_once __DIR__.('/../utils/token.php');
+
+            if(Token::checkToken()){
+        ?>
+
+        <h2>Mi perfil</h2>
+
+        <?php } else{?>
+
         <button class="btn desktop-nav" onclick="onRegisterClicked()">Regístrate</button>
+
+        <?php }?>
 
         <button class="btn--profile desktop-nav" onclick="onProfileClicked()"><i class="far fa-user-circle"></i></button>
 

@@ -27,7 +27,7 @@
   width: 80%;
   max-width: 1000px;
   height: fit-content;
-  max-height: 500px;
+  max-height: 600px;
   min-height: 300px;
   padding: 30px;
   overflow: auto;
@@ -53,7 +53,7 @@
   font-size: 1.5rem;
 }
 
-.popup__content > .input-zone > label {
+.popup__content .input-zone > label {
   color: #f2f2f2;
   margin-right: 20px;
 }
