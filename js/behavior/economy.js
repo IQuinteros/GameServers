@@ -191,6 +191,7 @@ export function onNewEconomy(id, name, initial, max){
     text.textContent = 'Añade un nuevo ítem de economía';
 
     // Set inputs
+    const inputId = document.getElementById('id');
     const inputName = document.getElementById('name');
     const inputInitial = document.getElementById('initial');
     const inputMax = document.getElementById('max');
