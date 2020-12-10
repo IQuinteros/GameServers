@@ -72,6 +72,31 @@
   margin-bottom: 30px;
 }
 
+/* Title */
+.intranet__title {
+  max-width: 1280px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.intranet__title > a {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  color: #05668d;
+  font-weight: 600;
+}
+
+.intranet__title > h1 {
+  color: #05668d;
+}
+
+.intranet__title > button {
+  display: none;
+}
+
 /* Info */
 .info {
   display: grid;
@@ -147,12 +172,123 @@
   font-size: 1.5rem;
 }
 
+.toolbar__buttons > .btn {
+  display: none;
+}
+
+.toolbar__buttons > .btn.visible {
+  display: inline-block;
+}
+
+/* Table */
+.table__limit {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.table__block {
+  background-color: #05668d;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.table__block .input-zone > label {
+  color: #f2f2f2;
+}
+
+.table {
+  color: #f2f2f2;
+  padding: 20px;
+  font-size: 1.5rem;
+  overflow: auto;
+}
+
+.table__item > input[type=checkbox] {
+  height: 100%;
+  width: 100%;
+}
+
+.table__header,
+.table__item {
+  display: grid;
+  grid-template-rows: 1fr;
+  margin-bottom: 20px;
+}
+
+.table__header {
+  border-bottom: 2px solid #f2f2f2;
+  padding-bottom: 10px;
+}
+
+.table__header.table--economy {
+  grid-template-columns: minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
+  margin-left: 40px;
+}
+
+.table--economy {
+  grid-template-columns: 40px minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
+}
+
+@media screen and (max-width: 1050px) {
+  .toolbar {
+    height: auto;
+    min-height: 60px;
+  }
+
+  .toolbar__buttons {
+    width: min-content;
+  }
+}
 @media screen and (max-width: 840px) {
   .intranet-layout {
     grid-template-columns: 1fr;
   }
 
   .intranet-aside {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .toolbar {
+    flex-flow: column;
+  }
+
+  .intranet__title {
+    flex-flow: column;
+  }
+
+  .intranet__title > button {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .intranet__title > a {
+    display: none;
+  }
+
+  .toolbar__buttons {
+    width: max-content;
+    margin-bottom: 20px;
+  }
+
+  .toolbar__text {
+    margin-bottom: 20px;
+  }
+
+  .toolbar__docs {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .table__block .input-zone {
+    display: flex;
+    flex-flow: column;
+    padding: 10px 0;
+  }
+
+  .table__block .input-zone > .input {
     width: 100%;
   }
 }
@@ -169,6 +305,11 @@
 
   .info__item {
     grid-column: span 2;
+  }
+}
+@media screen and (max-width: 420px) {
+  .toolbar__buttons {
+    width: min-content;
   }
 }
 

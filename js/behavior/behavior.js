@@ -14,6 +14,7 @@ window.toggleFeaturesNav = buttons.toggleFeaturesNav;
 window.onProfileClicked = buttons.goToProfile;
 window.closeSession = buttons.closeSession;
 window.onProjectClicked = buttons.goToProject;
+window.onProjectEconomyClicked = buttons.goToProjectEconomy;
 
 // Footer
 

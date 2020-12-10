@@ -24,6 +24,7 @@
     <script src="/js/third-party/chart.min.js"></script>
 
     <link rel="stylesheet" href="/css/intranet.css">
+    <link rel="stylesheet" href="/css/popup.css">
 </head>
 <body>
 
@@ -31,12 +32,14 @@
 
     <?php require_once('../php/components/header.php') ?>
 
-    <main class="intranet-layout">
-        <?php require_once('../php/components/project/aside_project.php')?>
-        <?php require_once('../php/components/project/project_info.php') ?>
+    <main>
+        <?php require_once('../php/components/project/economy_toolbar.php') ?>
+        <?php require_once('../php/components/project/economy_info.php') ?>
     </main>
 
     <?php require_once('../php/components/footer.php') ?>
+
+    <?php require_once('../php/components/project/economy_popup.php') ?>
 
     <script type="module" src="/js/behavior/behavior.js"></script>
 

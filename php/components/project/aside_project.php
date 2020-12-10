@@ -15,6 +15,6 @@
     </div>
     <?php }?>
 
-    <button class="btn">Ajustar economía</button>
+    <button class="btn" onclick="onProjectEconomyClicked()">Ajustar economía</button>
     <button class="btn">Ajustar experimentos</button>
 </aside>

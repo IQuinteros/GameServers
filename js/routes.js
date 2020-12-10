@@ -10,7 +10,9 @@ const ROUTES = {
     ROUTE_REGISTER: "/signup",
     ROUTE_LOGIN: "/login",
     ROUTE_PROFILE: "/profile",
-    ROUTE_PROJECT: "/project"
+    ROUTE_PROJECT: "/project",
+    ROUTE_NEW_PROJECT: "/project/register.php",
+    ROUTE_PROJECT_ECONOMY: "/project/economy.php"
 }
 
 export default ROUTES;
