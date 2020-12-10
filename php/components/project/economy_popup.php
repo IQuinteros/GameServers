@@ -28,7 +28,6 @@
                 <button class="btn" type="submit" form="register">Aceptar</button>
             </div>
 
-            <a href="/login">Ya tengo cuenta -> Iniciar sesión</a>
         </div>
     </div>
 </div>
