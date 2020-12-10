@@ -61,4 +61,9 @@ textarea {
   box-shadow: none;
 }
 
+.input-font-size.select-background.select2-selection,
+.input-font-size.select-background.select-background {
+  background-color: #f0f3bd;
+}
+
 /*# sourceMappingURL=inputs.css.map */

@@ -59,3 +59,8 @@ textarea{
 .input.disabled{
     box-shadow: none;
 }
+
+.input-font-size.select-background.select2-selection,
+.input-font-size.select-background.select-background{
+    background-color: $input-color;
+}

@@ -55,14 +55,14 @@
         $('#sel-plan').select2({
             width: '100%',
             language: 'es',
-            selectionCssClass: 'input-font-size',
-            dropdownCssClass: 'input-font-size'
+            selectionCssClass: 'input-font-size select-background',
+            dropdownCssClass: 'input-font-size select-background'
         });
         $('#sel-region').select2({
             width: '100%',
             language: 'es',
-            selectionCssClass: 'input-font-size',
-            dropdownCssClass: 'input-font-size'
+            selectionCssClass: 'input-font-size select-background',
+            dropdownCssClass: 'input-font-size select-background'
         });
     });
 </script>

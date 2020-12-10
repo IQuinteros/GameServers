@@ -86,7 +86,6 @@
 @media screen and (max-height: 850px){
     .popup{
         min-height: min-content;
-        align-items: flex-start;
         height: 100%;
     }
 
@@ -96,5 +95,9 @@
 
     .popup__block{
         height: min-content;
+    }
+
+    .popup__block{
+        height: 100%;
     }
 }

@@ -29,9 +29,9 @@ class EconomyElementRepository {
         return EconomyElementRepository::$economy_element_api->getEconomyElementById($id);
     }
 
-    public static function getEconomyElementsBySearch(string $toSearch){
+    public static function getEconomyElementsBySearch(int $projectID, string $toSearch){
         EconomyElementRepository::init();
-        return EconomyElementRepository::$economy_element_api->getEconomyElementsBySearch($toSearch);
+        return EconomyElementRepository::$economy_element_api->getEconomyElementsBySearch($projectID, $toSearch);
     }
 
     public static function addEconomyElement(EconomyElement $economyElement){

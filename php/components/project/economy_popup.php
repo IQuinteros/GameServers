@@ -1,12 +1,10 @@
-<div class="intranet-background"></div>
-
-<div class="popup open canclose">
+<div class="popup canclose">
     <div class="popup__block">
         <div class="popup__content">
-            <h1>Nuevo ítem</h1>
-            <h3>Añade un nuevo ítem de economía</h3>
+            <h1 id="popup-title">Nuevo ítem</h1>
+            <h3 id="popup-text">Añade un nuevo ítem de economía</h3>
 
-            <form id="register" method="post" onsubmit="return onRegisterSubmit(this, event)" enctype="multipart/form-data">
+            <form id="economy" method="post" onsubmit="return onRegisterSubmit(this, event)" enctype="multipart/form-data">
                 <div class="input-zone">
                     <label for="name">Nombre de ítem: </label>
                     <div class="input">

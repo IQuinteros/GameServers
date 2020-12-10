@@ -64,3 +64,12 @@ function checkRequestData(array $data){
     }
     return true;
 }
+
+/**
+ * Return error
+ */
+function returnError(string $errorMessage){
+    $result = formatError($errorMessage);
+    echo json_encode($result);  
+    exit();
+}
