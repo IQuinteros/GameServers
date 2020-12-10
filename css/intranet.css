@@ -192,6 +192,7 @@
   width: 100%;
   padding: 20px;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .table__block .input-zone > label {
@@ -229,6 +230,15 @@
 
 .table--economy {
   grid-template-columns: 40px minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
+}
+
+/* Popup */
+.popup.canclose.open {
+  display: flex;
+}
+
+.popup.canclose {
+  display: none;
 }
 
 @media screen and (max-width: 1050px) {

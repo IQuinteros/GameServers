@@ -208,6 +208,7 @@
     padding: $spacing-unit*2;
 
     margin-top: $spacing-unit*4;
+    margin-bottom: $spacing-unit*4;
 }
 
 .table__block .input-zone > label{
@@ -244,8 +245,19 @@
     grid-template-columns: minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
     margin-left: 40px;
 }
+
 .table--economy{
     grid-template-columns: 40px minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
+}
+
+/* Popup */
+
+.popup.canclose.open{
+    display: flex;
+}
+
+.popup.canclose{
+    display: none;
 }
 
 @media screen and (max-width: 1050px){

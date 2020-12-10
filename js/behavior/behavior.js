@@ -44,3 +44,10 @@ import * as project from "./project.js";
 
 window.onNewProjectSubmit = project.onNewProjectSubmit;
 window.onProjectSubmit = project.onProjectSubmit;
+
+// PopUp
+
+import * as popup from './popup.js';
+
+window.closePopUp = popup.closePopUp;
+window.openPopUp = popup.openPopUp;

@@ -12,8 +12,6 @@
     bottom: 0;
     
     min-height: 500px;
-
-    overflow: auto;
 }
 
 .popup__block{
@@ -30,8 +28,6 @@
     min-height: 300px;
 
     padding: $spacing-unit*3;
-
-    overflow: auto;
 }
 
 .popup__content{
@@ -85,13 +81,12 @@
 
 @media screen and (max-height: 800px){
     .popup{
-        position: relative;
-        min-height: 90vh;
+        min-height: min-content;
+        align-items: flex-start;
         height: 100%;
     }
 
     .popup__block{
         height: 100%;
-        overflow: auto;
     }
 }
