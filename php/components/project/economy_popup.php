@@ -4,7 +4,7 @@
             <h1 id="popup-title">Nuevo ítem</h1>
             <h3 id="popup-text">Añade un nuevo ítem de economía</h3>
 
-            <form id="economy" method="post" onsubmit="return onRegisterSubmit(this, event)" enctype="multipart/form-data">
+            <form id="economy" method="post" onsubmit="return onEconomySubmit(this, event)" enctype="multipart/form-data">
                 <div class="input-zone">
                     <label for="name">Nombre de ítem: </label>
                     <div class="input">
@@ -18,12 +18,13 @@
                     <div class="input">
                         <input id="max" name="max" type="number" placeholder="" required>
                     </div>
+                    <input type="hidden" name="id" id="id" value="">
                 </div>
             </form>
         
             <div class="popup__content__buttons">
                 <button class="btn btn--cancel" onclick="closePopUp()">Volver</button>
-                <button class="btn" type="submit" form="register">Aceptar</button>
+                <button class="btn" type="submit" form="economy">Aceptar</button>
             </div>
 
         </div>

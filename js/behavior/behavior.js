@@ -51,3 +51,12 @@ import * as popup from './popup.js';
 
 window.closePopUp = popup.closePopUp;
 window.openPopUp = popup.openPopUp;
+
+// Economy
+
+import * as economy from './economy.js';
+
+window.onEconomySubmit = economy.onEconomySubmit;
+window.onDeleteEconomy = economy.onDeleteEconomy;
+window.editElement = economy.editElement;
+window.onNewEconomy = economy.onNewEconomy;

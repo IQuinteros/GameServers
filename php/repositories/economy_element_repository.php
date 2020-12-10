@@ -29,6 +29,11 @@ class EconomyElementRepository {
         return EconomyElementRepository::$economy_element_api->getEconomyElementById($id);
     }
 
+    public static function getEconomyElementOfProjectById(int $projectID, int $id){
+        EconomyElementRepository::init();
+        return EconomyElementRepository::$economy_element_api->getEconomyElementOfProjectById($projectID, $id);
+    }
+
     public static function getEconomyElementsBySearch(int $projectID, string $toSearch){
         EconomyElementRepository::init();
         return EconomyElementRepository::$economy_element_api->getEconomyElementsBySearch($projectID, $toSearch);
@@ -47,6 +52,11 @@ class EconomyElementRepository {
     public static function deleteEconomyElement(EconomyElement $economyElement){
         EconomyElementRepository::init();
         return EconomyElementRepository::$economy_element_api->deleteEconomyElement($economyElement);
+    }
+
+    public static function deleteEconomyElements(array $items){
+        EconomyElementRepository::init();
+        return EconomyElementRepository::$economy_element_api->deleteEconomyElements($items);
     }
 
 }

@@ -76,6 +76,10 @@ form {
   font-size: 1.5rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .blank {
   margin: 20px;
 }
