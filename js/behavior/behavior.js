@@ -15,6 +15,7 @@ window.onProfileClicked = buttons.goToProfile;
 window.closeSession = buttons.closeSession;
 window.onProjectClicked = buttons.goToProject;
 window.onProjectEconomyClicked = buttons.goToProjectEconomy;
+window.onProjectExperimentsClicked = buttons.goToProjectExperiments;
 
 // Footer
 
@@ -60,3 +61,10 @@ window.onEconomySubmit = economy.onEconomySubmit;
 window.onDeleteEconomy = economy.onDeleteEconomy;
 window.editElement = economy.editElement;
 window.onNewEconomy = economy.onNewEconomy;
+
+import * as experiments from './experiments.js';
+
+window.onExperimentSubmit = experiments.onExperimentSubmit;
+window.onDeleteExperiment = experiments.onDeleteExperiment;
+window.editExperiment = experiments.editExperiment;
+window.onNewExperiment = experiments.onNewExperiment;

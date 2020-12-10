@@ -12,7 +12,8 @@ const ROUTES = {
     ROUTE_PROFILE: "/profile",
     ROUTE_PROJECT: "/project",
     ROUTE_NEW_PROJECT: "/project/register.php",
-    ROUTE_PROJECT_ECONOMY: "/project/economy.php"
+    ROUTE_PROJECT_ECONOMY: "/project/economy.php",
+    ROUTE_PROJECT_EXPERIMENTS: "/project/experiments.php"
 }
 
 export default ROUTES;

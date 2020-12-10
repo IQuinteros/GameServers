@@ -99,6 +99,7 @@ class EconomyElementAPI extends BaseAPI {
     /**
      * Search economy element by:
      * - Name
+     * @var int $projectID The project id of elements
      * @var string $toSearch The text to search in economy elements
      */
     public function getEconomyElementsBySearch(int $projectID, string $toSearch){
@@ -106,7 +107,7 @@ class EconomyElementAPI extends BaseAPI {
 
         $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE name LIKE :text AND projectID = :projectID', array(
             new QueryParam(':text', '%'.$toSearch.'%'),
-            new QueryParam(':projectID', $projectID, PDO::PARAM_INT),
+            new QueryParam(':projectID', $projectID, PDO::PARAM_INT)
         ));
 
         // Close connection

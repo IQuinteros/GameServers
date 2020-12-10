@@ -2,22 +2,22 @@ import * as error from '../foundations/error.js';
 import * as loading from '../foundations/loading.js';
 import { openPopUp } from './popup.js';
 
-function addEconomy(form, event){
+function ajaxAddExperiment(form, event){
     $.ajax({
-        url: "/php/responses/economy/add_economy_project_resp.php",
+        url: "/php/responses/experiments/add_experiment_project_resp.php",
         type: "post",
         data:  new FormData(form),
         processData: false,
         contentType: false,
         beforeSend : function(){
-            loading.showLoading('Añadiendo ítem de economía');
+            loading.showLoading('Añadiendo experimento');
         },
         success: function(data){
             console.log(data);
             if(!data.Error){
                 Swal.fire({
                     icon: 'success',
-                    title: 'Ítem añadido exitósamente',
+                    title: 'Experimento añadido exitósamente',
                     willClose: () => {
                         location.reload();
                     },
@@ -30,7 +30,7 @@ function addEconomy(form, event){
             else{
                 Swal.fire({
                     icon: 'warning',
-                    title: 'No se ha podido añadir el ítem',
+                    title: 'No se ha podido añadir el experimento',
                     text: 'Algo ha salido mal. Por favor revisa lo ingresado e intenta nuevamente',
                     
                     customClass: {
@@ -45,22 +45,22 @@ function addEconomy(form, event){
     });
 }
 
-function editEconomy(form, event){
+function ajaxEditExperiment(form, event){
     $.ajax({
-        url: "/php/responses/economy/update_economy_project_resp.php",
+        url: "/php/responses/experiments/update_experiment_project_resp.php",
         type: "post",
         data:  new FormData(form),
         processData: false,
         contentType: false,
         beforeSend : function(){
-            loading.showLoading('Actualizando ítem de economía');
+            loading.showLoading('Actualizando experimento');
         },
         success: function(data){
             console.log(data);
             if(!data.Error){
                 Swal.fire({
                     icon: 'success',
-                    title: 'Ítem actualizado exitósamente',
+                    title: 'Experimento actualizado exitósamente',
                     willClose: () => {
                         location.reload();
                     },
@@ -88,29 +88,29 @@ function editEconomy(form, event){
     });
 }
 
-function economySubmit(form, event){
+function experimentSubmit(form, event){
     if(window.editMode){
-        editEconomy(form, event);
+        ajaxEditExperiment(form, event);
     }else{
-        addEconomy(form, event);
+        ajaxAddExperiment(form, event);
     }
 }
 
-export function onEconomySubmit(form, event){
+export function onExperimentSubmit(form, event){
 
     event.preventDefault();
 
-    economySubmit(form, event);
+    experimentSubmit(form, event);
 
     return false;
 }
 
-export async function onDeleteEconomy(selected){
+export async function onDeleteExperiment(selected){
     if(selected.length <= 0){
         Swal.fire({
             icon: 'warning',
-            title: 'Eliminar ítems',
-            text: `No tienes ítems por eliminar`,
+            title: 'Eliminar experimentos',
+            text: `No tienes experimentos por eliminar`,
             customClass: {
                 popup: 'normal-font-size'
             }
@@ -120,8 +120,8 @@ export async function onDeleteEconomy(selected){
 
     Swal.fire({
         icon: 'warning',
-        title: 'Eliminar ítems',
-        text: `Vas a eliminar ${selected.length} ítems`,
+        title: 'Eliminar experimentos',
+        text: `Vas a eliminar ${selected.length} experimentos`,
         showCancelButton: true,
         confirmButtonText: `Eliminar ítems`,
         confirmButtonColor: '#C92020',
@@ -142,18 +142,18 @@ export async function onDeleteEconomy(selected){
             }
 
             $.ajax({
-                url: "/php/responses/economy/delete_economy_project_resp.php",
+                url: "/php/responses/experiments/delete_experiment_project_resp.php",
                 type: "post",
                 data: dataToSend,
                 beforeSend : function(){
-                    loading.showLoading('Eliminando ítems');
+                    loading.showLoading('Eliminando experimentos');
                 },
                 success: function(data){
                     if(data.result){
                         Swal.fire({
                             icon: 'success',
-                            title: 'Ítems eliminados satisfactoriamente',
-                            text: `${selected.length} ítems fueron eliminados`,
+                            title: 'Experimentos eliminados satisfactoriamente',
+                            text: `${selected.length} experimentos fueron eliminados`,
                             willClose: () => {
                                 location.reload();
                             },
@@ -183,46 +183,42 @@ export async function onDeleteEconomy(selected){
     });
 }
 
-export function onNewEconomy(id, name, initial, max){
+export function onNewExperiment(id, name, description){
     const title = document.getElementById('popup-title');
     const text = document.getElementById('popup-text');
 
-    title.textContent = 'Añadir elemento';
-    text.textContent = 'Añade un nuevo ítem de economía';
+    title.textContent = 'Añadir experimento';
+    text.textContent = 'Añade un nuevo experimento';
 
     // Set inputs
     const inputId = document.getElementById('id');
     const inputName = document.getElementById('name');
-    const inputInitial = document.getElementById('initial');
-    const inputMax = document.getElementById('max');
+    const inputDescription = document.getElementById('description');
 
     inputId.value = '';
     inputName.value = '';
-    inputInitial.value = '';
-    inputMax.value = '';
+    inputDescription.value = '';
 
     window.editMode = false;
 
     openPopUp();
 }
 
-export function editElement(id, name, initial, max){
+export function editExperiment(id, name, description){
     const title = document.getElementById('popup-title');
     const text = document.getElementById('popup-text');
 
-    title.textContent = 'Editar elemento';
-    text.textContent = 'Edita un elemento de economía';
+    title.textContent = 'Editar experimento';
+    text.textContent = 'Edita un elemento de experimento';
 
     // Set inputs
     const inputId = document.getElementById('id');
     const inputName = document.getElementById('name');
-    const inputInitial = document.getElementById('initial');
-    const inputMax = document.getElementById('max');
+    const inputDescription = document.getElementById('description');
 
     inputId.value = id;
     inputName.value = name;
-    inputInitial.value = initial;
-    inputMax.value = max;
+    inputDescription.value = description;
 
     window.editMode = true;
 

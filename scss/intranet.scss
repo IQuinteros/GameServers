@@ -226,12 +226,16 @@
 .table__item > input[type='checkbox']{
     height: 100%;
     width: 100%;
+
+    max-height: 25px;
+    max-width: 25px;
 }
 
 .table__header,
 .table__item{
     display: grid;
     grid-template-rows: 1fr;
+    align-items: center;
     margin-bottom: $spacing-unit*2;
 }
 
@@ -246,8 +250,17 @@
     margin-left: 40px;
 }
 
+.table__header.table--experiment{
+    grid-template-columns: minmax(300px, 1fr) minmax(200px, 2fr);
+    margin-left: 40px;
+}
+
 .table--economy{
     grid-template-columns: 40px minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
+}
+
+.table--experiment{
+    grid-template-columns: 40px minmax(300px, 1fr) minmax(200px, 2fr);
 }
 
 /* Popup */

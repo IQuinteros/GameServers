@@ -50,6 +50,10 @@ export function goToProjectEconomy(){
     openSelfWindow(routes.ROUTE_PROJECT_ECONOMY);
 }
 
+export function goToProjectExperiments(){
+    openSelfWindow(routes.ROUTE_PROJECT_EXPERIMENTS);
+}
+
 export function closeSession(){
     Swal.fire({
         title: 'Cerrar sesión',

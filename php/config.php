@@ -38,3 +38,4 @@ define('ROUTE_PROFILE', '/profile');
 define('ROUTE_PROJECT', '/project');
 define('ROUTE_NEW_PROJECT', '/project/register.php');
 define('ROUTE_PROJECT_ECONOMY', '/project/economy.php');
+define('ROUTE_PROJECT_EXPERIMENTS', '/project/experiments.php');
