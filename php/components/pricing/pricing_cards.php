@@ -1,3 +1,28 @@
+<?php
+    require_once __DIR__.('/../../utils/token.php');
+    require_once __DIR__.('/../../repositories/project_repository.php');
+
+    // Not logged
+    $url = 'onRegisterClicked()';
+    $text = '¡Comienza ya!';
+
+    $currentUser = Login::getCurrentUser(false);
+
+    if(!$currentUser == null){
+        // Logged
+        $url = 'onProjectClicked()';
+        $text = '¡Registra tu proyecto!';
+
+        $projects = ProjectRepository::getProjectsByUserId($currentUser->id);
+
+        if(count($projects) > 0){
+            // Have projects
+            $url = 'onProfileClicked()';
+            $text = '¡Actualiza tu plan!';
+        }
+    }
+?>
+
 <div class="card-container">
     <div class="pricing-card">
         <h1>Gratis</h1>
@@ -5,7 +30,7 @@
         <p>- Prueba nuestro hosting de servidores hasta 600 horas de cómputo.</p>
         <p>- Incluye hasta 10.000 minutos de conectividad con grupos.</p>
 
-        <button class="btn">Comienza ya!</button>
+        <button class="btn" onclick="<?= $url?>"><?= $text ?></button>
     </div>
     <div class="pricing-card">
         <h1>Estándar</h1>
@@ -13,7 +38,7 @@
         <p>- Cuentas ilimitadas de usuarios.</p>
         <p>- Soporte exclusivo de GameServers.</p>
 
-        <button class="btn">Comienza ya!</button>
+        <button class="btn" onclick="<?= $url?>"><?= $text ?></button>
     </div>
     <div class="pricing-card">
         <h1>Premium</h1>
@@ -21,7 +46,7 @@
         <p>- Todo lo incluido en el plan estándar.</p>
         <p>- Soporte ultra exclusivo de GameServers. Solicitudes de emergencia.</p>
 
-        <button class="btn">Comienza ya!</button>
+        <button class="btn"><?= $text ?></button>
     </div>
     <div class="pricing-card">
         <h1>Empresa</h1>
@@ -29,6 +54,6 @@
         <p>- Máximo soporte de emergencia.</p>
         <p>- Consulta con expertos para optimizar el uso del servicio.</p>
 
-        <button class="btn">Comienza ya!</button>
+        <button class="btn" onclick="<?= $url?>"><?= $text ?></button>
     </div>
 </div>

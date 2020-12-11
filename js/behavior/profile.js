@@ -11,7 +11,17 @@ function registerAjax(form, event){
             loading.showLoading('Enviando solicitud');
         },
         success: function(data){
-            onHomeClicked();
+            Swal.fire({
+                icon: 'success',
+                title: 'Cuenta creada exitósamente',
+                willClose: () => {
+                    onHomeClicked();
+                },
+                
+                customClass: {
+                    popup: 'normal-font-size'
+                }
+            });
         },
         error: function(e) {
             error.showNetError(e);
