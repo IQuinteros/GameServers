@@ -193,6 +193,11 @@ main {
   text-decoration: none;
 }
 
+/* ADMIN */
+.mobile-nav .header__project.admin {
+  margin-top: 10px;
+}
+
 /* Hamburger Mobile */
 .hamburger-mobile {
   justify-self: flex-end;

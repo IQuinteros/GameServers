@@ -29,6 +29,7 @@ define('COLOR_WHITE', '#FFFFFF');
 /* Routes */
 define('ROUTE_INDEX', '');
 define('ROUTE_ADMIN', '/admin');
+define('ROUTE_ADMIN_LOGIN', '/admin/login_admin.php');
 define('ROUTE_FEATURES', '/features');
 define('ROUTE_PRICING', '/pricing');
 define('ROUTE_DOCS', '/docs');

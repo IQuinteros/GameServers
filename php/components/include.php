@@ -38,5 +38,3 @@
 <link rel="stylesheet" href="/css/buttons.css">
 <link rel="stylesheet" href="/css/inputs.css">
 <link rel="stylesheet" href="/css/footer.css">
-
-

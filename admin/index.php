@@ -1,9 +1,17 @@
+<?php
+    require_once __DIR__.('/../php/utils/session.php');
+    require_once __DIR__.('/../php/utils/token.php');
+
+    Token::checkOrGoAdminToken(ROUTE_ADMIN_LOGIN);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>GameServers: Inicia Sesión</title>
+    <title>GameServers: Admin</title>
 
-    <?php require_once('../php/components/include.php') ?>
+    <?php require_once __DIR__.('/../php/components/include.php') ?>
     <script src="/js/third-party/chart.min.js"></script>
 
     <link rel="stylesheet" href="/css/intranet.css">
@@ -12,54 +20,16 @@
 
     <div class="intranet-background"></div>
 
-    <?php require_once('../php/components/header.php') ?>
+    <?php require_once __DIR__.('/../php/components/intranet/header_admin.php') ?>
 
     <main class="intranet-layout">
-        <?php require_once('../php/components/intranet/aside_admin.php')?>
-        <?php require_once('../php/components/intranet/admin_info.php') ?>
+        <?php require_once __DIR__.('/../php/components/intranet/aside_admin.php') ?>
+        <?php require_once __DIR__.('/../php/components/intranet/admin_info.php') ?>
     </main>
 
-    <script type="module" src="/js/behavior/behavior.js"></script>
 
-    <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    </script>
+
+    <script type="module" src="/js/behavior/behavior.js"></script>
 
 </body>
 </html>

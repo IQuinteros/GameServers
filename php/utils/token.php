@@ -7,7 +7,7 @@
 
 */
 
-require_once('login.php');
+require_once __DIR__.('/login.php');
 
 class Token{
 
@@ -58,5 +58,47 @@ class Token{
      */
     public static function getTokenName(){
         return 'aatiqgservgservers';   // Current day
+	}
+	
+	/* FOR ADMIN */
+
+	/* Check admin token and go to url if admin token checking is false */
+	public static function checkOrGoAdminToken(string $url, bool $inverse = false){
+		$response = Token::checkAdminToken();
+
+		if($inverse? $response : !$response){
+			header('location:'.$url);
+			exit();
+		}
+
+		return $response;
+	}
+
+	/* Check is admin is logged */
+	public static function checkAdminToken(){
+		SessionManager::startSession();
+
+		$tokenName = Token::getAdminTokenName();
+
+		if(!isset($_SESSION[$tokenName])){
+			return false;
+		}
+		if(!isset($_COOKIE[$tokenName])){
+			return false;
+		}
+
+		if($_SESSION[$tokenName]!=$_COOKIE[$tokenName])
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+     * Generate the token name to set - ADMIN
+     */
+    public static function getAdminTokenName(){
+        return 'admtisdjfsnjksgerservers';   // Current day
     }
 }

@@ -10,6 +10,10 @@ export function goToHome(){
     openSelfWindow(routes.ROUTE_INDEX);
 }
 
+export function goToAdmin(){
+    openSelfWindow(routes.ROUTE_ADMIN);
+}
+
 export function goToRegister(goToPricing = false){
     if(goToPricing){
         openSelfWindow(routes.ROUTE_PRICING);

@@ -16,6 +16,7 @@ window.closeSession = buttons.closeSession;
 window.onProjectClicked = buttons.goToProject;
 window.onProjectEconomyClicked = buttons.goToProjectEconomy;
 window.onProjectExperimentsClicked = buttons.goToProjectExperiments;
+window.onAdminClicked = buttons.goToAdmin;
 
 // Footer
 
@@ -68,3 +69,10 @@ window.onExperimentSubmit = experiments.onExperimentSubmit;
 window.onDeleteExperiment = experiments.onDeleteExperiment;
 window.editExperiment = experiments.editExperiment;
 window.onNewExperiment = experiments.onNewExperiment;
+
+// Admin
+
+import * as admin from './admin.js';
+
+window.onAdminLoginSubmit = admin.onAdminLoginSubmit;
+window.closeAdminSession = admin.closeAdminSession;

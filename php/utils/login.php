@@ -12,6 +12,7 @@ require_once('session.php');
 require_once('cookies.php');
 require_once __DIR__.('/../config.php');
 require_once __DIR__.('/../repositories/user_repository.php');
+require_once __DIR__.('/../repositories/admin_repository.php');
 
 class Login{
 
@@ -86,4 +87,71 @@ class Login{
         SessionManager::destroySession();
     }
 
+
+    /* FOR ADMIN */
+
+    /**
+     * Try admin login from email and pass
+     */
+    public static function tryAdminLogin(string $email, string $pass){
+        SessionManager::startSession();
+        $nameToken = Token::getAdminTokenName(); 
+
+        // TODO: ADMIN REPOSITORY
+         $admin = AdminRepository::getAdminByEmailAndPassword($email, $pass);
+
+        if($admin == false || $admin == null){ 
+            $result = array('error' => 'Admin no encontrado');
+            setCookie($nameToken, '', time()-1, '/');
+            SessionManager::destroySession();
+        }
+        else{
+            // Logged
+            $token = Token::generateToken();
+            $timeExpire = time() + 60 * 60 * 24 * 31;
+
+            setCookie($nameToken, $token, $timeExpire, '/');
+            SessionManager::setSessionParam('adminemail', $email);
+            SessionManager::setSessionParam($nameToken, $token);
+
+            $result =  array(
+                'id' => $admin->id,
+                'email' => $admin->email,
+                'lastConnectionDate' => $admin->lastConnectionDate,
+            );
+        }
+
+        return $result;
+    }
+
+    /**
+     * Get current admin of session
+     */
+    public static function getCurrentAdmin(bool $obligatory = true){
+        if(!Token::checkAdminToken()){ return null; }
+
+        SessionManager::startSession();
+
+        $email = $_SESSION['adminemail'];
+
+        $admin = AdminRepository::getAdminByEmail($email);
+
+        if($admin == null && $obligatory){
+            Login::closeAdminSession();
+            header('location:'.ROUTE_LOGIN);
+            exit();
+        }
+
+        return $admin;
+    }
+
+    /**
+     * Close admin session if exists
+     */
+    public static function closeAdminSession(){
+        $nameToken = Token::getAdminTokenName(); 
+        
+        setCookie($nameToken, '', time()-1, '/');
+        SessionManager::destroySession();
+    }
 }

@@ -10,9 +10,9 @@
 </head>
 <body>
 
-    <?php require_once('../php/components/header.php') ?>
+    <?php require_once('../php/components/intranet/header_admin.php') ?>
 
-    <?php require_once('../php/components/admin/login_popup.php') ?>
+    <?php require_once('../php/components/intranet/login_popup.php') ?>
 
     <script type="module" src="/js/behavior/behavior.js"></script>
 
