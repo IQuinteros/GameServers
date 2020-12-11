@@ -75,3 +75,21 @@ export function editPlan(id, name, description, price){
 
     openPopUp();
 }
+
+export function displayPlanInfo(id, userEmail, name, planName, estimatedPlayers, teamQuantity, region, registerDate, status){   
+    Swal.fire({
+        icon: 'info',
+        title: name,
+        html: `<br><b>Email de cliente:</b> ${userEmail} <br><br>` + 
+            `<b>Plan:</b> ${planName} <br><br>` +
+            `<b>Jugadores estimados:</b> ${estimatedPlayers} <br><br>` +
+            `<b>Cantidad de equipo:</b> ${teamQuantity} <br><br>` +
+            `<b>Región:</b> ${region} <br><br>` +
+            `<b>Fecha de registro:</b> ${registerDate} <br><br>` +
+            `<b>Estado:</b> ${status} <br><br>`,
+        customClass: {
+            popup: 'normal-font-size',
+            image: 'circle-image box-shadow'
+        }
+    });
+}

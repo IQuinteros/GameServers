@@ -86,10 +86,11 @@ import * as plans from './plans.js';
 
 window.editPlan = plans.editPlan;
 window.onPlanSubmit = plans.onPlanSubmit;
+window.displayPlanInfo = plans.displayPlanInfo;
 
 /// Clients
 
 import * as clients from './clients.js';
 
 window.onDeleteClients = clients.onDeleteClients;
-window.displayInfo = clients.displayInfo;
+window.displayClientInfo = clients.displayClientInfo;

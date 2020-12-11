@@ -4,17 +4,18 @@
         <div class="input-zone">
             <label for="search">Buscar: </label>
             <div class="input">
-                <input id="search" name="search" type="text" placeholder="Por nombre" onkeyup="searchClients()">
+                <input id="search" name="search" type="text" placeholder="Por nombre" onkeyup="searchEconomy()">
             </div>
         </div>
 
         <div class="table">
             
-            <div class="table__header table--clients">
-                <h3>Logo</h3>
+            <div class="table__header table--purchases">
+                <h3>Nombre de proyecto</h3>
                 <h3>Cliente</h3>
-                <h3>Fecha Registro</h3>
-                <h3>Fecha Última conexión</h3>
+                <h3>Plan</h3>
+                <h3>Región</h3>
+                <h3>Estado</h3>
             </div>
 
             <div id="table-results">
@@ -57,7 +58,7 @@ function checkDeleteButton(){
 // To abort last ajax search
 let lastSearch = null;
 
-function searchClients(){
+function searchEconomy(){
     const searchInput = document.getElementById('search');
 
     if(lastSearch != null){
@@ -65,9 +66,9 @@ function searchClients(){
     }
 
     lastSearch = $.ajax({
-        url: "/php/responses/user/get_users_resp.php",
+        url: "/php/responses/project/get_projects_resp.php",
         type: "post",
-        data:  `text=${searchInput.value}`,
+        data:  `toSearch=${searchInput.value}`,
         beforeSend : function(){
             $('#table-results').empty();
             $('#table-results').append(`<p class="text-center">Buscando ...</p>`);
@@ -76,16 +77,14 @@ function searchClients(){
             $('#table-results').empty();
             if(data.length > 0){
                 for(let i = 0; i < data.length; i++){
-                    imageUrl = data[i].image;
-                    if(imageUrl == null){ imageUrl = '/assets/images/profile.png'; }
-
                     $('#table-results').append(
-                        `<div class="table__item table--clients">` +
+                        `<div class="table__item table--purchases">` +
                             `<input type="checkbox" name="${data[i].id}" id="${data[i].id}" onchange="onCheck(this, ${data[i].id})">`+
-                            `<img class="table__item__image" src="${imageUrl}" alt="">` +
-                            `<a href="#" onclick="displayClientInfo(${data[i].id},'${data[i].name}','${data[i].email}','${imageUrl}',${data[i].membersNum},${data[i].contactNum},'${data[i].location}','${data[i].registerDate}','${data[i].lastConnectionDate}')"><p>${data[i].name}</p></a>` +
-                            `<p>${data[i].registerDate}</p>` +
-                            `<p>${data[i].lastConnectionDate}</p>` +
+                            `<a href="#" onclick="displayPlanInfo(${data[i].id},'${data[i].userEmail}','${data[i].name}','${data[i].planName}', ${data[i].estimatedPlayers}, ${data[i].teamQuantity}, '${data[i].region}', '${data[i].registerDate}', '${data[i].status}')"><p>${data[i].name}</p></a>` +
+                            `<p>${data[i].userEmail}</p>` +
+                            `<p>${data[i].planName}</p>` +
+                            `<p>${data[i].region}</p>` +
+                            `<p>${data[i].status}</p>` +
                         `</div>`
                     );
                 }
@@ -100,6 +99,6 @@ function searchClients(){
     });
 }
 
-searchClients();
+searchEconomy();
 
 </script>

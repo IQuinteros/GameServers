@@ -219,6 +219,7 @@
   grid-template-rows: 1fr;
   align-items: center;
   margin-bottom: 20px;
+  gap: 10px;
 }
 
 .table__header {
@@ -245,6 +246,11 @@
   margin-left: 60px;
 }
 
+.table__header.table--purchases {
+  grid-template-columns: minmax(300px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 0.5fr);
+  margin-left: 40px;
+}
+
 .table--economy {
   grid-template-columns: 40px minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
 }
@@ -259,6 +265,10 @@
 
 .table--clients {
   grid-template-columns: 40px 100px minmax(300px, 2fr) minmax(200px, 1fr) minmax(200px, 1fr);
+}
+
+.table--purchases {
+  grid-template-columns: 40px minmax(300px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 0.5fr);
 }
 
 .table__item__image {

@@ -79,7 +79,7 @@ export async function onDeleteClients(selected){
     });
 }
 
-export function displayInfo(id, name, email, image, membersNum, contactNum, location, registerDate, lastConnectionDate){   
+export function displayClientInfo(id, name, email, image, membersNum, contactNum, location, registerDate, lastConnectionDate){   
     Swal.fire({
         title: name,
         imageUrl: image, 

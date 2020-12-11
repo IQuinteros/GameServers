@@ -27,8 +27,8 @@
     <?php require_once('../php/components/intranet/header_admin.php') ?>
 
     <main>
-        <?php require_once('../php/components/intranet/clients_toolbar.php') ?>
-        <?php require_once('../php/components/intranet/clients_info.php') ?>
+        <?php require_once('../php/components/intranet/purchases_toolbar.php') ?>
+        <?php require_once('../php/components/intranet/purchases_info.php') ?>
     </main>
 
     <?php require_once('../php/components/footer.php') ?>

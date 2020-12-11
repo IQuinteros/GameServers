@@ -116,7 +116,7 @@ class ProjectAPI extends BaseAPI {
     public function getProjectsBySearch(string $toSearch){
         $this->open();
 
-        $result = $this->query('SELECT project.* FROM '.$this->TABLE_NAME.
+        $result = $this->query('SELECT project.*, users.email as userEmail, plan.name as planName FROM '.$this->TABLE_NAME.
             ' JOIN users ON project.userID = users.id JOIN plan ON project.planID = plan.id '.
             'WHERE users.email LIKE :text OR users.name LIKE :text OR '.
             'plan.name LIKE :text '.
@@ -145,6 +145,9 @@ class ProjectAPI extends BaseAPI {
                     $row->registerDate,
                     new ProjectStatus($row->status)
                 );
+
+                $foundProject->userEmail = $row->userEmail;
+                $foundProject->planName = $row->planName;
 
                 array_push($projects, $foundProject);
             }
@@ -205,6 +208,39 @@ class ProjectAPI extends BaseAPI {
                 new QueryParam(':status', $project->status)
             )
         );
+
+        $this->close();
+
+        return $result;
+    }
+
+    /**
+     * Update some project status - Use carefully
+     * 
+     * @var array $projects IDs of experiment elements
+     */
+    public function updateStatus(array $projects, ProjectStatus $newStatus){
+        if(count($projects) <= 0){ return false; }
+
+        $sql = 'UPDATE '.$this->TABLE_NAME.' SET status=:status WHERE ';
+        $queryParams = array();
+        array_push($queryParams, new QueryParam(':status', $newStatus->__toString()));
+
+        for($i = 0; $i < count($projects); $i++){
+
+            $sql = $sql.'id=:id'.$i;
+            // If is last or not
+            if(!($i >= count($projects) - 1)){
+                $sql = $sql.' OR ';
+            }
+
+            array_push($queryParams, new QueryParam(':id'.$i, $projects[$i], PDO::PARAM_INT));
+
+        }
+
+        $this->open();
+
+        $result = $this->query($sql, $queryParams);
 
         $this->close();
 
