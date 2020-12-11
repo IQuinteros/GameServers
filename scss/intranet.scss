@@ -255,12 +255,21 @@
     margin-left: 40px;
 }
 
+.table__header.table--pricing{
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(200px, 1fr);
+    margin-left: 40px;
+}
+
 .table--economy{
     grid-template-columns: 40px minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
 }
 
 .table--experiment{
     grid-template-columns: 40px minmax(300px, 1fr) minmax(200px, 2fr);
+}
+
+.table--pricing{
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(200px, 1fr);
 }
 
 /* Popup */

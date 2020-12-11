@@ -13,7 +13,8 @@ const ROUTES = {
     ROUTE_PROJECT: "/project",
     ROUTE_NEW_PROJECT: "/project/register.php",
     ROUTE_PROJECT_ECONOMY: "/project/economy.php",
-    ROUTE_PROJECT_EXPERIMENTS: "/project/experiments.php"
+    ROUTE_PROJECT_EXPERIMENTS: "/project/experiments.php",
+    ROUTE_ADMIN_PRICING: "/admin/pricing.php"
 }
 
 export default ROUTES;

@@ -17,6 +17,9 @@ window.onProjectClicked = buttons.goToProject;
 window.onProjectEconomyClicked = buttons.goToProjectEconomy;
 window.onProjectExperimentsClicked = buttons.goToProjectExperiments;
 window.onAdminClicked = buttons.goToAdmin;
+window.goToAdminPricing = buttons.goToAdminPricing;
+window.goToAdminClients = buttons.goToAdminClients;
+window.goToAdminPlans = buttons.goToAdminPlans;
 
 // Footer
 

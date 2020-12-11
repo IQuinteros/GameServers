@@ -58,6 +58,18 @@ export function goToProjectExperiments(){
     openSelfWindow(routes.ROUTE_PROJECT_EXPERIMENTS);
 }
 
+export function goToAdminPricing(){
+    openSelfWindow(routes.ROUTE_ADMIN_PRICING);
+}
+
+export function goToAdminClients(){
+    openSelfWindow(routes.ROUTE_ADMIN_PRICING);
+}
+
+export function goToAdminPlans(){
+    openSelfWindow(routes.ROUTE_ADMIN_PRICING);
+}
+
 export function closeSession(){
     Swal.fire({
         title: 'Cerrar sesión',
