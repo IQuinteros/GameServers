@@ -205,6 +205,26 @@ class UserAPI extends BaseAPI {
     }
 
     /**
+     * Touch last connection
+     * 
+     * @var User $user User to touch
+     */
+    public function touchLastConnection(User $user){
+        $this->open();
+
+        $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
+            'lastConnectionDate=:lastConnectionDate WHERE id=:id', array(
+                new QueryParam(':id', $user->id, PDO::PARAM_INT),
+                new QueryParam(':lastConnectionDate', (date ("Y-m-d H:i:s"))),
+            )
+        );
+
+        $this->close();
+
+        return $result;
+    }
+
+    /**
      * Update user password
      * 
      * @var User $user The user to modify
@@ -247,6 +267,38 @@ class UserAPI extends BaseAPI {
                 new QueryParam(':id', $user->id, PDO::PARAM_INT)
             )
         );
+
+        $this->close();
+
+        return $result;
+    }
+
+    /**
+     * Delete some users - Use carefully
+     * 
+     * @var array $users IDs of experiment elements
+     */
+    public function deleteUsers(array $users){
+        if(count($users) <= 0){ return false; }
+
+        $sql = 'DELETE FROM '.$this->TABLE_NAME.' WHERE ';
+        $queryParams = array();
+
+        for($i = 0; $i < count($users); $i++){
+
+            $sql = $sql.'id=:id'.$i;
+            // If is last or not
+            if(!($i >= count($users) - 1)){
+                $sql = $sql.' OR ';
+            }
+
+            array_push($queryParams, new QueryParam(':id'.$i, $users[$i], PDO::PARAM_INT));
+
+        }
+
+        $this->open();
+
+        $result = $this->query($sql, $queryParams);
 
         $this->close();
 

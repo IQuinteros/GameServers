@@ -49,6 +49,11 @@ class UserRepository {
         return UserRepository::$user_api->updateUser($user);
     }
 
+    public static function touchLastConnection(User $user){
+        UserRepository::init();
+        return UserRepository::$user_api->touchLastConnection($user);
+    }
+
     public static function updatePassword(User $user, string $newPassword){
         UserRepository::init();
         return UserRepository::$user_api->updatePassword($user, $newPassword);
@@ -57,6 +62,11 @@ class UserRepository {
     public static function deleteUser(User $user, string $pass, bool $force = false){
         UserRepository::init();
         return UserRepository::$user_api->deleteUser($user, $pass, $force);
+    }
+
+    public static function deleteUsers(array $users){
+        UserRepository::init();
+        return UserRepository::$user_api->deleteUsers($users);
     }
 
 }

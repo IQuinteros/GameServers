@@ -8,7 +8,7 @@
 
             <form id="register" method="post" onsubmit="return onRegisterSubmit(this, event)" enctype="multipart/form-data">
                 <div class="input-zone">
-                    <label for="name">Nombre de empresa: </label>
+                    <label for="name">Nombre de usuario: </label>
                     <div class="input">
                         <input id="name" name="name" type="text" placeholder="" required>
                     </div>

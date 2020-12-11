@@ -50,6 +50,9 @@ class Login{
                 'registerDate' => $user->registerDate,
                 'lastConnectionDate' => $user->lastConnectionDate
             );
+
+            // Update last connection
+            UserRepository::touchLastConnection($user);
         }
 
         return $result;

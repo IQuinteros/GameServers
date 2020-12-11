@@ -76,12 +76,24 @@ form {
   font-size: 1.5rem;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .text-center {
   text-align: center;
 }
 
 .blank {
   margin: 20px;
+}
+
+.circle-image {
+  border-radius: 50%;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* GameServers text */

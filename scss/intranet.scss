@@ -259,6 +259,11 @@
     grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(200px, 1fr);
 }
 
+.table__header.table--clients{
+    grid-template-columns: 100px minmax(300px, 2fr) minmax(200px, 1fr) minmax(200px, 1fr);
+    margin-left: 60px;
+}
+
 .table--economy{
     grid-template-columns: 40px minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
 }
@@ -269,6 +274,19 @@
 
 .table--pricing{
     grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(200px, 1fr);
+}
+
+.table--clients{
+    grid-template-columns: 40px 100px minmax(300px, 2fr) minmax(200px, 1fr) minmax(200px, 1fr);
+}
+
+.table__item__image{
+    background-color: $light-color;
+    box-shadow: $box-shadow;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
 }
 
 /* Popup */

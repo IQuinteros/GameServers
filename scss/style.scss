@@ -72,12 +72,24 @@ form{
 	font-size: 1.5rem;
 }
 
+.text-justify{
+	text-align: justify;
+}
+
 .text-center{
 	text-align: center;
 }
 
 .blank{
 	margin: $spacing-unit*2;
+}
+
+.circle-image{
+	border-radius: 50%;
+}
+
+.box-shadow{
+	box-shadow: $box-shadow;
 }
 
 /* GameServers text */
