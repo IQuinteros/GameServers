@@ -79,3 +79,10 @@ import * as admin from './admin.js';
 
 window.onAdminLoginSubmit = admin.onAdminLoginSubmit;
 window.closeAdminSession = admin.closeAdminSession;
+
+// Plans
+
+import * as plans from './plans.js';
+
+window.editPlan = plans.editPlan;
+window.onPlanSubmit = plans.onPlanSubmit;

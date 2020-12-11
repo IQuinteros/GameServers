@@ -24,16 +24,16 @@
 
     <div class="intranet-background"></div>
 
-    <?php require_once('../php/components/header.php') ?>
+    <?php require_once('../php/components/intranet/header_admin.php') ?>
 
     <main>
-        <?php require_once('../php/components/intranet/pricing_toolbar.php') ?>
-        <?php require_once('../php/components/intranet/pricing_info.php') ?>
+        <?php require_once('../php/components/intranet/plan_toolbar.php') ?>
+        <?php require_once('../php/components/intranet/plan_info.php') ?>
     </main>
 
     <?php require_once('../php/components/footer.php') ?>
 
-    <?php require_once('../php/components/project/economy_popup.php') ?>
+    <?php require_once('../php/components/intranet/plan_popup.php') ?>
 
     <script type="module" src="/js/behavior/behavior.js"></script>
 

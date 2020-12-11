@@ -40,3 +40,6 @@ define('ROUTE_PROJECT', '/project');
 define('ROUTE_NEW_PROJECT', '/project/register.php');
 define('ROUTE_PROJECT_ECONOMY', '/project/economy.php');
 define('ROUTE_PROJECT_EXPERIMENTS', '/project/experiments.php');
+define('ROUTE_ADMIN_PLANS', '/project/plans.php');
+define('ROUTE_ADMIN_CLIENTS', '/project/clients.php');
+define('ROUTE_ADMIN_PURCHASES', '/project/purchases.php');

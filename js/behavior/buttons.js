@@ -59,15 +59,15 @@ export function goToProjectExperiments(){
 }
 
 export function goToAdminPricing(){
-    openSelfWindow(routes.ROUTE_ADMIN_PRICING);
+    openSelfWindow(routes.ROUTE_ADMIN_PLANS);
 }
 
 export function goToAdminClients(){
-    openSelfWindow(routes.ROUTE_ADMIN_PRICING);
+    openSelfWindow(routes.ROUTE_ADMIN_CLIENTS);
 }
 
 export function goToAdminPlans(){
-    openSelfWindow(routes.ROUTE_ADMIN_PRICING);
+    openSelfWindow(routes.ROUTE_ADMIN_PURCHASES);
 }
 
 export function closeSession(){

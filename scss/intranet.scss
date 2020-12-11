@@ -240,7 +240,7 @@
 }
 
 .table__header{
-    border-bottom: 2px solid $light-color;
+    border-bottom: 2px solid $secondary-color;
     padding-bottom: $spacing-unit;
     
 }
@@ -257,7 +257,6 @@
 
 .table__header.table--pricing{
     grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(200px, 1fr);
-    margin-left: 40px;
 }
 
 .table--economy{

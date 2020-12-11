@@ -64,7 +64,7 @@ function searchEconomy(){
     }
 
     lastSearch = $.ajax({
-        url: "/php/responses/economy/get_economy_project_resp.php",
+        url: "/php/responses/plans/get_plans_resp.php",
         type: "post",
         data:  `toSearch=${searchInput.value}`,
         beforeSend : function(){
@@ -77,8 +77,7 @@ function searchEconomy(){
                 for(let i = 0; i < data.length; i++){
                     $('#table-results').append(
                         `<div class="table__item table--pricing">` +
-                            `<input type="checkbox" name="${data[i].id}" id="${data[i].id}" onchange="onCheck(this, ${data[i].id})">`+
-                            `<a href="#" onclick="editElement(${data[i].id},'${data[i].name}',${data[i].initialQuantity},${data[i].maxQuantity})"><p>${data[i].name}</p></a>` +
+                            `<a href="#" onclick="editPlan(${data[i].id},'${data[i].name}','${data[i].detail}',${data[i].price})"><p>${data[i].name}</p></a>` +
                             `<p>${data[i].detail}</p>` +
                             `<p>${data[i].price}</p>` +
                         `</div>`

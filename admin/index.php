@@ -27,7 +27,7 @@
         <?php require_once __DIR__.('/../php/components/intranet/admin_info.php') ?>
     </main>
 
-
+    <?php require_once('../php/components/footer.php') ?>
 
     <script type="module" src="/js/behavior/behavior.js"></script>
 

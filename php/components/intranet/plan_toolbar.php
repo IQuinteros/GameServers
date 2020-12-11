@@ -1,6 +1,6 @@
 <div class="intranet__title">
     <button class="btn btn--cancel" onclick="onProjectClicked()">Volver</button>
-    <a href="/project"><</a><h1>Ajustar precios</h1>
+    <a href="/admin"><</a><h1>Ajustar planes</h1>
 </div>
 
 <div class="toolbar__limit">
