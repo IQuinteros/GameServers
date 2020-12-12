@@ -7,8 +7,8 @@
     </div>
 
     <div class="docs__path">
-        <a id="doc-master" class="doc--master" href="#"></a>
-        <a id="doc-current" href="#"></a>
+        <a id="doc-master" class="doc--master"></a>
+        <a id="doc-current"></a>
     </div>
 
     <h1 id="doc-title">GameServers</h1>
