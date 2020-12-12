@@ -119,7 +119,7 @@
     gap: $spacing-unit;
     padding: $spacing-unit*4;
 
-    min-height: 300px;
+    min-height: 400px;
 
     max-width: $content-width;
     margin: 0 auto;
@@ -154,7 +154,7 @@
     font-weight: 400;
 }
 
-@media screen and (max-width: 660px){
+@media screen and (max-width: 800px){
     .feature__item{
         grid-template-columns: 1fr;
         padding: $spacing-unit*2;

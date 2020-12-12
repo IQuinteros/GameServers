@@ -1,41 +1,27 @@
 <article class="feature__item">
-    <h1 class="feature__item__title">Servidores Multijugador</h1>
+    <h1 class="feature__item__title">Análisis en tiempo real</h1>
     <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
 
     <div class="feature__item__content">
-        <h2>Servidores dedicados</h2>
-        <p>Nuestros servidores multijugador dedicados entregan una jugabilidad de muy baja latencia y alta fidelidad.</p>
-        <h2>Global</h2>
-        <p>Jugadores de todo el planeta conectados a nuestros servidores.</p>
-        <h2>Monitoreo 24/7 con Proteccion DDoS</h2>
-        <p>Protección contra ataques DDoS y otros incidentes.</p>
+        <h2>Reportes</h2>
+        <p>Revisa los reportes automatizados por email para revisar el rendimiento de tus jugadores en el videojuego.</p>
+        <h2>Filtros y búsqueda</h2>
+        <p>Revisa los jugadores de tu videojuego y sus datos.</p>
+        <h2>Segmentos en tiempo real</h2>
+        <p>Usa las propiedades de datos por segmentos y genera eventos por distintos sectores de jugadores en tu videojuego.</p>
     </div>
 </article>
 
 <article class="feature__item">
-    <h1 class="feature__item__title">Servidores Multijugador</h1>
+    <h1 class="feature__item__title">Manejo de datos</h1>
     <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
 
     <div class="feature__item__content">
-        <h2>Servidores dedicados</h2>
-        <p>Nuestros servidores multijugador dedicados entregan una jugabilidad de muy baja latencia y alta fidelidad.</p>
-        <h2>Global</h2>
-        <p>Jugadores de todo el planeta conectados a nuestros servidores.</p>
-        <h2>Monitoreo 24/7 con Proteccion DDoS</h2>
-        <p>Protección contra ataques DDoS y otros incidentes.</p>
-    </div>
-</article>
-
-<article class="feature__item">
-    <h1 class="feature__item__title">Servidores Multijugador</h1>
-    <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
-
-    <div class="feature__item__content">
-        <h2>Servidores dedicados</h2>
-        <p>Nuestros servidores multijugador dedicados entregan una jugabilidad de muy baja latencia y alta fidelidad.</p>
-        <h2>Global</h2>
-        <p>Jugadores de todo el planeta conectados a nuestros servidores.</p>
-        <h2>Monitoreo 24/7 con Proteccion DDoS</h2>
-        <p>Protección contra ataques DDoS y otros incidentes.</p>
+        <h2>Tiempo real</h2>
+        <p>Revisa todos los datos de tu videojuego y tus jugadores en tiempo real con búsquedas inteligentes.</p>
+        <h2>Visión</h2>
+        <p>Proyecta la estadística de tu videojuego gracias a nuestros servicios.</p>
+        <h2>Eventos</h2>
+        <p>Genera distintos eventos relacionados a los datos que se generan con estos videojuegos.</p>
     </div>
 </article>
