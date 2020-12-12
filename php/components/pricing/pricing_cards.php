@@ -1,6 +1,7 @@
 <?php
     require_once __DIR__.('/../../utils/token.php');
     require_once __DIR__.('/../../repositories/project_repository.php');
+    require_once __DIR__.('/../../repositories/plan_repository.php');
 
     // Not logged
     $url = 'onRegisterClicked()';
@@ -21,6 +22,9 @@
             $text = '¡Actualiza tu plan!';
         }
     }
+
+    // Get plans
+    $plans = PlanRepository::getPlansBySearch('');
 ?>
 
 <div class="card-container">
@@ -29,6 +33,7 @@
         <p>- Modo de desarrollo. Recibe feedback de nuestras analíticas.</p>
         <p>- Prueba nuestro hosting de servidores hasta 600 horas de cómputo.</p>
         <p>- Incluye hasta 10.000 minutos de conectividad con grupos.</p>
+        <h1 class="price">$<?= $plans[0]->price?> /mensual</h1>
 
         <button class="btn" onclick="<?= $url?>"><?= $text ?></button>
     </div>
@@ -37,6 +42,7 @@
         <p>- Métricas rondando los 500 USD.</p>
         <p>- Cuentas ilimitadas de usuarios.</p>
         <p>- Soporte exclusivo de GameServers.</p>
+        <h1 class="price">$<?= $plans[1]->price?> /mensual</h1>
 
         <button class="btn" onclick="<?= $url?>"><?= $text ?></button>
     </div>
@@ -45,6 +51,7 @@
         <p>- Métricas rondando los 8000 USD.</p>
         <p>- Todo lo incluido en el plan estándar.</p>
         <p>- Soporte ultra exclusivo de GameServers. Solicitudes de emergencia.</p>
+        <h1 class="price">$<?= $plans[2]->price?> /mensual</h1>
 
         <button class="btn"><?= $text ?></button>
     </div>
@@ -53,6 +60,7 @@
         <p>- Precio personalizado basado en el volumen de consumo.</p>
         <p>- Máximo soporte de emergencia.</p>
         <p>- Consulta con expertos para optimizar el uso del servicio.</p>
+        <h1 class="price">$<?= $plans[3]->price?> /mensual</h1>
 
         <button class="btn" onclick="<?= $url?>"><?= $text ?></button>
     </div>

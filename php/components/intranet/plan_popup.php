@@ -8,15 +8,15 @@
                 <div class="input-zone">
                     <label for="name">Nombre de plan: </label>
                     <div class="input">
-                        <input id="name" name="name" type="text" placeholder="" required>
+                        <input id="name" name="name" type="text" placeholder="" maxlength="150" pattern="[^\x22]+" title="No se permite el uso de comillas dobles" required>
                     </div>
                     <label for="description">Descripción: </label>
                     <div class="input">
-                        <input id="description" name="description" type="text" placeholder="" required>
+                        <input id="description" name="description" type="text" placeholder="" maxlength="400" pattern="[^\x22]+" title="No se permite el uso de comillas dobles" required>
                     </div>
                     <label for="price">Precio: </label>
                     <div class="input">
-                        <input id="price" name="price" type="number" placeholder="" required>
+                        <input id="price" name="price" type="number" placeholder="" min="0" max="999999999" required>
                     </div>
                     <input type="hidden" name="id" id="id" value="">
                 </div>

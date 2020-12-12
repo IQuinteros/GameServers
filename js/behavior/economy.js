@@ -206,7 +206,7 @@ export function onNewEconomy(id, name, initial, max){
     openPopUp();
 }
 
-export function editElement(id, name, initial, max){
+export function editElement(id){
     const title = document.getElementById('popup-title');
     const text = document.getElementById('popup-text');
 
@@ -219,10 +219,12 @@ export function editElement(id, name, initial, max){
     const inputInitial = document.getElementById('initial');
     const inputMax = document.getElementById('max');
 
+    const getData = window.loadedData.find(elem => elem.id == id);
+
     inputId.value = id;
-    inputName.value = name;
-    inputInitial.value = initial;
-    inputMax.value = max;
+    inputName.value = getData.name;
+    inputInitial.value = getData.initialQuantity;
+    inputMax.value = getData.maxQuantity;
 
     window.editMode = true;
 

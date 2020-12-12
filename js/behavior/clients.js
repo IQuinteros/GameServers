@@ -79,19 +79,24 @@ export async function onDeleteClients(selected){
     });
 }
 
-export function displayClientInfo(id, name, email, image, membersNum, contactNum, location, registerDate, lastConnectionDate){   
+export function displayClientInfo(id){ 
+    const getData = window.loadedData.find(elem => elem.id == id);
+
+    let imageUrl = getData.image;
+    if(imageUrl == null){ imageUrl = '/assets/images/profile.png'; }
+    
     Swal.fire({
-        title: name,
-        imageUrl: image, 
+        title: getData.name,
+        imageUrl: imageUrl, 
         imageWidth: 200,
         imageHeight: 200,
         imageAlt: 'Imagen de cliente',
-        html: `<br><b>Email:</b> ${email} <br><br>` + 
-            `<b>Miembros de equipo:</b> ${membersNum} <br><br>` +
-            `<b>Número de contacto:</b> ${contactNum} <br><br>` +
-            `<b>Ubicación:</b> ${location} <br><br>` +
-            `<b>Fecha de registro:</b> ${registerDate} <br><br>` +
-            `<b>Última conexión:</b> ${lastConnectionDate} <br><br>`,
+        html: `<br><b>Email:</b> ${getData.email} <br><br>` + 
+            `<b>Miembros de equipo:</b> ${getData.membersNum} <br><br>` +
+            `<b>Número de contacto:</b> ${getData.contactNum} <br><br>` +
+            `<b>Ubicación:</b> ${getData.location} <br><br>` +
+            `<b>Fecha de registro:</b> ${getData.registerDate} <br><br>` +
+            `<b>Última conexión:</b> ${getData.lastConnectionDate} <br><br>`,
         customClass: {
             popup: 'normal-font-size',
             image: 'circle-image box-shadow'

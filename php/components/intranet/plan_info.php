@@ -56,6 +56,8 @@ function checkDeleteButton(){
 // To abort last ajax search
 let lastSearch = null;
 
+window.loadedData = [];
+
 function searchEconomy(){
     const searchInput = document.getElementById('search');
 
@@ -69,15 +71,17 @@ function searchEconomy(){
         data:  `toSearch=${searchInput.value}`,
         beforeSend : function(){
             $('#table-results').empty();
-            $('#table-results').append(`<p class="text-center">Buscando ...</p>`);
+            $('#table-results').append(`<div class="loader"></div>`);
         },
         success: function(data){
             $('#table-results').empty();
+            window.loadedData = [];
             if(data.length > 0){
                 for(let i = 0; i < data.length; i++){
+                    loadedData.push(data[i]);
                     $('#table-results').append(
                         `<div class="table__item table--pricing">` +
-                            `<a href="#" onclick="editPlan(${data[i].id},'${data[i].name}','${data[i].detail}',${data[i].price})"><p>${data[i].name}</p></a>` +
+                            `<a href="#" onclick="editPlan(${data[i].id})"><p>${data[i].name}</p></a>` +
                             `<p>${data[i].detail}</p>` +
                             `<p>${data[i].price}</p>` +
                         `</div>`
@@ -89,7 +93,8 @@ function searchEconomy(){
             }
         },
         error: function(e) {
-            error.showNetError(e);
+            $('#table-results').empty();
+            $('#table-results').append(`<p class="text-center">Ha habido un error de conexión</p>`);
         }          
     });
 }

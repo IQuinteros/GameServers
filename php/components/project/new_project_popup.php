@@ -10,24 +10,30 @@
                 <div class="input-zone">
                     <label for="name">Nombre: </label>
                     <div class="input">
-                        <input id="name" name="name" type="text" placeholder="" required>
+                        <input id="name" name="name" type="text" placeholder="" maxlength="150" required>
                     </div>
                     <label for="sel-plan">Plan: </label>
                     <div class="input">
                         <select name="plan" id="sel-plan" required>
-                            <option value="1">Gratis</option>
-                            <option value="2">Estándar</option>
-                            <option value="3">Premium</option>
-                            <option value="4">Empresa</option>
+                            <?php
+                            require_once __DIR__.('/../../repositories/plan_repository.php');
+
+                            $plans = PlanRepository::getPlansBySearch('');
+
+                            ?>
+                            <option value="1"><?= $plans[0]->name ?></option>
+                            <option value="2"><?= $plans[1]->name ?></option>
+                            <option value="3"><?= $plans[2]->name ?></option>
+                            <option value="4"><?= $plans[3]->name ?></option>
                         </select>
                     </div>
                     <label for="players">Jugadores estimados: </label>
                     <div class="input">
-                        <input id="players" name="players" type="number" placeholder="" required>
+                        <input id="players" name="players" type="number" placeholder="" min="1" max="99999999999" required>
                     </div>
                     <label for="team">Cantidad del equipo: </label>
                     <div class="input">
-                        <input id="team" name="team" type="number" placeholder="" required>
+                        <input id="team" name="team" type="number" placeholder="" min="1" max="99999999999" required>
                     </div>
                     <label for="sel-region">Región: </label>
                     <div class="input">

@@ -60,7 +60,9 @@ export function onPlanSubmit(form, event){
     return false;
 }
 
-export function editPlan(id, name, description, price){
+export function editPlan(id){
+
+    const getData = window.loadedData.find(elem => elem.id == id);
 
     // Set inputs
     const inputId = document.getElementById('id');
@@ -69,24 +71,27 @@ export function editPlan(id, name, description, price){
     const inputPrice = document.getElementById('price');
 
     inputId.value = id;
-    inputName.value = name;
-    inputDescription.value = description;
-    inputPrice.value = price;
+    inputName.value = getData.name;
+    inputDescription.value = getData.detail;
+    inputPrice.value = getData.price;
 
     openPopUp();
 }
 
-export function displayPlanInfo(id, userEmail, name, planName, estimatedPlayers, teamQuantity, region, registerDate, status){   
+export function displayPlanInfo(id){   
+
+    const getData = window.loadedData.find(elem => elem.id == id);
+
     Swal.fire({
         icon: 'info',
-        title: name,
-        html: `<br><b>Email de cliente:</b> ${userEmail} <br><br>` + 
-            `<b>Plan:</b> ${planName} <br><br>` +
-            `<b>Jugadores estimados:</b> ${estimatedPlayers} <br><br>` +
-            `<b>Cantidad de equipo:</b> ${teamQuantity} <br><br>` +
-            `<b>Región:</b> ${region} <br><br>` +
-            `<b>Fecha de registro:</b> ${registerDate} <br><br>` +
-            `<b>Estado:</b> ${status} <br><br>`,
+        title: getData.name,
+        html: `<br><b>Email de cliente:</b> ${getData.userEmail} <br><br>` + 
+            `<b>Plan:</b> ${getData.planName} <br><br>` +
+            `<b>Jugadores estimados:</b> ${getData.estimatedPlayers} <br><br>` +
+            `<b>Cantidad de equipo:</b> ${getData.teamQuantity} <br><br>` +
+            `<b>Región:</b> ${getData.region} <br><br>` +
+            `<b>Fecha de registro:</b> ${getData.registerDate} <br><br>` +
+            `<b>Estado:</b> ${getData.status} <br><br>`,
         customClass: {
             popup: 'normal-font-size',
             image: 'circle-image box-shadow'

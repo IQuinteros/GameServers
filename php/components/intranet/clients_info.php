@@ -57,6 +57,8 @@ function checkDeleteButton(){
 // To abort last ajax search
 let lastSearch = null;
 
+window.loadedData = [];
+
 function searchClients(){
     const searchInput = document.getElementById('search');
 
@@ -70,20 +72,23 @@ function searchClients(){
         data:  `text=${searchInput.value}`,
         beforeSend : function(){
             $('#table-results').empty();
-            $('#table-results').append(`<p class="text-center">Buscando ...</p>`);
+            $('#table-results').append(`<div class="loader"></div>`);
         },
         success: function(data){
             $('#table-results').empty();
+            window.loadedData = [];
             if(data.length > 0){
                 for(let i = 0; i < data.length; i++){
-                    imageUrl = data[i].image;
+                    loadedData.push(data[i]);
+
+                    let imageUrl = data[i].image;
                     if(imageUrl == null){ imageUrl = '/assets/images/profile.png'; }
 
                     $('#table-results').append(
                         `<div class="table__item table--clients">` +
                             `<input type="checkbox" name="${data[i].id}" id="${data[i].id}" onchange="onCheck(this, ${data[i].id})">`+
                             `<img class="table__item__image" src="${imageUrl}" alt="">` +
-                            `<a href="#" onclick="displayClientInfo(${data[i].id},'${data[i].name}','${data[i].email}','${imageUrl}',${data[i].membersNum},${data[i].contactNum},'${data[i].location}','${data[i].registerDate}','${data[i].lastConnectionDate}')"><p>${data[i].name}</p></a>` +
+                            `<a href="#" onclick="displayClientInfo(${data[i].id})"><p>${data[i].name}</p></a>` +
                             `<p>${data[i].registerDate}</p>` +
                             `<p>${data[i].lastConnectionDate}</p>` +
                         `</div>`
@@ -95,7 +100,8 @@ function searchClients(){
             }
         },
         error: function(e) {
-            error.showNetError(e);
+            $('#table-results').empty();
+            $('#table-results').append(`<p class="text-center">Ha habido un error de conexión</p>`);
         }          
     });
 }

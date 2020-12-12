@@ -55,6 +55,8 @@ function checkDeleteButton(){
 // To abort last ajax search
 let lastSearch = null;
 
+window.loadedData = [];
+
 function searchExperiment(){
     const searchInput = document.getElementById('search');
 
@@ -68,17 +70,19 @@ function searchExperiment(){
         data:  `toSearch=${searchInput.value}`,
         beforeSend : function(){
             $('#table-results').empty();
-            $('#table-results').append(`<p class="text-center">Buscando ...</p>`);
+            $('#table-results').append(`<div class="loader"></div>`);
         },
         success: function(data){
             $('#table-results').empty();
+            loadedData = [];
             if(data.length > 0){
                 for(let i = 0; i < data.length; i++){
+                    loadedData.push(data[i]);
                     $('#table-results').append(
                         `<div class="table__item table--experiment">` +
                             `<input type="checkbox" name="${data[i].id}" id="${data[i].id}" onchange="onCheck(this, ${data[i].id})">`+
-                            `<a href="#" onclick="editExperiment(${data[i].id},'${data[i].name}','${data[i].description.replace(/(\r\n|\n|\r)/gm, "")}')"><p>${data[i].name}</p></a>` +
-                            `<p>${data[i].description}</p>` +
+                            `<a href="#" onclick="editExperiment(${data[i].id})"><p>${data[i].name}</p></a>` +
+                            `<p>${data[i].description.replace(/(\r\n|\n|\r)/gm, "")}</p>` +
                         `</div>`
                     );
                 }
@@ -88,7 +92,8 @@ function searchExperiment(){
             }
         },
         error: function(e) {
-            error.showNetError(e);
+            $('#table-results').empty();
+            $('#table-results').append(`<p class="text-center">Ha habido un error de conexión</p>`);
         }          
     });
 }

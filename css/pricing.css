@@ -34,4 +34,8 @@
   font-size: 1.5rem;
 }
 
+.pricing-card > .price {
+  text-align: center;
+}
+
 /*# sourceMappingURL=pricing.css.map */

@@ -204,7 +204,7 @@ export function onNewExperiment(id, name, description){
     openPopUp();
 }
 
-export function editExperiment(id, name, description){
+export function editExperiment(id){
     const title = document.getElementById('popup-title');
     const text = document.getElementById('popup-text');
 
@@ -216,9 +216,11 @@ export function editExperiment(id, name, description){
     const inputName = document.getElementById('name');
     const inputDescription = document.getElementById('description');
 
+    const getData = window.loadedData.find(elem => elem.id == id);
+
     inputId.value = id;
-    inputName.value = name;
-    inputDescription.value = description;
+    inputName.value = getData.name;
+    inputDescription.value = getData.description;
 
     window.editMode = true;
 
