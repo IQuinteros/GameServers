@@ -34,6 +34,50 @@ class DocumentationElementRepository {
         return DocumentationElementRepository::$documentation_element_api->getDocumentationElementsBySearch($toSearch);
     }
 
+    private static function getDocWithID(array $docsArray, int $id){
+        foreach ($docsArray as $docRef) {
+            if($docRef->id == $id){
+                return $docRef;
+            }
+        }
+    }
+
+    public static function getOrderDocs(){
+        $docs = DocumentationElementRepository::getDocumentationElementsBySearch('');
+
+        $result = array();
+
+        foreach($docs as $docRef){
+            if($docRef->parentID != null){      
+                
+                array_push($result[$docRef->parentID]['children'], array(
+                    'id' => $docRef->id,
+                    'parentID' => $docRef->parentID,
+                    'title' => $docRef->title,
+                    'publishDate' => $docRef->publishDate,
+                    'likes' => $docRef->likes,
+                    'dislikes' => $docRef->dislikes,
+                    'content' => $docRef->content
+                ));
+
+            }
+            else{
+                $result[$docRef->id] = array(
+                    'id' => $docRef->id,
+                    'parentID' => $docRef->parentID,
+                    'title' => $docRef->title,
+                    'publishDate' => $docRef->publishDate,
+                    'likes' => $docRef->likes,
+                    'dislikes' => $docRef->dislikes,
+                    'content' => $docRef->content,
+                    'children' => array()
+                );
+            }
+        }
+
+        return $result;
+    }
+
     public static function addDocumentationElement(DocumentationElement $documentationElement){
         DocumentationElementRepository::init();
         return DocumentationElementRepository::$documentation_element_api->addDocumentationElement($documentationElement);

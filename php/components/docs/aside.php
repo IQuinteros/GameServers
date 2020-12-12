@@ -7,30 +7,55 @@
         </button>
     </div>
 
-    <span>Documentación</span>
-    <h1 class="logo-text">GameServers</h1>
+    <span class="aside__title">Documentación</span>
+    <h1 class="logo-text aside__subtitle">GameServers</h1>
 
     <div class="aside__list">
-        <a class="doc doc--master" href="#">Multiplayer</a>
-        <div class="doc__inner">
-            <a class="doc doc--master" href="#">Title 1</a>
-            <div class="doc__inner">
-                <a class="doc doc--current" href="#">Title 1</a>
-            </div>
-        </div>
-        <a class="doc doc--master" href="#">Multiplayer</a>
-        <div class="doc__inner">
-            <a class="doc doc--master" href="#">Title 1</a>
-            <div class="doc__inner">
-                <a class="doc" href="#">Title 1</a>
-            </div>
-        </div>
-        <a class="doc doc--master" href="#">Multiplayer</a>
-        <div class="doc__inner">
-            <a class="doc doc--master" href="#">Title 1</a>
-            <div class="doc__inner">
-                <a class="doc" href="#">Subtitle 1</a>
-            </div>
-        </div>
+        <?php
+        require_once __DIR__.('/../../repositories/documentation_element_repository.php');
+
+        $docs = DocumentationElementRepository::getOrderDocs();
+
+        $first = true;
+        $firstDoc = null;
+        foreach($docs as $docRef){
+            $masterClass = '';
+            if(count($docRef['children']) > 0){
+                $masterClass = 'doc--master';
+            }
+            else{
+                if($first){ 
+                    $masterClass = $masterClass.' doc--current'; 
+                    $firstDoc = $docRef;
+                    $first = false; 
+                }
+            }
+        ?>
+            <a id="<?= $docRef['id'] ?>" class="doc <?= $masterClass ?>" href="#" onclick="updateCurrrentDoc(<?= $docRef['id'] ?>, null, '<?= $docRef['title'] ?>', '<?= $docRef['publishDate'] ?>', <?= $docRef['likes'] ?>, <?= $docRef['dislikes'] ?>, `<?= nl2br($docRef['content']) ?>`)"><?= $docRef['title'] ?></a>
+        <?php 
+            if(count($docRef['children']) > 0){
+                ?>
+                <div class="doc__inner">
+                <?php
+                foreach($docRef['children'] as $childDoc){
+                    ?>
+                    <a id="<?= $childDoc['id'] ?>" class="doc" href="#" onclick="updateCurrrentDoc(<?= $childDoc['id'] ?>, <?= $childDoc['parentID'] ?>, '<?= $childDoc['title'] ?>', '<?= $childDoc['publishDate'] ?>', <?= $childDoc['likes'] ?>, <?= $childDoc['dislikes'] ?>, `<?= nl2br($childDoc['content']) ?>`, '<?= $docRef['title'] ?>')"><?= $childDoc['title'] ?></a>
+                    <?php
+                }
+                ?>
+                </div>
+                <?php
+            }
+
+        } 
+        ?>
     </div>
 </aside>
+
+<script>
+    $(document).ready(() => {
+
+        updateCurrrentDoc(<?= $firstDoc['id'] ?>, null, '<?= $firstDoc['title'] ?>', '<?= $firstDoc['publishDate'] ?>', <?= $firstDoc['likes'] ?>, <?= $firstDoc['dislikes'] ?>, `<?= nl2br($firstDoc['content']) ?>`);
+
+    });
+</script>

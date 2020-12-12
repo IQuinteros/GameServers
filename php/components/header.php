@@ -18,11 +18,25 @@
 
         <?php 
         require_once __DIR__.('/../utils/token.php');
+        require_once __DIR__.('/../repositories/project_repository.php');
 
         if(Token::checkToken()){
+
+        $text = 'Ir a mi proyecto';
+
+        $currentUser = Login::getCurrentUser(false);
+
+        if(!$currentUser == null){    
+            $projects = ProjectRepository::getProjectsByUserId($currentUser->id);
+    
+            if(count($projects) <= 0){
+                $text = 'Registrar proyecto';
+            }
+        }
+
         ?>
 
-        <a href="#" onclick="onProjectClicked()" class="header__project"><h3>Ir a mi proyecto</h3></a>
+        <a href="#" onclick="onProjectClicked()" class="header__project"><h3><?= $text ?></h3></a>
 
         <?php } else{?>
 

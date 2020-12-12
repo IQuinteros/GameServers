@@ -87,6 +87,7 @@ import * as plans from './plans.js';
 window.editPlan = plans.editPlan;
 window.onPlanSubmit = plans.onPlanSubmit;
 window.displayPlanInfo = plans.displayPlanInfo;
+window.setPlanStatus = plans.setPlanStatus;
 
 /// Clients
 

@@ -17,7 +17,7 @@ require_once('model.php');
 class DocumentationElement extends Model{
 
     /**
-     * @var int
+     * @var mixed
      */
     public $parentID;
     /**
@@ -42,7 +42,7 @@ class DocumentationElement extends Model{
     public $content;
 
     // Constructor
-    public function __construct($id, int $parentID, string $title, $publishDate, int $likes, int $dislikes, string $content)
+    public function __construct($id, $parentID, string $title, $publishDate, int $likes, int $dislikes, string $content)
     {
         parent::__construct($id);
 

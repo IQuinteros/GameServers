@@ -72,6 +72,13 @@
   margin-bottom: 30px;
 }
 
+.aside__docs {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #05668d;
+  margin-top: 20px;
+}
+
 /* Title */
 .intranet__title {
   max-width: 1280px;

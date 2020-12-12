@@ -17,4 +17,6 @@
 
     <button class="btn" onclick="onProjectEconomyClicked()">Ajustar economía</button>
     <button class="btn" onclick="onProjectExperimentsClicked()">Ajustar experimentos</button>
+
+    <a class="aside__docs" href="#">Ir a la documentación para administrar tu proyecto</a>
 </aside>
