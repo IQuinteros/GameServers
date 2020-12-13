@@ -34,14 +34,6 @@ class DocumentationElementRepository {
         return DocumentationElementRepository::$documentation_element_api->getDocumentationElementsBySearch($toSearch);
     }
 
-    private static function getDocWithID(array $docsArray, int $id){
-        foreach ($docsArray as $docRef) {
-            if($docRef->id == $id){
-                return $docRef;
-            }
-        }
-    }
-
     public static function getOrderDocs(){
         $docs = DocumentationElementRepository::getDocumentationElementsBySearch('');
 
@@ -86,6 +78,11 @@ class DocumentationElementRepository {
     public static function updateDocumentationElement(DocumentationElement $documentationElement){
         DocumentationElementRepository::init();
         return DocumentationElementRepository::$documentation_element_api->updateDocumentationElement($documentationElement);
+    }
+
+    public static function updateDocRate(DocumentationElement $documentationElement, bool $isLike = true){
+        DocumentationElementRepository::init();
+        return DocumentationElementRepository::$documentation_element_api->updateDocRate($documentationElement, $isLike);
     }
 
     public static function deleteDocumentationElement(DocumentationElement $documentationElement){

@@ -34,6 +34,11 @@ class UserRepository {
         return UserRepository::$user_api->getUsersByEmailOrName($text);
     }
 
+    public static function getUsersById(array $users){
+        UserRepository::init();
+        return UserRepository::$user_api->getUsersById($users);
+    }
+
     public static function getUserByEmail(string $email){
         UserRepository::init();
         return UserRepository::$user_api->getUserByEmail($email);

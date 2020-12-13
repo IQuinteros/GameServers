@@ -8,6 +8,6 @@
         <div class="toolbar__buttons">
         </div>
 
-        <a class="toolbar__docs" href="#">Ir a la documentación de esta sección</a>
+        <a class="toolbar__docs" href="/docs/?id=14" target="_blank">Ir a la documentación de esta sección</a>
     </div>
 </div>

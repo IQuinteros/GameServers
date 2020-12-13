@@ -1,6 +1,6 @@
 <article class="feature__item">
     <h1 class="feature__item__title">Análisis en tiempo real</h1>
-    <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
+    <img class="feature__item__image" src="/assets/images/gta.jpeg" alt="">
 
     <div class="feature__item__content">
         <h2>Reportes</h2>
@@ -14,7 +14,7 @@
 
 <article class="feature__item">
     <h1 class="feature__item__title">Manejo de datos</h1>
-    <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
+    <img class="feature__item__image" src="/assets/images/jett.jpg" alt="">
 
     <div class="feature__item__content">
         <h2>Tiempo real</h2>

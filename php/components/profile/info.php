@@ -49,7 +49,7 @@
                         <input id="repass" name="repass" type="password" placeholder="Repetir" maxlength="50">
                     </div>
                 </div>
-            <button class="btn" type="submit" form="profile">Guardar datos</button>
+            <button class="btn" type="submit" form="profile">Guardar perfil</button>
         </div>
     </form>
     <h3 class="project__title">Mi proyecto</h3>
@@ -98,7 +98,7 @@
                 <div class="input__empty"></div>
             </div>
 
-            <button class="btn">Guardar datos</button>
+            <button class="btn">Guardar proyecto</button>
         </div>
     </form>
     <?php 
@@ -109,6 +109,8 @@
             require_once __DIR__.('/../start_now.php');
         }
     ?>
+
+    <hr>
 
     <button class="btn btn--cancel" onclick="closeSession()">Cerrar sesión</button>
 

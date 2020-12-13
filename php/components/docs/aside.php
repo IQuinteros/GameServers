@@ -25,13 +25,13 @@
             }
             else{
                 if($first){ 
-                    $masterClass = $masterClass.' doc--current'; 
+                    $masterClass = $masterClass; 
                     $firstDoc = $docRef;
                     $first = false; 
                 }
             }
         ?>
-            <a id="<?= $docRef['id'] ?>" class="doc <?= $masterClass ?>" href="#" onclick="updateCurrrentDoc(<?= $docRef['id'] ?>, null, '<?= $docRef['title'] ?>', '<?= $docRef['publishDate'] ?>', <?= $docRef['likes'] ?>, <?= $docRef['dislikes'] ?>, `<?= nl2br($docRef['content']) ?>`)"><?= $docRef['title'] ?></a>
+            <a id="<?= $docRef['id'] ?>" class="doc <?= $masterClass ?>" href="#" onclick="ajaxUpdateCurrentDoc(<?= $docRef['id'] ?>)"><?= $docRef['title'] ?></a>
         <?php 
             if(count($docRef['children']) > 0){
                 ?>
@@ -39,7 +39,7 @@
                 <?php
                 foreach($docRef['children'] as $childDoc){
                     ?>
-                    <a id="<?= $childDoc['id'] ?>" class="doc" href="#" onclick="updateCurrrentDoc(<?= $childDoc['id'] ?>, <?= $childDoc['parentID'] ?>, '<?= $childDoc['title'] ?>', '<?= $childDoc['publishDate'] ?>', <?= $childDoc['likes'] ?>, <?= $childDoc['dislikes'] ?>, `<?= nl2br($childDoc['content']) ?>`, '<?= $docRef['title'] ?>')"><?= $childDoc['title'] ?></a>
+                    <a id="<?= $childDoc['id'] ?>" class="doc" href="#" onclick="ajaxUpdateCurrentDoc(<?= $childDoc['id'] ?>)"><?= $childDoc['title'] ?></a>
                     <?php
                 }
                 ?>
@@ -55,7 +55,18 @@
 <script>
     $(document).ready(() => {
 
-        updateCurrrentDoc(<?= $firstDoc['id'] ?>, null, '<?= $firstDoc['title'] ?>', '<?= $firstDoc['publishDate'] ?>', <?= $firstDoc['likes'] ?>, <?= $firstDoc['dislikes'] ?>, `<?= nl2br($firstDoc['content']) ?>`);
+        <?php
+        $firstUpdate = $firstDoc['id'];
+        if(isset($_GET['id'])){
+            $firstUpdate = (int)$_GET['id'];
+
+            if($firstUpdate <= 0){
+                $firstUpdate = 1;
+            }
+        }
+        ?>
+
+        ajaxUpdateCurrentDoc(<?= $firstUpdate ?>);
 
     });
 </script>

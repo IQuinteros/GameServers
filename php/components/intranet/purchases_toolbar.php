@@ -10,6 +10,6 @@
             <button class="btn visible" onclick="setPlanStatus(selected, 'inactive')">Desactivar</button>
         </div>
         <span class="toolbar__text" id="toolbar-text">0 seleccionados</span>
-        <a class="toolbar__docs" href="#">Ir a la documentación de esta sección</a>
+        <a class="toolbar__docs" href="/docs/?id=16" target="_blank">Ir a la documentación de esta sección</a>
     </div>
 </div>

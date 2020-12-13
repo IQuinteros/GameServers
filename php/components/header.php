@@ -8,8 +8,8 @@
                 <i class="fas fa-caret-down"></i>
             </button>
             <div id="feature-submenu" class="button__submenu">
-                <button class="btn" onclick="onFeatureMultiplayerClicked()">Multiplayer</button>
-                <button class="btn" onclick="onFeatureAnalyticsClicked()">Analytics</button>
+                <button class="btn" onclick="onFeatureMultiplayerClicked()">Multijugador</button>
+                <button class="btn" onclick="onFeatureAnalyticsClicked()">Analíticas</button>
                 <button class="btn" onclick="onFeatureLiveOpsClicked()">LiveOps</button>
             </div>
             <button onclick="onPricingClicked()">Precios</button>
@@ -60,8 +60,8 @@
         <i class="fas fa-caret-down"></i>
     </button>
     <div id="feature-submenu-mobile" class="button__submenu mobile">
-        <button class="btn" onclick="onFeatureMultiplayerClicked()">Multiplayer</button>
-        <button class="btn" onclick="onFeatureAnalyticsClicked()">Analytics</button>
+        <button class="btn" onclick="onFeatureMultiplayerClicked()">Multijugador</button>
+        <button class="btn" onclick="onFeatureAnalyticsClicked()">Analíticas</button>
         <button class="btn" onclick="onFeatureLiveOpsClicked()">LiveOps</button>
     </div>
     <button onclick="onPricingClicked()">Precios</button>

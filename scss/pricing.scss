@@ -36,3 +36,9 @@
 .pricing-card > .price{
     text-align: center;
 }
+
+.pricing-card > .price > .price-description{
+    display: block;
+    margin-left: $spacing-unit;
+    font-size: 1.5rem;
+}

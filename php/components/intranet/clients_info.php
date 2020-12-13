@@ -41,16 +41,19 @@ function onCheck(elem, id){
     const toolbarText = document.getElementById('toolbar-text');
     toolbarText.textContent = `${selected.length} seleccionados`;
 
-    checkDeleteButton();
+    checkButtons();
 }
 
-function checkDeleteButton(){
+function checkButtons(){
     const deleteButton = document.getElementById('delete-btn');
+    const exportButton = document.getElementById('export-btn');
     if(selected.length > 0){
         deleteButton.classList.add('visible');
+        exportButton.classList.add('visible');
     }
     else{
         deleteButton.classList.remove('visible');
+        exportButton.classList.remove('visible');
     }
 }
 

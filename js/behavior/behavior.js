@@ -95,3 +95,4 @@ import * as clients from './clients.js';
 
 window.onDeleteClients = clients.onDeleteClients;
 window.displayClientInfo = clients.displayClientInfo;
+window.onExportClients = clients.onExportClients;

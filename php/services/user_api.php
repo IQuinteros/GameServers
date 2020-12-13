@@ -111,6 +111,66 @@ class UserAPI extends BaseAPI {
     }
 
     /**
+     * Get users by id
+     * 
+     * @var array $users IDs usersIds
+     */
+    public function getUsersById(array $users){
+        if(count($users) <= 0){ return false; }
+
+        $sql = 'SELECT * FROM '.$this->TABLE_NAME.' WHERE ';
+        $queryParams = array();
+
+        for($i = 0; $i < count($users); $i++){
+
+            $sql = $sql.'id=:id'.$i;
+            // If is last or not
+            if(!($i >= count($users) - 1)){
+                $sql = $sql.' OR ';
+            }
+
+            array_push($queryParams, new QueryParam(':id'.$i, $users[$i], PDO::PARAM_INT));
+
+        }
+
+        $this->open();
+
+        $result = $this->query($sql, $queryParams);
+
+        $this->close();
+
+        // Check if is found
+        if($result->rowCount() > 0){
+
+            $users = array();
+
+            // Check result
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $foundUser = new User(
+                    $row->id,
+                    $row->name,
+                    $row->email,
+                    $row->image,
+                    $row->membersNum,
+                    $row->contactNum,
+                    $row->location,
+                    $row->registerDate,
+                    $row->lastConnectionDate
+                );
+
+                array_push($users, $foundUser);
+            }
+
+            return $users;
+
+        }
+        else{
+            // It isn't found so return false
+            return array();
+        }
+    }
+
+    /**
      * Get user by specific email
      * @var string $email The email of the expected user
      */

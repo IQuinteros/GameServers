@@ -7,8 +7,8 @@
     </div>
 
     <div class="docs__path">
-        <a id="doc-master" class="doc--master"></a>
-        <a id="doc-current"></a>
+        <!-- <a id="doc-master" class="doc--master"></a>
+        <a id="doc-current"></a> -->
     </div>
 
     <h1 id="doc-title">GameServers</h1>
@@ -38,38 +38,62 @@
 
 <script>
 
-let currentAsideElement = null;
+window.currentAsideElement = null;
 
-function updateCurrrentDoc(docID, parentID, title, publishDate, likes, dislikes, content, parentTitle = ''){
-    const docMaster = document.getElementById('doc-master');
-    const docCurrent = document.getElementById('doc-current');
+function ajaxUpdateCurrentDoc(id){
+    $.ajax({
+        url: "/php/responses/docs/get_doc_resp.php",
+        type: "post",
+        data: `id=${id}`,
+        beforeSend : function(){
+            $('#doc-content').empty();
+            $('#doc-content').append(`<div class="loader"></div>`);
+        },
+        success: function(data){
+            $('#doc-content').empty();
+            if(!data.Error){
+                $('#doc-title').empty();
+                $('#doc-title').append(data.title);
 
-    const docTitle = document.getElementById('doc-title');
-    const docDate = document.getElementById('doc-date');
-    const docContent = document.getElementById('doc-content');
+                $('#doc-date').empty();
+                $('#doc-date').append(data.publishDate);
 
+                $('#doc-content').append(data.content.replace(/(?:\r\n|\r|\n)/g, '<br>'));
 
-    if(currentAsideElement != null){
-        currentAsideElement.classList.remove('doc--current');
-    }
+                if(currentAsideElement != null){
+                    currentAsideElement.classList.remove('doc--current');
+                }
 
-    const asideID = document.getElementById(docID);
-    currentAsideElement = asideID;
+                const asideID = document.getElementById(data.id);
+                currentAsideElement = asideID;
 
-    currentAsideElement.classList.add('doc--current');
-
-    if(parentID == null){
-        docMaster.textContent = title;
-        docCurrent.textContent = null;
-    }
-    else{
-        docMaster.textContent = parentTitle;
-        docCurrent.textContent = title;
-    }
-    docTitle.textContent = title;
-    docDate.textContent = publishDate;
-
-    docContent.innerHTML = content;
+                currentAsideElement.classList.add('doc--current');
+            }
+            else{
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Hubo un problema',
+                    text: data.Error,
+                    
+                    customClass: {
+                        popup: 'normal-font-size'
+                    }
+                });
+            }
+        },
+        error: function(e) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Hubo un problema de conexión',
+                text: 'Por favor intente más tarde',
+                
+                customClass: {
+                    popup: 'normal-font-size'
+                }
+            });
+        }          
+    });
 }
+
 
 </script>

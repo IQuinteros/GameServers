@@ -11,17 +11,28 @@ function registerAjax(form, event){
             loading.showLoading('Enviando solicitud');
         },
         success: function(data){
-            Swal.fire({
-                icon: 'success',
-                title: 'Cuenta creada exitósamente',
-                willClose: () => {
-                    onHomeClicked();
-                },
-                
-                customClass: {
-                    popup: 'normal-font-size'
-                }
-            });
+            if(data.PDO[2] == null || !data.PDO[2].includes('Duplicate')){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cuenta creada exitósamente',
+                    willClose: () => {
+                        onHomeClicked();
+                    },
+                    
+                    customClass: {
+                        popup: 'normal-font-size'
+                    }
+                });
+            }
+            else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ya existe un usuario con ese email',                    
+                    customClass: {
+                        popup: 'normal-font-size'
+                    }
+                });
+            }
         },
         error: function(e) {
             error.showNetError(e);
@@ -38,7 +49,15 @@ export function onRegisterSubmit(form, event){
         registerAjax(form, event);
     }
     else{
-        form['repass'].setCustomValidity('Las contraseñas no coinciden');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Ups!',
+            text: 'Las contraseñas ingresadas no coinciden',
+            
+            customClass: {
+                popup: 'normal-font-size'
+            }
+        });
     }    
 
     return false;

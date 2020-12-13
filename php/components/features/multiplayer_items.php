@@ -26,7 +26,7 @@
 
 <article class="feature__item">
     <h1 class="feature__item__title">Multiplataforma</h1>
-    <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
+    <img class="feature__item__image" src="/assets/images/starwars.jpg" alt="">
 
     <div class="feature__item__content">
         <h2>Manejo de datos de usuarios</h2>

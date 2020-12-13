@@ -79,6 +79,32 @@ export async function onDeleteClients(selected){
     });
 }
 
+export async function onExportClients(selected){
+    if(selected.length <= 0){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Exportar PDF',
+            text: `No tienes cuentas de clientes por exportar`,
+            customClass: {
+                popup: 'normal-font-size'
+            }
+        });
+        return;
+    }
+
+    let url = 'http://gameservers.test/php/services/pdf/clients_pdf.php?';
+
+
+    for(let i = 0; i < selected.length; i++){
+        url += `items[${i}]=${selected[i].id}&`;
+    }
+
+    selected.slice(0 , -1);
+
+    window.open(url, '_blank');
+
+}
+
 export function displayClientInfo(id){ 
     const getData = window.loadedData.find(elem => elem.id == id);
 

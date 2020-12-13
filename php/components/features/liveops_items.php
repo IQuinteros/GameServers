@@ -1,6 +1,6 @@
 <article class="feature__item">
     <h1 class="feature__item__title">Economía</h1>
-    <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
+    <img class="feature__item__image" src="/assets/images/fallout.jpg" alt="">
 
     <div class="feature__item__content">
         <h2>Almacén y ventas</h2>
@@ -14,7 +14,7 @@
 
 <article class="feature__item">
     <h1 class="feature__item__title">Manejo de contenido</h1>
-    <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
+    <img class="feature__item__image" src="/assets/images/assasinscreed.jpg" alt="">
 
     <div class="feature__item__content">
         <h2>Información del proyecto</h2>
@@ -28,7 +28,7 @@
 
 <article class="feature__item">
     <h1 class="feature__item__title">Engagement y retención</h1>
-    <img class="feature__item__image" src="/assets/images/battlefield_game.jpg" alt="">
+    <img class="feature__item__image" src="/assets/images/deadbydaylight.jpg" alt="">
 
     <div class="feature__item__content">
         <h2>Perfiles</h2>
