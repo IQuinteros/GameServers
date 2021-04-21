@@ -1,0 +1,49 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+.showcase {
+  color: #05668d;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 280px;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.showcase > h3 {
+  font-weight: 300;
+  color: #00a896;
+}
+
+.showcase > a {
+  font-size: 1.5rem;
+  color: #05668d;
+}
+
+.showcase__more {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+}
+
+.showcase__clients {
+  margin: 20px 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+  .showcase__more {
+    position: static;
+  }
+}
+
+/*# sourceMappingURL=showcase.css.map */

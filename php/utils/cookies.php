@@ -9,7 +9,7 @@
 
 class CookieManager{
 
-    public static function setCookie(string $name, $value, int $timeToExpire, string $path, string $domain = '', bool $secure = false, bool $httponly = false){
+    public static function setCookie(string $name, $value, int $timeToExpire = 0, string $path, string $domain = '', bool $secure = false, bool $httponly = false){
         setCookie($name, $value, $timeToExpire, $domain, $secure, $httponly);
     }
 

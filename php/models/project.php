@@ -60,6 +60,18 @@ class Project extends Model{
      */
     public $status;
 
+
+    // OPTIONAL
+    
+    /**
+     * @var string
+     */
+    public $userEmail;
+    /**
+     * @var string
+     */
+    public $planName;
+
     // Constructor
     public function __construct($id, int $userID, string $name, int $planID, int $estimatedPlayers, int $teamQuantity, string $region, $registerDate, ProjectStatus $status)
     {

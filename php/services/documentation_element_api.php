@@ -152,6 +152,26 @@ class DocumentationElementAPI extends BaseAPI {
     }
 
     /**
+     * Update documentation element data
+     * 
+     * @var DocumentationElement $documentationElement New documentationElement data
+     */
+    public function updateDocRate(DocumentationElement $documentationElement, bool $isLike = true){
+        $this->open();
+
+        $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
+            ($isLike?'likes=likes+:likes':'dislikes=dislikes+:dislikes').' WHERE id=:id', array(
+                new QueryParam($isLike? ':likes' : ':dislikes', 1, PDO::PARAM_INT),
+                new QueryParam(':id', $documentationElement->id, PDO::PARAM_INT)
+            ) 
+        );
+
+        $this->close();
+
+        return $result;
+    }
+
+    /**
      * Delete documentationElement - Use carefully
      * 
      * @var DocumentationElement $documentationElement DocumentationElement to delete

@@ -8,11 +8,11 @@
 
 */
 
-header("Content-Type: application/json; charset=UTF-8");
+require_once __DIR__.('/../base_resp.php');
 require_once __DIR__.('/../../repositories/user_repository.php');
 
 // Check data
-if (isset($_POST['text'])){
+if (checkRequestData(array('text'))){
 
     $users = UserRepository::getUsersByEmailOrName($_POST['text']);
 
@@ -38,7 +38,7 @@ if (isset($_POST['text'])){
 
 }
 else{
-    $result = array('Error'=>'Faltan datos para obtener al usuario.', 'POST'=>$_POST);
+    $result = formatError('Faltan datos para obtener al usuario');
 }
 
 echo json_encode($result);

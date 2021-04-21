@@ -1,0 +1,40 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+.start-now {
+  background-color: #05668d;
+  color: #f2f2f2;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  margin: 10px;
+  padding: 10px 30px;
+  position: relative;
+  width: 90%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.start-now > h1,
+.start-now > button {
+  z-index: 1;
+}
+
+.start-now > .btn {
+  font-size: 2rem;
+}
+
+.start-now__inner {
+  position: absolute;
+  background-color: #00a896;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+}
+
+/*# sourceMappingURL=extra.css.map */

@@ -111,6 +111,108 @@ class UserAPI extends BaseAPI {
     }
 
     /**
+     * Get users by id
+     * 
+     * @var array $users IDs usersIds
+     */
+    public function getUsersById(array $users){
+        if(count($users) <= 0){ return false; }
+
+        $sql = 'SELECT * FROM '.$this->TABLE_NAME.' WHERE ';
+        $queryParams = array();
+
+        for($i = 0; $i < count($users); $i++){
+
+            $sql = $sql.'id=:id'.$i;
+            // If is last or not
+            if(!($i >= count($users) - 1)){
+                $sql = $sql.' OR ';
+            }
+
+            array_push($queryParams, new QueryParam(':id'.$i, $users[$i], PDO::PARAM_INT));
+
+        }
+
+        $this->open();
+
+        $result = $this->query($sql, $queryParams);
+
+        $this->close();
+
+        // Check if is found
+        if($result->rowCount() > 0){
+
+            $users = array();
+
+            // Check result
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $foundUser = new User(
+                    $row->id,
+                    $row->name,
+                    $row->email,
+                    $row->image,
+                    $row->membersNum,
+                    $row->contactNum,
+                    $row->location,
+                    $row->registerDate,
+                    $row->lastConnectionDate
+                );
+
+                array_push($users, $foundUser);
+            }
+
+            return $users;
+
+        }
+        else{
+            // It isn't found so return false
+            return array();
+        }
+    }
+
+    /**
+     * Get user by specific email
+     * @var string $email The email of the expected user
+     */
+    public function getUserByEmail(string $email){
+        $this->open();
+
+        $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE email = :email', array(
+            new QueryParam(':email', $email),
+        ));
+
+        // Close connection
+        $this->close();
+
+        // Check if is found
+        if($result->rowCount() > 0){
+
+            // Check result
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $foundUser = new User(
+                    $row->id,
+                    $row->name,
+                    $row->email,
+                    $row->image,
+                    $row->membersNum,
+                    $row->contactNum,
+                    $row->location,
+                    $row->registerDate,
+                    $row->lastConnectionDate
+                );
+
+                return $foundUser;
+            }
+
+        }
+        else{
+            // It isn't found so return false
+            return null;
+        }
+
+    }
+
+    /**
      * Add new user
      * 
      * @var User $user User data
@@ -147,14 +249,33 @@ class UserAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
-            'name=:name, email=:email, image=:image, membersNum=:membersNum, contactNum=:contactNum, location=:location WHERE id=:id', array(
+            'name=:name, image=:image, membersNum=:membersNum, contactNum=:contactNum, location=:location WHERE id=:id', array(
                 new QueryParam(':id', $user->id, PDO::PARAM_INT),
                 new QueryParam(':name', $user->name),
-                new QueryParam(':email', $user->email),
                 new QueryParam(':image', $user->image),
                 new QueryParam(':membersNum', $user->membersNum, PDO::PARAM_INT),
                 new QueryParam(':contactNum', $user->contactNum, PDO::PARAM_INT),
                 new QueryParam(':location', $user->location)
+            )
+        );
+
+        $this->close();
+
+        return $result;
+    }
+
+    /**
+     * Touch last connection
+     * 
+     * @var User $user User to touch
+     */
+    public function touchLastConnection(User $user){
+        $this->open();
+
+        $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
+            'lastConnectionDate=:lastConnectionDate WHERE id=:id', array(
+                new QueryParam(':id', $user->id, PDO::PARAM_INT),
+                new QueryParam(':lastConnectionDate', (date ("Y-m-d H:i:s"))),
             )
         );
 
@@ -173,7 +294,7 @@ class UserAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
-            'password=:name WHERE id=:id', array(
+            'password=:password WHERE id=:id', array(
                 new QueryParam(':id', $user->id, PDO::PARAM_INT),
                 new QueryParam(':password', PasswordManager::encryptPassword($newPassword))
             )
@@ -188,14 +309,56 @@ class UserAPI extends BaseAPI {
      * Delete user - Use carefully
      * 
      * @var User $user User to delete
+     * @var string $pass Password (for security)
+     * @var bool $force Force deletion (true -> Ignore password)
      */
-    public function deleteUser(User $user){
+    public function deleteUser(User $user, string $pass, bool $force = false){
+        if(!$force){
+
+            $toDeleteUser = $this->getUserByEmailAndPassword($user->email, $pass);
+
+            if($toDeleteUser == null){ return false; }
+
+        }
+
         $this->open();
 
         $result = $this->query('DELETE FROM '.$this->TABLE_NAME.' WHERE id=:id', array(
                 new QueryParam(':id', $user->id, PDO::PARAM_INT)
             )
         );
+
+        $this->close();
+
+        return $result;
+    }
+
+    /**
+     * Delete some users - Use carefully
+     * 
+     * @var array $users IDs of experiment elements
+     */
+    public function deleteUsers(array $users){
+        if(count($users) <= 0){ return false; }
+
+        $sql = 'DELETE FROM '.$this->TABLE_NAME.' WHERE ';
+        $queryParams = array();
+
+        for($i = 0; $i < count($users); $i++){
+
+            $sql = $sql.'id=:id'.$i;
+            // If is last or not
+            if(!($i >= count($users) - 1)){
+                $sql = $sql.' OR ';
+            }
+
+            array_push($queryParams, new QueryParam(':id'.$i, $users[$i], PDO::PARAM_INT));
+
+        }
+
+        $this->open();
+
+        $result = $this->query($sql, $queryParams);
 
         $this->close();
 

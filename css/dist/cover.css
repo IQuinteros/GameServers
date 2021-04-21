@@ -1,0 +1,100 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+.cover {
+  background-color: #05668d;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: #f2f2f2;
+  min-height: 330px;
+  padding: 70px;
+  position: relative;
+}
+
+.cover > h1,
+.cover > img {
+  z-index: 2;
+}
+
+.cover > h1 {
+  width: 40%;
+}
+
+.cover__inner {
+  background-color: #00a896;
+  clip-path: polygon(65% 0, 100% 0, 100% 100%, 45% 100%);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.cover > .cover__img--left {
+  max-width: 30%;
+  position: absolute;
+  bottom: 30px;
+}
+
+.cover > .cover__img--center {
+  max-width: 20%;
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+}
+
+.cover > .cover__img--back {
+  max-width: 40%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 120px;
+  opacity: 0.8;
+}
+
+.cover > .cover__img--right {
+  position: absolute;
+  object-fit: contain;
+  max-width: 18%;
+  height: 90%;
+  top: 20px;
+  right: 0;
+  bottom: 20px;
+}
+
+.cover > span {
+  font-size: 1.5rem;
+  display: block;
+  padding: 20px 0;
+}
+
+.cover__indicator {
+  font-weight: 500;
+}
+
+/* Feature and pricing cover */
+.cover.cover--feature > .cover__img--back,
+.cover.cover--pricing > .cover__img--back {
+  object-fit: contain;
+  opacity: 1;
+  max-width: 30%;
+  height: 110%;
+  top: 20px;
+}
+
+.cover.cover--pricing > .cover__img--back {
+  height: 115%;
+}
+
+.cover.cover--pricing > .cover__img--center {
+  height: 90%;
+  left: 40%;
+  object-fit: contain;
+}
+
+/*# sourceMappingURL=cover.css.map */

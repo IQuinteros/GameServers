@@ -1,0 +1,103 @@
+@import 'foundations/variables';
+
+.popup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .6);
+    left: 0;
+    right: 0;
+    top: $header-height + $spacing-unit;
+    bottom: 0;
+    
+    min-height: 500px;
+}
+
+.popup__block{
+    background: rgb(5,102,141);
+    background: linear-gradient(135deg, rgba(5,102,141,1) 0%, rgba(0,168,150,1) 100%);
+    box-shadow: $box-shadow;
+    color: $light-color;
+    
+    width: 80%;
+    max-width: 1000px;
+    height: fit-content;
+    max-height: 600px;
+
+    min-height: 300px;
+
+    padding: $spacing-unit*3;
+}
+
+.popup__content{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+}
+
+.popup__content > form{
+    height: max-content;
+}
+
+.popup__content > h1,
+.popup__content > h3,
+.popup__content > a{
+    text-align: center;
+}
+
+.popup__content > a{
+    margin: 0 auto;
+    margin-top: $spacing-unit*2;
+    font-size: 1.5rem;
+}
+
+.popup__content .input-zone > label{
+    color: $light-color;
+    margin-right: $spacing-unit*2;
+}
+
+.popup__content__buttons{
+    align-self: center;
+}
+
+@media screen and (max-width: 660px){
+
+    .popup__block{
+        width: 100%;
+        padding-left: $spacing-unit*2;
+        padding-right: $spacing-unit*2;
+
+        max-height: 800px;
+    }
+
+    .popup__block .input-zone{
+        grid-template-columns: 1fr;
+        padding: 0;
+        margin: $spacing-unit*3 0;
+    }
+
+}
+
+@media screen and (max-height: 850px){
+    .popup{
+        min-height: min-content;
+        height: 100%;
+    }
+
+    .popup__content{
+        padding-bottom: $spacing-unit*6;
+    }
+
+    .popup__block{
+        height: min-content;
+    }
+
+    .popup__block{
+        height: 100%;
+    }
+}

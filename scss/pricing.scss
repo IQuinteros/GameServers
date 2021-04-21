@@ -1,0 +1,44 @@
+@import 'foundations/variables';
+
+.card-container{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+
+    max-width: $content-width;
+    margin: 0 auto;
+    padding: $spacing-unit*4;
+}
+
+.pricing-card{
+    background-color: $light-color;
+    box-shadow: $box-shadow;
+    border-radius: $card-border-radius;
+
+    color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: $spacing-unit * 3;
+    margin: $spacing-unit;
+    margin-bottom: $spacing-unit*2;
+
+    width: 310px;
+    min-height: 470px;
+}
+
+.pricing-card > p{
+    font-size: 1.5rem;
+}
+
+.pricing-card > .price{
+    text-align: center;
+}
+
+.pricing-card > .price > .price-description{
+    display: block;
+    margin-left: $spacing-unit;
+    font-size: 1.5rem;
+}

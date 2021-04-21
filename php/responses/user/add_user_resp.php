@@ -8,55 +8,68 @@
 
 */
 
-header("Content-Type: application/json; charset=UTF-8");
+require_once __DIR__.('/../base_resp.php');
+require_once __DIR__.('/../../utils/login.php');
 require_once __DIR__.('/../../repositories/user_repository.php');
 
-$path = __DIR__.'/../../../uploads/'; // upload directory
-$localpath = '/uploads/';
-
-$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt'); // valid extension
-
 // Check data
-if (isset($_POST['name']) || isset($_POST['email']) || isset($_FILES['image']["tmp_name"]) || isset($_POST['pass']) ||
-    isset($_POST['membersNum']) || isset($_POST['contactNum']) || isset($_POST['location'])){
+if (checkRequestData(array('name', 'email', 'pass', 'membersNum', 'contactNum', 'location'))){
 
-    $img = $_FILES['image']['name'];
-    $tmp = $_FILES['image']['tmp_name'];
+    $canAdd = true;
 
-    // Get uploaded file's extension
-    $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
+    $localpath = null;
 
-    $final_image = rand(1000,1000000).$img;
+    if(isset($_FILES['image']["tmp_name"])){
+        $img = $_FILES['image']['name'];
+        $tmp = $_FILES['image']['tmp_name'];
 
-    // Check's valid format
-    if(!in_array($ext, $valid_extensions)) { 
-        $result = array('Error'=>'La extensión no es la correcta', 'POST'=>$_POST); 
-        echo json_encode($result);
-        return;
+        // Get uploaded file's extension
+        $ext = getPathExtension($img);
+        // Get a random name for new image
+        $final_image = getRandomName($img);
+
+        // Check's valid format
+        if(!in_array($ext, getValidImageExtensions())) { 
+            $result = formatError('La extensión no es permitida');
+            echo json_encode($result);
+            return;
+        }
+
+        $path = getUploadDirectory().strtolower($final_image); // Real path to image
+        $localpath = getUploadDirectory(true).strtolower($final_image); // Path to image from root
+
+        // Try move file from temp to path
+        if(move_uploaded_file($tmp,$path)) 
+        {
+            
+            $canAdd = true;
+            
+        }
+        else{
+            $result = formatError('No se ha podido subir el archivo');
+            $canAdd = false;
+        }
     }
 
-    $path = $path.strtolower($final_image); // Real path to image
-    $localpath = $localpath.strtolower($final_image); // Path to image from root
+    // If sucess, try add new user
+    if($canAdd){
 
-    // Try move file from temp to path
-    if(move_uploaded_file($tmp,$path)) 
-    {
         $newUser = new User(
             null, $_POST['name'], $_POST['email'],
-            $localpath, $_POST['membersNum'], $_POST['contactNum'], $_POST['location'], null, null
+            $localpath != null? $localpath : null, 
+            $_POST['membersNum'], $_POST['contactNum'], $_POST['location'], null, null
         );
 
         $addResult = UserRepository::addUser($newUser, $_POST['pass']);
 
         $result = array('PDO'=>$addResult->errorInfo());
-    }
-    else{
-        $result = array('Error'=>'No se ha podido subir el archivo', 'POST'=>$_POST);
+
+        Login::tryLogin($_POST['email'], $_POST['pass']);
     }
 
 }
 else{
-    $result = array('Error'=>'Faltan datos para poder añadir un nuevo usuario.', 'POST'=>$_POST);
+    $result = formatError('Faltan datos para añadir al nuevo usuario');
 }
 
 echo json_encode($result);

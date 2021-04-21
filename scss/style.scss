@@ -1,7 +1,376 @@
-/*
+@import 'foundations/variables';
+@import 'foundations/scrollbar';
 
-	Author: Ignacio Quinteros Fuentes
-	GitHub: https://github.com/iquinteros
-	2020
+// General rules
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 
-*/
+html{
+	font-size: 62.5%;
+	font-family: 'Montserrat', Arial, sans-serif;
+}
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight: 600;
+}
+
+h1{
+	font-size: 2.5rem;
+}
+
+h2{
+	font-size: 2rem;
+}
+
+h3{
+	font-size: 1.5rem;
+}
+
+/* Images */
+img{
+	object-fit: cover;
+	width: 100%;
+}
+
+/* Sections */
+section{
+	padding: $spacing-unit*4;
+}
+
+/* Hypelink */
+a{
+	text-decoration: none;
+	color: $accent-color;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+/* Form */
+form{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Custom classes */
+.normal-font-size{
+	font-size: 1.6rem;
+}
+
+.input-font-size{
+	font-size: 1.5rem;
+}
+
+.text-justify{
+	text-align: justify;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.blank{
+	margin: $spacing-unit*2;
+}
+
+.circle-image{
+	border-radius: 50%;
+}
+
+.box-shadow{
+	box-shadow: $box-shadow;
+}
+
+/* Loader */
+.loader {
+	border: 16px solid $light-color;
+	border-top: 16px solid $secondary-color;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+	margin: $spacing-unit*4 auto;
+}
+  
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* GameServers text */
+.logo-text{
+	font-family: 'Audiowide', Arial, sans-serif;
+	font-weight: lighter;
+	text-decoration: none;
+	color: $light-color;
+
+	transition: 0.2s color;
+}
+
+.logo-text > h1{
+	font-weight: lighter;
+}
+
+a.logo-text:hover{
+	color: $accent-color;
+	text-decoration: none;
+}
+
+/* Body */
+body{
+	background-color: $light-color;
+}
+
+main{
+	padding-top: $header-height+10px;
+	min-height: $min-height;
+}
+
+/* Header */
+.header__limit{
+	background: rgb(5,102,141);
+	background: linear-gradient(90deg, rgba(5,102,141,1) 0%, rgba(0,168,150,1) 100%);
+	box-shadow: $box-shadow;
+	color: $light-color;
+	padding: $spacing-unit/2 $spacing-unit;
+
+	z-index: 10;
+
+	position: fixed;
+	left: 0;
+	right: 0;
+}
+
+
+.header{
+	display: flex;
+	flex-flow: row;
+
+	align-items: center;
+
+	height: $header-height;
+	width: 100%;
+
+	position: relative;
+
+	max-width: $content-width;
+	margin: 0 auto;
+}
+
+.header nav{
+	display: flex;
+	margin-left: $spacing-unit*3;
+	flex-grow: 1;
+}
+
+.header nav > button,
+.mobile-nav > button{
+	background: transparent;
+	color: $light-color;
+	box-shadow: none;
+	letter-spacing: 1px;
+
+	transition: .5s color;
+}
+
+.header nav > button:hover{
+	text-decoration: underline;
+	color: $accent-color;
+	transform: none;
+	box-shadow: none;
+}
+
+.header nav > button > .fas{
+	margin-left: $spacing-unit;
+}
+
+.header > .header__project,
+.mobile-nav__profile > .header__project{
+	color: $light-color;
+	transition: .5s color;
+}
+
+.header > .header__project:hover,
+.mobile-nav__profile > .header__project:hover{
+	color: $accent-color;
+}
+
+.mobile-nav__profile > .header__project{
+	display: flex;
+	align-items: center;
+	margin-left: $spacing-unit;
+}
+
+.mobile-nav > button > .fas{
+	margin-left: $spacing-unit;
+}
+
+.mobile-nav > button{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.mobile-nav > button:hover{
+	text-decoration: none;
+}
+
+/* ADMIN */
+.mobile-nav .header__project.admin{
+	margin-top: $spacing-unit;
+}
+
+/* Hamburger Mobile */
+
+.hamburger-mobile {
+	justify-self: flex-end;
+	display: none;
+	cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+	width: 35px;
+	height: 5px;
+	background-color: $light-color;
+	border-radius: 5px;
+	margin: 6px 0;
+	transition: 0.4s;
+}
+
+// Rotate first bar
+.change .bar1 {
+	-webkit-transform: rotate(-45deg) translate(-9px, 7px) ;
+	transform: rotate(-45deg) translate(-9px, 7px) ;
+}
+
+// Fade out the second bar
+.change .bar2 {
+	opacity: 0;
+}
+
+// Rotate last bar
+.change .bar3 {
+	-webkit-transform: rotate(45deg) translate(-8px, -7px) ;
+	transform: rotate(45deg) translate(-8px, -7px) ;
+}
+
+/* Subpage */
+.button__submenu{
+	background-color: $light-color;
+	box-shadow: $box-shadow;
+	display: flex;
+	flex-flow: column;
+
+	position: absolute;
+	top: $header-height + ($spacing-unit / 2);
+	min-width: 180px;
+
+	transition: 0.2s transform;
+
+	transform: translate(0, -150%);
+
+	z-index: 0;
+}
+
+.button__submenu.open{
+	display: flex;
+
+	transform: translate(0, 0);
+}
+
+.button__submenu.mobile{
+	background-color: transparent;
+	box-shadow: none;
+	position: static;
+	width: 100%;
+	max-height: 0;
+	transition: 0.2s transform, 0.2s max-height;
+
+	transform: translate(0, -150%);
+
+	overflow: hidden;
+}
+
+.button__submenu.mobile.open{
+	display: flex;
+	max-height: fit-content;
+
+	transform: translate(0, 0);
+}
+
+/* Mobile nav */
+
+.mobile-nav{
+	background-color: $primary-color;
+	box-shadow: $box-shadow;
+	position: fixed;
+	display: none;
+	top: $header-height;
+	right: 0;
+	left: 0;
+	padding: $spacing-unit*2;
+
+	flex-flow: column;
+
+	z-index: 8;
+
+	transition: 0.5s transform;
+
+	transform: translate(-150%, 0);
+}
+
+.mobile-nav.open{
+	transform: translate(0, 0);
+}
+
+.mobile-nav > button{
+	text-align: start;
+	padding-left: 0;
+}
+
+.mobile-nav > button:hover{
+	text-decoration: underline;
+	color: $accent-color;
+	transform: none;
+	box-shadow: none;
+}
+
+.mobile-nav__profile{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+@media screen and (max-width: 1010px){
+	.header{
+		justify-content: space-between;
+	}
+
+	.header > .desktop-nav{
+		display: none;
+	}
+
+	.header > .hamburger-mobile {
+		display: inline-block;
+	}
+
+	.header > .header__project{
+		display: none;
+	}
+
+	.mobile-nav{
+		display: flex;
+	}
+}

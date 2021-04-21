@@ -1,0 +1,82 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+/* Common */
+button {
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px 20px;
+  margin: 10px;
+  font-family: "Montserrat", Arial, sans-serif;
+  transition: 0.2s transform;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+/* Normal button */
+.btn {
+  background-color: #ffbe0b;
+  color: #05668d;
+  font-size: 1.5rem;
+  font-weight: 600;
+  min-width: 175px;
+}
+
+/* Client button */
+.btn--client {
+  background-color: white;
+  width: 260px;
+  height: 150px;
+}
+
+/* Feature button */
+.btn--feature {
+  background-color: white;
+  color: #05668d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 260px;
+  height: 240px;
+}
+
+.btn__text--feature {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.btn__icon--feature {
+  color: #02c39a;
+  font-size: 8rem;
+}
+
+/* Cancel button */
+.btn.btn--cancel {
+  background-color: #f2f2f2;
+  opacity: 80%;
+}
+
+/* Profile button */
+.btn--profile {
+  background-color: transparent;
+  box-shadow: none;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 3rem;
+  color: #ffbe0b;
+}
+
+.btn--profile:hover {
+  box-shadow: none;
+  text-shadow: 0 6px 6px rgba(0, 0, 0, 0.25);
+}

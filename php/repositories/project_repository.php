@@ -29,6 +29,11 @@ class ProjectRepository {
         return ProjectRepository::$project_api->getProjectById($id);
     }
 
+    public static function getProjectsByUserId(int $userId){
+        ProjectRepository::init();
+        return ProjectRepository::$project_api->getProjectsByUserId($userId);
+    }
+
     public static function getProjectsBySearch(string $toSearch){
         ProjectRepository::init();
         return ProjectRepository::$project_api->getProjectsBySearch($toSearch);
@@ -42,6 +47,11 @@ class ProjectRepository {
     public static function updateProject(Project $project){
         ProjectRepository::init();
         return ProjectRepository::$project_api->updateProject($project);
+    }
+
+    public static function updateStatus(array $projects, ProjectStatus $newStatus){
+        ProjectRepository::init();
+        return ProjectRepository::$project_api->updateStatus($projects, $newStatus);
     }
 
     public static function deleteProject(Project $project){

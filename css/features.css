@@ -1,0 +1,164 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+.features__limit {
+  background-color: #05668d;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.features {
+  color: #f2f2f2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas: "title buttons" "subtitle buttons" "image buttons";
+  gap: 10px;
+  position: relative;
+  justify-content: center;
+  align-content: start;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.features > h1 {
+  grid-area: title;
+}
+
+.features > h3 {
+  grid-area: subtitle;
+  font-weight: 400;
+}
+
+.features__image {
+  grid-area: image;
+  object-fit: contain;
+  position: absolute;
+  left: -30%;
+  width: 155%;
+  z-index: 2;
+}
+
+.features__buttons {
+  grid-area: buttons;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.features__inner {
+  background-color: #00a896;
+  position: absolute;
+  height: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media screen and (max-width: 1220px) {
+  .features {
+    grid-template-columns: 1fr 1.8fr;
+  }
+
+  .features__image {
+    left: -50%;
+    width: auto;
+    height: 100%;
+  }
+}
+@media screen and (max-width: 980px) {
+  .features {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .features > h3 {
+    margin-bottom: 30px;
+  }
+
+  .features__image {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    bottom: -20px;
+  }
+}
+@media screen and (max-width: 937px) {
+  .features__image {
+    left: -40px;
+    width: calc(100% + 80px);
+    height: 80%;
+    bottom: -50px;
+    object-fit: cover;
+  }
+}
+/* Feature item */
+.feature__item {
+  color: #05668d;
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  padding: 40px;
+  min-height: 400px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.feature__item__title {
+  grid-column: span 2;
+  margin-bottom: 20px;
+}
+
+.feature__item__image {
+  border-radius: 20px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 100%;
+}
+
+.feature__item__content {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  padding-left: 40px;
+}
+
+.feature__item__content > h2 {
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.feature__item__content > p {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 800px) {
+  .feature__item {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .feature__item__title {
+    grid-column: span 1;
+  }
+
+  .feature__item__image {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .feature__item__content {
+    padding: 0;
+  }
+}
+
+/*# sourceMappingURL=features.css.map */

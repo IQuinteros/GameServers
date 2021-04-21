@@ -63,7 +63,7 @@
  * Default images directory.
  * By default it is automatically set but you can also set it as a fixed string to improve performances.
  */
-define ('K_PATH_IMAGES', __DIR__.'/../../../../images/');
+define ('K_PATH_IMAGES', __DIR__.'/../../../../assets/');
 
 /**
  * Deafult image logo used be the default Header() method.

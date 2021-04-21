@@ -1,0 +1,219 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+body {
+  background-color: #00756a;
+}
+
+/* Docs layout */
+.docs-layout {
+  box-shadow: 4px 0 4px rgba(0, 0, 0, 0.25), -4px 0 4px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  min-height: calc(100vh - 315px);
+  height: 100%;
+  max-width: 1408px;
+  margin: 0 auto;
+  padding-top: 60px;
+  z-index: 0;
+}
+
+.docs-aside {
+  background-color: #05668d;
+  box-shadow: 4px 0 4px rgba(0, 0, 0, 0.25);
+  color: #f2f2f2;
+  padding-top: 30px;
+  font-weight: 400;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  width: 300px;
+}
+
+.docs-aside > .logo-text {
+  margin-bottom: 20px;
+}
+
+.aside__list {
+  background-color: white;
+  padding: 20px;
+  height: calc(100% - 71px);
+  overflow: auto;
+  padding-bottom: 100px;
+}
+
+.aside__title {
+  font-size: 1.5rem;
+}
+
+.aside__title,
+.aside__subtitle {
+  padding: 0 20px;
+}
+
+.doc {
+  color: #05668d;
+  display: block;
+  padding: 5px 0;
+  font-size: 1.5rem;
+}
+
+.doc--master::before {
+  content: "+ ";
+}
+
+.doc--current {
+  font-weight: 600;
+  color: #00a896;
+}
+
+.doc--current::after {
+  content: " <<";
+  color: #00a896;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.doc__inner {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* In main */
+.docs-main {
+  background-color: #f2f2f2;
+  color: #05668d;
+  display: flex;
+  flex-flow: column;
+  justify-content: stretch;
+  height: 100%;
+  font-size: 1.5rem;
+  padding: 30px 50px;
+  z-index: 0;
+  position: relative;
+}
+
+.docs__path {
+  margin-bottom: 20px;
+}
+
+.docs__path > a {
+  color: #05668d;
+  font-size: 1.5rem;
+}
+
+.docs__path > .doc--master::before {
+  content: none;
+}
+
+.docs__path > .doc--master::after {
+  content: " > ";
+}
+
+.docs__date {
+  margin-bottom: 20px;
+}
+
+.doc__content {
+  flex-grow: 1;
+  font-weight: 500;
+}
+
+.doc__content a {
+  color: #00a896;
+}
+
+.doc__content img {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.docs__question {
+  text-align: center;
+  margin: 50px 0 30px 0;
+}
+
+.docs__question__buttons {
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.docs__question__buttons > .btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.docs__question__buttons > .btn > .far {
+  font-size: 2rem;
+}
+
+.open-aside {
+  margin-bottom: 30px;
+  display: none;
+}
+
+.close-aside {
+  margin: 10px 0 20px 0;
+  display: none;
+}
+
+.close-aside > .btn {
+  width: 100%;
+}
+
+.open-aside > .btn,
+.close-aside > .btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .docs-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-aside {
+    transition: 0.5s width, 0.5s opacity;
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    position: fixed;
+    z-index: 1;
+    opacity: 0;
+    max-height: 100vh;
+  }
+
+  .docs-aside.open {
+    width: 300px;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    left: 0;
+    opacity: 1;
+  }
+
+  .open-aside {
+    display: block;
+  }
+
+  .close-aside {
+    display: block;
+    margin: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .docs-main {
+    padding: 10px 30px;
+    padding-top: 20px;
+  }
+}
+
+/*# sourceMappingURL=documentation.css.map */

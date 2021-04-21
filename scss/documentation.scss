@@ -1,0 +1,232 @@
+@import 'foundations/variables';
+
+$background-color: rgb(0, 117, 106);
+
+body{
+    background-color: $background-color;
+}
+
+/* Docs layout */
+.docs-layout{
+    box-shadow: 4px 0 4px rgba(0, 0, 0, .25), -4px 0 4px rgba(0, 0, 0, .25);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    min-height: $min-height;
+    height: 100%;
+
+    max-width: $content-width*1.1;
+    margin: 0 auto;
+    padding-top: $header-height;
+
+    z-index: 0;
+}
+
+.docs-aside{
+    background-color: $primary-color;
+    box-shadow: 4px 0 4px rgba(0, 0, 0, .25);
+    color: $light-color;
+    padding-top: $spacing-unit*3;
+
+    font-weight: $regular-weight;
+
+    height: 100%;
+    z-index: 1;
+
+    overflow: hidden;
+
+    width: 300px;
+}
+
+.docs-aside > .logo-text{
+    margin-bottom: $spacing-unit*2;
+}
+
+.aside__list{
+    background-color: $white-color;
+    padding: $spacing-unit*2;
+    height: calc(100% - 71px);
+
+    overflow: auto;
+
+    padding-bottom: $spacing-unit*10;
+}
+
+.aside__title{
+    font-size: 1.5rem;
+}
+
+.aside__title,
+.aside__subtitle{
+    padding: 0 $spacing-unit*2;
+}
+
+.doc{
+    color: $primary-color;
+    display: block;
+    padding: $spacing-unit/2 0;
+
+    font-size: 1.5rem;
+}
+
+.doc--master::before{
+    content: '+ ';
+}
+
+.doc--current{
+    font-weight: $semibold-weight;
+    color: $secondary-color;
+}
+
+.doc--current::after{
+    content: ' <<';
+    color: $secondary-color;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.doc__inner{
+    margin-left: $spacing-unit*2;
+    margin-bottom: $spacing-unit*2;
+}
+
+/* In main */
+
+.docs-main{
+    background-color: $light-color;
+    color: $primary-color;
+    display: flex;
+    flex-flow: column;
+    justify-content: stretch;
+    height: 100%;
+
+    font-size: 1.5rem;
+
+    padding: $spacing-unit*3 $spacing-unit*5;
+    z-index: 0;
+
+    position: relative;
+}
+
+.docs__path{
+    margin-bottom: $spacing-unit*2;
+}
+
+.docs__path > a{
+    color: $primary-color;
+    font-size: 1.5rem;
+}
+
+.docs__path > .doc--master::before{
+    content: none;
+}
+
+.docs__path > .doc--master::after{
+    content: ' > ';
+}
+
+.docs__date{
+    margin-bottom: $spacing-unit*2;
+}
+
+.doc__content{
+    flex-grow: 1;
+    font-weight: $medium-weight;
+}
+
+
+.doc__content a{
+    color: $secondary-color;
+}
+
+.doc__content img{
+    box-shadow: $box-shadow;
+}
+
+.docs__question{
+    text-align: center;
+    margin: $spacing-unit*5 0 $spacing-unit*3 0;
+}
+
+.docs__question__buttons{
+    margin: 0 auto;
+    width: fit-content;
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.docs__question__buttons > .btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.docs__question__buttons > .btn > .far{
+    font-size: 2rem;
+}
+
+.open-aside{
+    margin-bottom: $spacing-unit*3;
+    display: none;
+}
+
+.close-aside{
+    margin: $spacing-unit 0 $spacing-unit*2 0;
+    display: none;
+}
+
+.close-aside > .btn{
+    width: 100%;
+}
+
+.open-aside > .btn,
+.close-aside > .btn{ 
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+
+@media screen and (max-width: 800px){
+    .docs-layout{
+        grid-template-columns: 1fr;
+    }
+
+    .docs-aside{
+        transition: 0.5s width, 0.5s opacity;
+        width: 0;
+        padding-left: 0;
+        padding-right: 0;
+        position: fixed;
+        z-index: 1;
+
+        opacity: 0;
+        max-height: 100vh;
+    }
+
+    .docs-aside.open{
+        width: 300px;
+        padding-top: $spacing-unit*2;
+        padding-bottom: $spacing-unit*6;
+        left: 0;
+
+        opacity: 1;
+    }
+
+    .open-aside{
+        display: block;
+    }
+
+    .close-aside{
+        display: block;
+        margin: $spacing-unit*2;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .docs-main{    
+        padding: $spacing-unit $spacing-unit*3;
+        padding-top: $spacing-unit*2;
+    }
+}

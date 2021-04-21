@@ -1,0 +1,92 @@
+@import 'foundations/variables';
+
+/* Common */
+
+button{
+    outline: none;
+    border-radius: $btn-border-radius;
+    border: none;
+    box-shadow: $box-shadow;
+    padding: $spacing-unit $spacing-unit*2;
+    margin: $spacing-unit;
+    font-family: 'Montserrat', Arial, sans-serif;
+
+    transition: 0.2s transform;
+}
+
+button:hover{
+    cursor: pointer;
+    box-shadow: $hover-box-shadow;
+
+    transform: scale(1.05);
+}
+
+/* Normal button */
+
+.btn{
+    background-color: $accent-color;
+    color: $primary-color;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    min-width: 175px;
+}
+
+/* Client button */
+
+.btn--client{
+    background-color: $white-color;
+    width: 260px;
+    height: 150px;
+}
+
+/* Feature button */
+
+.btn--feature{
+    background-color: $white-color;
+    color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 260px;
+    height: 240px;
+}
+
+.btn__text--feature{
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.btn__icon--feature{
+    color: $accent-light-color;
+    font-size: 8rem;
+}
+
+/* Cancel button */
+
+.btn.btn--cancel{
+    background-color: $light-color;
+    opacity: 80%;
+}
+
+/* Red button */
+.btn.btn--cancel.btn--red{
+    background-color: $red-color;
+    color: $light-color;
+}
+
+/* Profile button */
+.btn--profile{
+    background-color: transparent;
+    box-shadow: none;
+    text-shadow: $box-shadow;
+    font-size: 3rem;
+    color: $accent-color;
+}
+
+.btn--profile:hover{
+    box-shadow: none;
+    text-shadow: $hover-box-shadow;
+}

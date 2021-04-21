@@ -34,6 +34,42 @@ class DocumentationElementRepository {
         return DocumentationElementRepository::$documentation_element_api->getDocumentationElementsBySearch($toSearch);
     }
 
+    public static function getOrderDocs(){
+        $docs = DocumentationElementRepository::getDocumentationElementsBySearch('');
+
+        $result = array();
+
+        foreach($docs as $docRef){
+            if($docRef->parentID != null){      
+                
+                array_push($result[$docRef->parentID]['children'], array(
+                    'id' => $docRef->id,
+                    'parentID' => $docRef->parentID,
+                    'title' => $docRef->title,
+                    'publishDate' => $docRef->publishDate,
+                    'likes' => $docRef->likes,
+                    'dislikes' => $docRef->dislikes,
+                    'content' => $docRef->content
+                ));
+
+            }
+            else{
+                $result[$docRef->id] = array(
+                    'id' => $docRef->id,
+                    'parentID' => $docRef->parentID,
+                    'title' => $docRef->title,
+                    'publishDate' => $docRef->publishDate,
+                    'likes' => $docRef->likes,
+                    'dislikes' => $docRef->dislikes,
+                    'content' => $docRef->content,
+                    'children' => array()
+                );
+            }
+        }
+
+        return $result;
+    }
+
     public static function addDocumentationElement(DocumentationElement $documentationElement){
         DocumentationElementRepository::init();
         return DocumentationElementRepository::$documentation_element_api->addDocumentationElement($documentationElement);
@@ -42,6 +78,11 @@ class DocumentationElementRepository {
     public static function updateDocumentationElement(DocumentationElement $documentationElement){
         DocumentationElementRepository::init();
         return DocumentationElementRepository::$documentation_element_api->updateDocumentationElement($documentationElement);
+    }
+
+    public static function updateDocRate(DocumentationElement $documentationElement, bool $isLike = true){
+        DocumentationElementRepository::init();
+        return DocumentationElementRepository::$documentation_element_api->updateDocRate($documentationElement, $isLike);
     }
 
     public static function deleteDocumentationElement(DocumentationElement $documentationElement){

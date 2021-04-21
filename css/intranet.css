@@ -1,0 +1,381 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+.intranet-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../assets/images/csgo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  opacity: 0.2;
+  z-index: -5;
+}
+
+/* Server Status */
+.server-status {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px 30px;
+  width: 230px;
+  height: 90px;
+}
+
+.status--active {
+  background-color: #02c39a;
+}
+
+.status--inactive {
+  background-color: #f18f01;
+}
+
+/* Layout */
+.intranet-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 10px;
+  align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 90px;
+}
+
+/* Aside */
+.intranet-aside {
+  background-color: #f2f2f2;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-flow: column;
+  width: 300px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.intranet-aside > h2 {
+  text-align: center;
+  color: #05668d;
+  margin-bottom: 30px;
+}
+
+.aside__docs {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #05668d;
+  margin-top: 20px;
+}
+
+/* Title */
+.intranet__title {
+  max-width: 1280px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.intranet__title > a {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  color: #05668d;
+  font-weight: 600;
+}
+
+.intranet__title > h1 {
+  color: #05668d;
+}
+
+.intranet__title > button {
+  display: none;
+}
+
+/* Info */
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  justify-items: center;
+  grid-row: span 2;
+}
+
+.info__item,
+.info__item--graph {
+  background-color: #f2f2f2;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  margin: 10px;
+  color: #05668d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 90px;
+}
+
+.info__item--graph {
+  width: 100%;
+  grid-column: span 2;
+  height: auto;
+  min-height: 90px;
+}
+
+.info__item > h1,
+.info__item > h2 {
+  text-align: center;
+}
+
+.info__item.large {
+  grid-column: span 2;
+}
+
+.info__item--graph > canvas {
+  width: 100%;
+  height: 100%;
+  max-width: calc(100vw - 80px);
+}
+
+/* Toolbar */
+.toolbar__limit {
+  background-color: #05668d;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 10px 0;
+}
+
+.toolbar {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  margin: 0 auto;
+  height: 60px;
+  max-width: 1280px;
+}
+
+.toolbar__text {
+  color: #f2f2f2;
+  font-size: 1.5rem;
+  flex-grow: 1;
+  margin: 0 30px;
+}
+
+.toolbar__docs {
+  font-size: 1.5rem;
+}
+
+.toolbar__buttons > .btn {
+  display: none;
+}
+
+.toolbar__buttons > .btn.visible {
+  display: inline-block;
+}
+
+/* Table */
+.table__limit {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.table__block {
+  background-color: #05668d;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.table__block .input-zone > label {
+  color: #f2f2f2;
+}
+
+.table {
+  color: #f2f2f2;
+  padding: 20px;
+  font-size: 1.5rem;
+  overflow: auto;
+}
+
+.table__item > input[type=checkbox] {
+  height: 100%;
+  width: 100%;
+  max-height: 25px;
+  max-width: 25px;
+}
+
+.table__header,
+.table__item {
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.table__header {
+  border-bottom: 2px solid #00a896;
+  padding-bottom: 10px;
+}
+
+.table__header.table--economy {
+  grid-template-columns: minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
+  margin-left: 40px;
+}
+
+.table__header.table--experiment {
+  grid-template-columns: minmax(300px, 1fr) minmax(200px, 2fr);
+  margin-left: 40px;
+}
+
+.table__header.table--pricing {
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(200px, 1fr);
+}
+
+.table__header.table--clients {
+  grid-template-columns: 100px minmax(300px, 2fr) minmax(200px, 1fr) minmax(200px, 1fr);
+  margin-left: 60px;
+}
+
+.table__header.table--purchases {
+  grid-template-columns: minmax(300px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 0.5fr);
+  margin-left: 40px;
+}
+
+.table--economy {
+  grid-template-columns: 40px minmax(300px, 4fr) minmax(200px, 1fr) minmax(200px, 1fr);
+}
+
+.table--experiment {
+  grid-template-columns: 40px minmax(300px, 1fr) minmax(200px, 2fr);
+}
+
+.table--pricing {
+  grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr) minmax(200px, 1fr);
+}
+
+.table--clients {
+  grid-template-columns: 40px 100px minmax(300px, 2fr) minmax(200px, 1fr) minmax(200px, 1fr);
+}
+
+.table--purchases {
+  grid-template-columns: 40px minmax(300px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 0.5fr);
+}
+
+.table__item__image {
+  background-color: #f2f2f2;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+/* Popup */
+.popup.canclose.open {
+  display: flex;
+}
+
+.popup.canclose {
+  display: none;
+}
+
+@media screen and (max-width: 1050px) {
+  .toolbar {
+    height: auto;
+    min-height: 60px;
+  }
+
+  .toolbar__buttons {
+    width: min-content;
+  }
+}
+@media screen and (max-width: 840px) {
+  .intranet-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .intranet-aside {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .toolbar {
+    flex-flow: column;
+  }
+
+  .intranet__title {
+    flex-flow: column;
+  }
+
+  .intranet__title > button {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .intranet__title > a {
+    display: none;
+  }
+
+  .toolbar__buttons {
+    width: max-content;
+    margin-bottom: 20px;
+  }
+
+  .toolbar__text {
+    margin-bottom: 20px;
+  }
+
+  .toolbar__docs {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .table__block .input-zone {
+    display: flex;
+    flex-flow: column;
+    padding: 10px 0;
+  }
+
+  .table__block .input-zone > .input {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .intranet-layout {
+    width: 100%;
+  }
+
+  .info {
+    grid-template-columns: 1fr;
+    width: 100%;
+    grid-row: span 1;
+  }
+
+  .info__item {
+    grid-column: span 2;
+  }
+}
+@media screen and (max-width: 420px) {
+  .toolbar__buttons {
+    width: min-content;
+  }
+}
+
+/*# sourceMappingURL=intranet.css.map */

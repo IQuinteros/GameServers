@@ -46,3 +46,15 @@ Los clientes podrán ver su consola de administración y administrar su cuenta y
 - [FontAwesome](https://fontawesome.com)
 - [Google Fonts](https://fonts.google.com)
 - [Select2](https://select2.org)
+
+----------
+
+
+## Credenciales de administrador
+
+Para entrar a la zona de administración de GameServers, ir a la url `/admin`.
+
+- Email: admin@admin
+- Password: password
+
+Para saber cómo usar el panel de administración, revisar la página de documentación en `/docs`.

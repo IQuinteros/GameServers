@@ -1,0 +1,72 @@
+@import 'foundations/variables';
+
+.start-now{
+    background-color: $primary-color;
+    box-shadow: $box-shadow;
+    color: $light-color;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+
+    margin: $spacing-unit;
+    padding: $spacing-unit $spacing-unit * 3;
+    position: relative;
+
+    width: 90%;
+    max-width: 920px;
+
+    margin: $spacing-unit*4 auto;
+}
+
+.start-now > h1,
+.start-now > button{
+    z-index: 1;
+}
+
+.start-now > .btn{
+    font-size: 2.0rem;
+}
+
+.start-now__inner{
+    position: absolute;
+    background-color: $secondary-color;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+
+@media screen and (max-width: 670px){
+    .start-now{
+        padding-bottom: $spacing-unit*3;
+    }
+
+    .start-now__inner{
+        left: 0;
+        top: auto;
+        height: 20px;
+    }
+
+    .start-now > .btn{
+        min-width: 100px;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .start-now{
+        grid-template-columns: 1fr;
+        min-height: 180px;
+    }
+
+    .start-now > h1{
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .start-now{
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+}

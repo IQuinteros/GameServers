@@ -3,3 +3,7 @@ uploads/
 
 # Only designs
 mockup/
+
+# Ignore dist
+scss/dist/
+scss/foundations/dist/

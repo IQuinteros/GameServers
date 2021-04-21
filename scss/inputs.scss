@@ -1,0 +1,66 @@
+@import 'foundations/variables';
+
+textarea{
+    font-weight: inherit;
+}
+
+.input-zone{
+    margin: $spacing-unit;
+    padding: $spacing-unit $spacing-unit*2;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: $spacing-unit;
+
+    align-items: center;
+}
+
+.input-zone > label{
+    color: $primary-color;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.input-zone > .input__empty{
+    grid-column: span 2;
+}
+
+.input{
+    border-radius: $input-border-radius;
+    box-shadow: $box-shadow;
+    background-color: $input-color;
+    color: $primary-color;
+}
+
+.input > input,
+.input > textarea{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: $spacing-unit $spacing-unit;
+
+    font-weight: 300;
+    font-size: 1.4rem;
+
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
+.input > textarea{
+    font-family: 'Montserrat', Arial, sans-serif;
+    resize: none;
+}
+
+.input > input:disabled{
+    background: $light-color;
+}
+
+.input.disabled{
+    box-shadow: none;
+}
+
+.input-font-size.select-background.select2-selection,
+.input-font-size.select-background.select-background{
+    background-color: $input-color;
+}

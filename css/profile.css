@@ -1,0 +1,102 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+.profile-main {
+  background-color: #f2f2f2;
+  color: #05668d;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 30px;
+  min-height: calc(100vh - 315px);
+  display: flex;
+  flex-flow: column;
+}
+
+.profile-main > hr {
+  margin: 20px;
+  border: none;
+  border-bottom: 2px solid #00a896;
+}
+
+.profile,
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.profile > .btn,
+.project > .btn {
+  grid-column: span 2;
+  width: fit-content;
+  margin: 30px auto;
+}
+
+.profile__img {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  justify-self: center;
+  margin: 40px auto;
+}
+
+.profile__username {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.project__title {
+  margin-left: 30px;
+}
+
+.profile-main > .btn--cancel {
+  max-width: 300px;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.profile-main > .btn--cancel.btn--red {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.profile-main > h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 930px) {
+  .profile-main .input-zone {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-main .input-zone > .input__empty {
+    grid-column: span 1;
+  }
+}
+@media screen and (max-width: 640px) {
+  .profile-main {
+    padding: 0;
+    padding-top: 100px;
+  }
+
+  .profile-main > h3 {
+    margin-left: 20px;
+  }
+
+  .profile,
+.project {
+    grid-template-columns: 1fr;
+  }
+
+  .profile > .btn,
+.project > .btn {
+    grid-column: span 1;
+  }
+}
+
+/*# sourceMappingURL=profile.css.map */

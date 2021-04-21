@@ -1,0 +1,101 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+/* Server Status */
+.intranet-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../assets/images/csgo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: -5;
+}
+
+.server-status {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  color: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 10px;
+  padding: 10px 30px;
+  width: 230px;
+  height: 90px;
+}
+
+.status--active {
+  background-color: #02c39a;
+}
+
+.status--inactive {
+  background-color: #f18f01;
+}
+
+/* Info */
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  justify-items: center;
+  margin: 10px;
+  padding: 10px;
+}
+
+.info__item,
+.info__item--graph {
+  background-color: #f2f2f2;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  margin: 10px;
+  color: #05668d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 90px;
+}
+
+.info__item--graph {
+  grid-column: span 2;
+  height: auto;
+  min-height: 90px;
+}
+
+.info__item--graph > canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Toolbar */
+.toolbar {
+  background-color: #05668d;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  margin: 10px 0;
+  height: 60px;
+}
+
+.toolbar__text {
+  color: #f2f2f2;
+  font-size: 1.5rem;
+  flex-grow: 1;
+  margin: 0 30px;
+}
+
+.toolbar__docs {
+  font-size: 1.5rem;
+}

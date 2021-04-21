@@ -29,9 +29,14 @@ class ExperimentElementRepository {
         return ExperimentElementRepository::$experiment_element_api->getExperimentElementById($id);
     }
 
-    public static function getExperimentElementsBySearch(string $toSearch){
+    public static function getExperimentElementOfProjectById(int $projectID, int $id){
         ExperimentElementRepository::init();
-        return ExperimentElementRepository::$experiment_element_api->getExperimentElementsBySearch($toSearch);
+        return ExperimentElementRepository::$experiment_element_api->getExperimentElementOfProjectById($projectID, $id);
+    }
+
+    public static function getExperimentElementsBySearch(int $projectID, string $toSearch){
+        ExperimentElementRepository::init();
+        return ExperimentElementRepository::$experiment_element_api->getExperimentElementsBySearch($projectID, $toSearch);
     }
 
     public static function addExperimentElement(ExperimentElement $experimentElement){
@@ -47,6 +52,11 @@ class ExperimentElementRepository {
     public static function deleteExperimentElement(ExperimentElement $experimentElement){
         ExperimentElementRepository::init();
         return ExperimentElementRepository::$experiment_element_api->deleteExperimentElement($experimentElement);
+    }
+
+    public static function deleteExperimentElements(array $items){
+        ExperimentElementRepository::init();
+        return ExperimentElementRepository::$experiment_element_api->deleteExperimentElements($items);
     }
 
 }

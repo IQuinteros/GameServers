@@ -64,7 +64,7 @@ class PlanAPI extends BaseAPI {
     public function getPlansBySearch(string $toSearch){
         $this->open();
 
-        $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE name=:name', array(
+        $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE name LIKE :name', array(
             new QueryParam(':name', '%'.$toSearch.'%'),
         ));
 
@@ -130,11 +130,11 @@ class PlanAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
-            'name=:name,price=:price,detail=:detail,docsUrl=:docsUrl', array(
+            'name=:name,price=:price,detail=:detail WHERE id=:id', array(
+                new QueryParam(':id', $plan->id, PDO::PARAM_INT),
                 new QueryParam(':name', $plan->name),
                 new QueryParam(':price', $plan->price, PDO::PARAM_INT),
                 new QueryParam(':detail', $plan->detail),
-                new QueryParam(':docsUrl', $plan->docsUrl)
             )
         );
 

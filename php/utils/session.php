@@ -13,14 +13,18 @@ class SessionManager{
      * Start Session
      */
     public static function startSession(){
-        session_start();
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+        }        
     }
 
     /**
      * Destroy Session
      */
     public static function destroySession(){
-        session_destroy();
+        if (session_status() != PHP_SESSION_NONE) {
+            session_destroy();
+        }   
     }
 
     /**

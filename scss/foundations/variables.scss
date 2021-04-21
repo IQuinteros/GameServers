@@ -1,0 +1,48 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+
+// Color Palette
+$primary-color: rgb(5, 102, 141);
+$secondary-color: rgb(0, 168, 150);
+$accent-light-color: rgb(2, 195, 154);
+$inactive-color: rgb(241, 143, 1);
+$accent-color: rgb(255, 190, 11);
+$input-color: rgb(240, 243, 189);
+$light-color: rgb(242, 242, 242);
+$white-color: rgb(255, 255, 255);
+
+$red-color: rgb(203, 32, 32);
+
+// Spacing units
+$spacing-unit: 10px;
+
+// Width size
+$content-width: 1280px;
+
+// Height size
+$min-height: calc(100vh - 315px); // 315 -> footer height
+
+// Shadows
+$box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+$hover-box-shadow: 0 6px 6px rgba(0, 0, 0, .25);
+$footer-shadow: 0 -4px 4px rgba(0, 0, 0, .25);
+
+// Border radius
+$btn-border-radius: 5px;
+$input-border-radius: 5px;
+$card-border-radius: 20px;
+
+// Header height
+$header-height: 60px;
+$footer-height: 315px;
+
+// Font weights
+$light-weight: 300;
+$regular-weight: 400;
+$medium-weight: 500;
+$semibold-weight: 600; 

@@ -57,15 +57,57 @@ class EconomyElementAPI extends BaseAPI {
     }
 
     /**
-     * Search economy element by:
-     * - Name
-     * @var string $toSearch The text to search in economy elements
+     * Get economy element by id
+     * @var int $projectID The project if of the expected economy element
+     * @var int $id The id of the expected economy element
      */
-    public function getEconomyElementsBySearch(string $toSearch){
+    public function getEconomyElementOfProjectById(int $projectID, int $id){
         $this->open();
 
-        $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE name LIKE :text', array(
+        $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE id=:id AND projectID=:projectID', array(
+            new QueryParam(':id', $id, PDO::PARAM_INT),
+            new QueryParam(':projectID', $projectID, PDO::PARAM_INT)
+        ));
+
+        // Close connection
+        $this->close();
+
+        // Check if is found
+        if($result->rowCount() > 0){
+
+            // Check result
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $foundEconomyElement = new EconomyElement(
+                    $row->id,
+                    $row->projectID,
+                    $row->name,
+                    $row->initialQuantity,
+                    $row->maxQuantity
+                );
+
+                return $foundEconomyElement;
+            }
+
+        }
+        else{
+            // It isn't found so return false
+            return false;
+        }
+
+    }
+
+    /**
+     * Search economy element by:
+     * - Name
+     * @var int $projectID The project id of elements
+     * @var string $toSearch The text to search in economy elements
+     */
+    public function getEconomyElementsBySearch(int $projectID, string $toSearch){
+        $this->open();
+
+        $result = $this->query('SELECT * FROM '.$this->TABLE_NAME.' WHERE name LIKE :text AND projectID = :projectID', array(
             new QueryParam(':text', '%'.$toSearch.'%'),
+            new QueryParam(':projectID', $projectID, PDO::PARAM_INT)
         ));
 
         // Close connection
@@ -111,8 +153,8 @@ class EconomyElementAPI extends BaseAPI {
             'NULL,:projectID,:name,:initialQuantity,:maxQuantity)', array(
                 new QueryParam(':projectID', $economyElement->projectID, PDO::PARAM_INT),
                 new QueryParam(':name', $economyElement->name),
-                new QueryParam(':initialQuantity', $economyElement->description, PDO::PARAM_INT),
-                new QueryParam(':maxQuantity', $economyElement->description, PDO::PARAM_INT)
+                new QueryParam(':initialQuantity', $economyElement->initialQuantity, PDO::PARAM_INT),
+                new QueryParam(':maxQuantity', $economyElement->maxQuantity, PDO::PARAM_INT)
             ) 
         );
 
@@ -130,11 +172,12 @@ class EconomyElementAPI extends BaseAPI {
         $this->open();
 
         $result = $this->query('UPDATE '.$this->TABLE_NAME.' SET '.
-            'projectID=:projectID,name=:name,initialQuantity=:initialQuantity,maxQuantity=:maxQuantity', array(
+            'projectID=:projectID,name=:name,initialQuantity=:initialQuantity,maxQuantity=:maxQuantity WHERE id=:id', array(
+                new QueryParam(':id', $economyElement->id, PDO::PARAM_INT),
                 new QueryParam(':projectID', $economyElement->projectID, PDO::PARAM_INT),
                 new QueryParam(':name', $economyElement->name),
-                new QueryParam(':initialQuantity', $economyElement->description, PDO::PARAM_INT),
-                new QueryParam(':maxQuantity', $economyElement->description, PDO::PARAM_INT)
+                new QueryParam(':initialQuantity', $economyElement->initialQuantity, PDO::PARAM_INT),
+                new QueryParam(':maxQuantity', $economyElement->maxQuantity, PDO::PARAM_INT)
             ) 
         );
 
@@ -155,6 +198,38 @@ class EconomyElementAPI extends BaseAPI {
                 new QueryParam(':id', $economyElement->id, PDO::PARAM_INT)
             )
         );
+
+        $this->close();
+
+        return $result;
+    }
+
+    /**
+     * Delete some economy elements - Use carefully
+     * 
+     * @var array $items IDs of economy elements
+     */
+    public function deleteEconomyElements(array $items){
+        if(count($items) <= 0){ return false; }
+
+        $sql = 'DELETE FROM '.$this->TABLE_NAME.' WHERE ';
+        $queryParams = array();
+
+        for($i = 0; $i < count($items); $i++){
+
+            $sql = $sql.'id=:id'.$i;
+            // If is last or not
+            if(!($i >= count($items) - 1)){
+                $sql = $sql.' OR ';
+            }
+
+            array_push($queryParams, new QueryParam(':id'.$i, $items[$i], PDO::PARAM_INT));
+
+        }
+
+        $this->open();
+
+        $result = $this->query($sql, $queryParams);
 
         $this->close();
 

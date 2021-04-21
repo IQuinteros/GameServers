@@ -1,0 +1,69 @@
+/*
+
+	Author: Ignacio Quinteros Fuentes
+	GitHub: https://github.com/iquinteros
+	2020
+
+*/
+textarea {
+  font-weight: inherit;
+}
+
+.input-zone {
+  margin: 10px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.input-zone > label {
+  color: #05668d;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.input-zone > .input__empty {
+  grid-column: span 2;
+}
+
+.input {
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #f0f3bd;
+  color: #05668d;
+}
+
+.input > input,
+.input > textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px 10px;
+  font-weight: 300;
+  font-size: 1.4rem;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+
+.input > textarea {
+  font-family: "Montserrat", Arial, sans-serif;
+  resize: none;
+}
+
+.input > input:disabled {
+  background: #f2f2f2;
+}
+
+.input.disabled {
+  box-shadow: none;
+}
+
+.input-font-size.select-background.select2-selection,
+.input-font-size.select-background.select-background {
+  background-color: #f0f3bd;
+}
+
+/*# sourceMappingURL=inputs.css.map */

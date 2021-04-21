@@ -8,16 +8,16 @@
 
 */
 
-header("Content-Type: application/json; charset=UTF-8");
+require_once __DIR__.('/../base_resp.php');
 require_once __DIR__.('/../../repositories/user_repository.php');
 
 // Check data
-if (isset($_POST['email']) || isset($_POST['pass'])){
+if (checkRequestData(array('email', 'pass'))){
 
     $user = UserRepository::getUserByEmailAndPassword($_POST['email'], $_POST['pass']);
 
     if($user == false || $user == null){ 
-        $result = array('Error'=>'No se ha encontrado al usuario', 'POST'=>$_POST); 
+        $result = formatError('No se ha encontrado al usuario');
     }
     else{
         $result = array(
@@ -35,7 +35,7 @@ if (isset($_POST['email']) || isset($_POST['pass'])){
 
 }
 else{
-    $result = array('Error'=>'Faltan datos para obtener al usuario.', 'POST'=>$_POST);
+    $result = formatError('Faltan datos para obtener al usuario');
 }
 
 echo json_encode($result);

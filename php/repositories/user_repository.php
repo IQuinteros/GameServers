@@ -34,6 +34,16 @@ class UserRepository {
         return UserRepository::$user_api->getUsersByEmailOrName($text);
     }
 
+    public static function getUsersById(array $users){
+        UserRepository::init();
+        return UserRepository::$user_api->getUsersById($users);
+    }
+
+    public static function getUserByEmail(string $email){
+        UserRepository::init();
+        return UserRepository::$user_api->getUserByEmail($email);
+    }
+
     public static function addUser(User $user, string $newPassword){
         UserRepository::init();
         return UserRepository::$user_api->addUser($user, $newPassword);
@@ -44,14 +54,24 @@ class UserRepository {
         return UserRepository::$user_api->updateUser($user);
     }
 
+    public static function touchLastConnection(User $user){
+        UserRepository::init();
+        return UserRepository::$user_api->touchLastConnection($user);
+    }
+
     public static function updatePassword(User $user, string $newPassword){
         UserRepository::init();
         return UserRepository::$user_api->updatePassword($user, $newPassword);
     }
 
-    public static function deleteUser(User $user){
+    public static function deleteUser(User $user, string $pass, bool $force = false){
         UserRepository::init();
-        return UserRepository::$user_api->deleteUser($user);
+        return UserRepository::$user_api->deleteUser($user, $pass, $force);
+    }
+
+    public static function deleteUsers(array $users){
+        UserRepository::init();
+        return UserRepository::$user_api->deleteUsers($users);
     }
 
 }
